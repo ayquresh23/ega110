@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EGA110 — Analytical & Instrumental Chemistry Study Site</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand" onclick="showSection('home', event)">
+      <div class="nav-logo" style="background:linear-gradient(135deg,var(--gold),var(--amber))">EA</div>
+      <span>EGA110</span>
+    </a>
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-section="home" onclick="showSection('home', event)">Home</button>
+      <button class="nav-tab" data-section="t1" onclick="showSection('t1', event)">T1 Data & Errors</button>
+      <button class="nav-tab" data-section="t2" onclick="showSection('t2', event)">T2 Statistics</button>
+      <button class="nav-tab" data-section="t3" onclick="showSection('t3', event)">T3 Gravimetric</button>
+      <button class="nav-tab" data-section="t4" onclick="showSection('t4', event)">T4 Spectroscopy</button>
+      <button class="nav-tab" data-section="t5" onclick="showSection('t5', event)">T5 Titrations</button>
+      <button class="nav-tab" data-section="formulas" onclick="showSection('formulas', event)">Formulas</button>
+      <button class="nav-tab" data-section="glossary" onclick="showSection('glossary', event)">Glossary</button>
+      <button class="nav-tab" data-section="traps" onclick="showSection('traps', event)">Traps</button>
+      <a href="definitions.html" class="nav-tab" style="text-decoration:none">Definitions ↗</a>
+      <a href="https://ayquresh23.github.io" class="nav-tab" style="text-decoration:none;margin-left:8px;opacity:0.6">← All Modules</a>
+    </div>
+    <div class="nav-mode">
+      <button class="mode-btn active" data-mode="learn" onclick="setMode('learn')">Learn</button>
+      <button class="mode-btn" data-mode="revise" onclick="setMode('revise')">Revise</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- HOME -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="home" class="section active">
+  <div class="container">
+    <div class="hero">
+      <span class="hero-tag">Analytical &amp; Instrumental Chemistry — Swansea University</span>
+      <h1>EGA110 Study Site</h1>
+      <p class="hero-subtitle">Complete revision resource covering every topic, formula, and worked example in the module — from first principles to exam-ready.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-value">5</div><div class="hero-stat-label">Topics</div></div>
+        <div class="hero-stat"><div class="hero-stat-value">130+</div><div class="hero-stat-label">Terms</div></div>
+        <div class="hero-stat"><div class="hero-stat-value">25+</div><div class="hero-stat-label">Formulas</div></div>
+        <div class="hero-stat"><div class="hero-stat-value">15+</div><div class="hero-stat-label">MCQ Traps</div></div>
+      </div>
+    </div>
+
+    <h2>Pick a topic</h2>
+    <div class="card-grid">
+      <div class="topic-card" onclick="showSection('t1')" style="--bar-color:var(--amber)">
+        <div class="topic-num">Topic 1</div>
+        <div class="topic-title">Measurements: Data &amp; Errors</div>
+        <div class="topic-desc">Accuracy vs precision, random vs systematic error, absolute and relative error, significant figures, Gaussian distribution, statistical descriptors.</div>
+        <div class="topic-meta">
+          <div class="topic-meta-item">Difficulty: <span>Easy</span></div>
+          <div class="topic-meta-item">Read: <span>20 min</span></div>
+        </div>
+      </div>
+      <div class="topic-card" onclick="showSection('t2')" style="--bar-color:var(--blue)">
+        <div class="topic-num">Topic 2</div>
+        <div class="topic-title">Statistical Data Analysis</div>
+        <div class="topic-desc">Confidence intervals (z and t), comparing two means, detecting bias, Dixon Q-test for outliers. Heavy on calculation — practise the worked examples.</div>
+        <div class="topic-meta">
+          <div class="topic-meta-item">Difficulty: <span>Hard</span></div>
+          <div class="topic-meta-item">Read: <span>35 min</span></div>
+        </div>
+      </div>
+      <div class="topic-card" onclick="showSection('t3')" style="--bar-color:var(--green)">
+        <div class="topic-num">Topic 3</div>
+        <div class="topic-title">Gravimetric Analysis</div>
+        <div class="topic-desc">Four types of gravimetric methods. 8-step precipitation procedure. Gravimetric factors. TGA and combustion analysis. Coprecipitation errors.</div>
+        <div class="topic-meta">
+          <div class="topic-meta-item">Difficulty: <span>Medium</span></div>
+          <div class="topic-meta-item">Read: <span>30 min</span></div>
+        </div>
+      </div>
+      <div class="topic-card" onclick="showSection('t4')" style="--bar-color:var(--purple)">
+        <div class="topic-num">Topic 4</div>
+        <div class="topic-title">Spectroscopy</div>
+        <div class="topic-desc">EMR properties, Beer-Lambert law, blank correction, four concentration methods, UV-Vis instrument components, atomic emission and ICP-OES.</div>
+        <div class="topic-meta">
+          <div class="topic-meta-item">Difficulty: <span>Medium</span></div>
+          <div class="topic-meta-item">Read: <span>40 min</span></div>
+        </div>
+      </div>
+      <div class="topic-card" onclick="showSection('t5')" style="--bar-color:var(--teal)">
+        <div class="topic-num">Topic 5</div>
+        <div class="topic-title">Titrations in Analytical Chemistry</div>
+        <div class="topic-desc">Acid-base (strong &amp; weak), EDTA complexometric, argentometric precipitation (Volhard method), redox titrations (KMnO₄ and dichromate).</div>
+        <div class="topic-meta">
+          <div class="topic-meta-item">Difficulty: <span>Hard</span></div>
+          <div class="topic-meta-item">Read: <span>50 min</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Quick reference</h2>
+    <div class="card-grid">
+      <div class="topic-card" onclick="showSection('formulas')" style="--bar-color:var(--gold)">
+        <div class="topic-num">Reference</div>
+        <div class="topic-title">📐 Formula Sheet</div>
+        <div class="topic-desc">Every equation in the module. Variables defined, units flagged, worked examples linked.</div>
+      </div>
+      <div class="topic-card" onclick="showSection('glossary')" style="--bar-color:var(--teal)">
+        <div class="topic-num">Reference</div>
+        <div class="topic-title">📚 Glossary</div>
+        <div class="topic-desc">130+ terms across all 5 topics. Instant search and topic filter.</div>
+      </div>
+      <div class="topic-card" onclick="showSection('traps')" style="--bar-color:var(--coral)">
+        <div class="topic-num">Reference</div>
+        <div class="topic-title">⚠️ MCQ Traps</div>
+        <div class="topic-desc">15+ plausible-but-wrong claims the exam uses. Know what's actually true.</div>
+      </div>
+    </div>
+
+    <h2 class="learn-only">How to use this site</h2>
+    <div class="two-col learn-only">
+      <div class="concept-box note">
+        <div class="concept-box-title">📖 Learn Mode</div>
+        <p>Read each topic from start to finish. First-principles explanations build up to exam-level detail. Analogies and context included.</p>
+      </div>
+      <div class="concept-box tip">
+        <div class="concept-box-title">⚡ Revise Mode</div>
+        <p>Strips introductory text and shows only exam-critical content — formulas, key definitions, worked examples, trap warnings.</p>
+      </div>
+    </div>
+    <div class="concept-box success learn-only">
+      <div class="concept-box-title">⌨ Keyboard shortcuts</div>
+      <p>Press <strong>/</strong> to jump to Glossary search. Use <strong>→ / ←</strong> arrow keys to navigate between topics. Press <strong>Esc</strong> to clear search.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- TOPIC 1 — DATA & ERRORS -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="t1" class="section">
+  <div class="container">
+    <div class="topic-num">Topic 1 of 5</div>
+    <h1>Measurements: Data &amp; Errors</h1>
+    <p class="hero-subtitle learn-only">Before any analytical result means anything, you need to understand what errors are, where they come from, and how to describe the quality of a set of measurements.</p>
+
+    <div class="toc">
+      <div class="toc-title">In this topic</div>
+      <ul class="toc-list">
+        <li><a href="#t1-whatisit" class="toc-link">→ What is analytical chemistry?</a></li>
+        <li><a href="#t1-accprec" class="toc-link">→ Accuracy vs precision</a></li>
+        <li><a href="#t1-errors" class="toc-link">→ Types of error</a></li>
+        <li><a href="#t1-absolute" class="toc-link">→ Absolute &amp; relative error</a></li>
+        <li><a href="#t1-stats" class="toc-link">→ Statistical descriptors</a></li>
+        <li><a href="#t1-gaussian" class="toc-link">→ Gaussian distribution</a></li>
+      </ul>
+    </div>
+
+    <h2 id="t1-whatisit">What is analytical chemistry?</h2>
+    <div class="concept-box">
+      <div class="concept-box-title">Definition</div>
+      <p><strong>Analytical chemistry</strong> is the science that develops and applies methods, instruments, and strategies to obtain information on the <em>composition and nature of matter</em>.</p>
+    </div>
+    <p class="learn-only">In practice: you have a sample — soil, water, a tablet, an alloy — and you want to know what's in it and how much. Every technique in this module is a different answer to that question.</p>
+
+    <h2 id="t1-accprec">Accuracy vs Precision</h2>
+    <p class="learn-only">These two words are used interchangeably in everyday language. In analytical chemistry they mean strictly different things and you cannot use them interchangeably.</p>
+
+    <div class="two-col">
+      <div class="concept-box success">
+        <div class="concept-box-title">Accuracy</div>
+        <p>How close a measured value is to the <strong>true (accepted) value</strong>.</p>
+        <p>Measured by: <em>error</em> (absolute or relative).</p>
+        <p style="font-size:13px;color:var(--muted)">A result can be precise but inaccurate — if a systematic error consistently shifts all measurements the same way.</p>
+      </div>
+      <div class="concept-box note">
+        <div class="concept-box-title">Precision</div>
+        <p>How close <strong>replicate measurements</strong> are to one another.</p>
+        <p>Measured by: <em>standard deviation</em>.</p>
+        <p style="font-size:13px;color:var(--muted)">A result can be precise but inaccurate, or accurate but imprecise (scattered around the true value).</p>
+      </div>
+    </div>
+    <div class="analogy">
+      <div class="analogy-icon">🎯</div>
+      <div class="analogy-text">Think of a dartboard. <strong>Accurate</strong> = darts clustered around the bullseye. <strong>Precise</strong> = darts clustered tightly together (even if away from the bullseye). You want both — tight cluster on the bullseye.</div>
+    </div>
+
+    <h2 id="t1-errors">Types of Error</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h4 style="color:var(--amber)">Random (indeterminate) error</h4>
+        <p>Unpredictable, affects <strong>precision</strong>. Caused by uncontrollable variables — air currents, vibrations, fluctuating power supply. Leads to scatter around the mean.</p>
+        <p><strong>Cannot be eliminated</strong> — only reduced by taking more measurements and averaging.</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--coral)">Systematic (determinate) error</h4>
+        <p>Consistent, reproducible, affects <strong>accuracy</strong>. Always shifts results in the <strong>same direction</strong> by roughly the same amount.</p>
+        <p><strong>Can in principle be identified and corrected.</strong> Sources: instrumental (uncalibrated zero), methodological (wrong procedure), personal (observer bias), environmental.</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--muted)">Gross error</h4>
+        <p>Occasional large mistakes — spilling sample, misreading a number, recording wrong units. Produces <strong>outliers</strong>. Detected by the Q-test (covered in Topic 2).</p>
+      </div>
+    </div>
+
+    <h2 id="t1-absolute">Absolute and Relative Error</h2>
+    <div class="formula-block">
+      <div class="formula-name">Absolute error</div>
+      <div class="formula-eq">Eᵢ = |xᵢ − xₜ|</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">xᵢ</span>measured value</div>
+        <div class="formula-var"><span class="formula-var-symbol">xₜ</span>true (accepted) value</div>
+        <div class="formula-var"><span class="formula-var-symbol">Eᵢ</span>absolute error — same units as measurement</div>
+      </div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Relative error</div>
+      <div class="formula-eq">Rᵢ = |xᵢ − xₜ| / xₜ</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">Rᵢ</span>relative error — dimensionless (multiply ×100 for %)</div>
+      </div>
+      <p style="margin-top:12px">Relative error is useful for <strong>comparing</strong> errors across different measurement scales — 0.2 cm error matters more when measuring a 1 cm object than a 100 cm object.</p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — absolute and relative error</div>
+      <p class="example-q">An object has true diameter xₜ = 10.0 cm. Three measurements: 9.8, 10.2, 9.9 cm. Calculate absolute errors, average absolute error, relative errors, and average relative error.</p>
+      <div class="example-step">E₁ = |9.8 − 10.0| = 0.2 cm; E₂ = |10.2 − 10.0| = 0.2 cm; E₃ = |9.9 − 10.0| = 0.1 cm</div>
+      <div class="example-step">Average absolute error = (0.2 + 0.2 + 0.1)/3 = <strong>0.167 cm</strong></div>
+      <div class="example-step">R₁ = 0.2/10.0 = 0.020; R₂ = 0.020; R₃ = 0.1/10.0 = 0.010</div>
+      <div class="example-answer">Average relative error = (0.020 + 0.020 + 0.010)/3 = 0.0167 (1.67%)</div>
+    </div>
+
+    <h2 id="t1-stats">Statistical Descriptors</h2>
+    <div class="formula-block">
+      <div class="formula-name">Sample mean</div>
+      <div class="formula-eq">x̄ = Σxᵢ / N</div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Sample standard deviation (Bessel's correction)</div>
+      <div class="formula-eq">s = √[ Σ(xᵢ − x̄)² / (N − 1) ]</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">N−1</span>degrees of freedom — NOT N. Using N−1 gives an unbiased estimate of σ.</div>
+      </div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Standard error of the mean &amp; RSD</div>
+      <div class="formula-eq">Sₘ = s / √N &nbsp;&nbsp;&nbsp;&nbsp; RSD = (s / x̄) × 100%</div>
+    </div>
+    <div class="concept-box warn">
+      <div class="concept-box-title">Population (σ, N) vs Sample (s, N−1)</div>
+      <p>When you have the entire population, use σ and divide by N. When you have a <em>sample</em> (which is almost always the case), use s and divide by N−1. In exams, use s unless explicitly told σ is known.</p>
+    </div>
+
+    <h2 id="t1-gaussian">The Gaussian (Normal) Distribution</h2>
+    <p>When only random errors are present, the results form a <strong>Gaussian (bell-shaped) distribution</strong> centred on the true mean μ.</p>
+    <div class="concept-box">
+      <div class="concept-box-title">68-95-99.7 rule</div>
+      <ul>
+        <li>~<strong>68%</strong> of measurements fall within ±1σ of the mean</li>
+        <li>~<strong>95%</strong> fall within ±2σ</li>
+        <li>~<strong>99.7%</strong> fall within ±3σ</li>
+      </ul>
+      <p style="margin-top:10px">Increasing σ → wider, flatter curve. Decreasing σ → taller, narrower curve. Changing μ → shifts the curve sideways without changing its shape.</p>
+    </div>
+
+    <h2>Topic 1 essentials</h2>
+    <div class="concept-box">
+      <div class="concept-box-title revise-only">EXAM CHEAT SHEET</div>
+      <div class="concept-box-title learn-only">Quick recap</div>
+      <ul>
+        <li><strong>Accuracy</strong> = closeness to true value → measured by error</li>
+        <li><strong>Precision</strong> = closeness of replicates → measured by standard deviation</li>
+        <li><strong>Random error</strong> → affects precision → reduce by averaging more measurements</li>
+        <li><strong>Systematic error</strong> → affects accuracy → always same direction → can be corrected</li>
+        <li>Eᵢ = |xᵢ − xₜ|; Rᵢ = Eᵢ/xₜ (or ×100%)</li>
+        <li>Sample SD uses N−1 (Bessel's correction)</li>
+        <li>Gaussian: 68/95/99.7% within ±1σ/±2σ/±3σ</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- TOPIC 2 — STATISTICAL DATA ANALYSIS -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="t2" class="section">
+  <div class="container">
+    <div class="topic-num">Topic 2 of 5</div>
+    <h1>Statistical Data Analysis</h1>
+    <p class="hero-subtitle learn-only">Statistics gives us tools to say not just "what is the answer?" but "how confident are we?" and "are these two results actually different?". This topic is calculation-heavy — work through every example.</p>
+
+    <div class="toc">
+      <div class="toc-title">In this topic</div>
+      <ul class="toc-list">
+        <li><a href="#t2-ci-z" class="toc-link">→ Confidence intervals — σ known (z)</a></li>
+        <li><a href="#t2-ci-t" class="toc-link">→ Confidence intervals — σ unknown (t)</a></li>
+        <li><a href="#t2-twomeans" class="toc-link">→ Comparing two means</a></li>
+        <li><a href="#t2-bias" class="toc-link">→ Detecting bias</a></li>
+        <li><a href="#t2-qtest" class="toc-link">→ Q-test for outliers</a></li>
+      </ul>
+    </div>
+
+    <h2 id="t2-ci-z">Confidence Intervals — σ known (z-statistic)</h2>
+    <p class="learn-only">A confidence interval (CI) gives a range within which the true mean μ is expected to lie. When σ is known (or estimated from a large pooled dataset), we use the z-statistic.</p>
+
+    <div class="formula-block">
+      <div class="formula-name">Confidence interval — σ known</div>
+      <div class="formula-eq">CI = x̄ ± zσ/√N</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">x̄</span>sample mean</div>
+        <div class="formula-var"><span class="formula-var-symbol">z</span>z-value for confidence level (see table)</div>
+        <div class="formula-var"><span class="formula-var-symbol">σ</span>known population SD (or s_pooled used as σ)</div>
+        <div class="formula-var"><span class="formula-var-symbol">N</span>number of measurements in current set</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Confidence level</th><th>z</th><th>Confidence level</th><th>z</th></tr></thead>
+        <tbody>
+          <tr><td>50%</td><td>0.67</td><td>95%</td><td><strong>1.96</strong></td></tr>
+          <tr><td>68%</td><td>1.00</td><td>99%</td><td><strong>2.58</strong></td></tr>
+          <tr><td>80%</td><td>1.28</td><td>99.7%</td><td>3.00</td></tr>
+          <tr><td>90%</td><td>1.64</td><td>99.9%</td><td>3.29</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="formula-block">
+      <div class="formula-name">Pooled standard deviation (from k datasets)</div>
+      <div class="formula-eq">s_pooled = √[ Σ(Nᵢ−1)sᵢ² / (ΣNᵢ − k) ]</div>
+      <p style="margin-top:10px">Use s_pooled as an estimate of σ when: all component datasets have <em>similar</em> standard deviations, and the total pooled degrees of freedom is large (typically ≥25).</p>
+    </div>
+
+    <h2 id="t2-ci-t">Confidence Intervals — σ unknown (t-statistic)</h2>
+    <p>When you only have a small sample and σ is unknown, use the t-statistic. The t-distribution has heavier tails than the Gaussian — it accounts for the extra uncertainty from estimating σ from the data.</p>
+
+    <div class="formula-block">
+      <div class="formula-name">Confidence interval — σ unknown</div>
+      <div class="formula-eq">CI = x̄ ± ts/√N</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">t</span>t-value from table at df = N−1 and chosen confidence level</div>
+        <div class="formula-var"><span class="formula-var-symbol">s</span>sample standard deviation from current dataset</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>df</th><th>t (95%)</th><th>df</th><th>t (95%)</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>12.71</td><td>8</td><td>2.31</td></tr>
+          <tr><td>2</td><td>4.30</td><td>9</td><td>2.26</td></tr>
+          <tr><td>3</td><td>3.18</td><td>10</td><td>2.23</td></tr>
+          <tr><td>4</td><td>2.78</td><td>15</td><td>2.13</td></tr>
+          <tr><td>5</td><td>2.57</td><td>20</td><td>2.09</td></tr>
+          <tr><td>6</td><td>2.45</td><td>∞</td><td>1.96</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="concept-box danger">
+      <div class="concept-box-title">z-CI vs t-CI — which is wider?</div>
+      <p>The t-based CI is <strong>always wider</strong> than the z-based CI at the same confidence level and sample size, because t values are always larger than z (except at df = ∞ where t = z = 1.96). The t-CI is wider because it accounts for additional uncertainty from estimating σ from a small sample.</p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — Sulphate in river water (z vs t)</div>
+      <p class="example-q">Three sets of 10 replicates give s₁ = 0.034, s₂ = 0.037, s₃ = 0.031 mg. Use these to find s_pooled, then construct (i) 95% CI for x̄ = 1.246 mg, N = 3 using z (σ = s_pooled), and (ii) 95% CI for a new set with x̄ = 1.198 mg, s = 0.042 mg, N = 3 using t.</p>
+      <div class="example-step">s_pooled = √[(9×0.034² + 9×0.037² + 9×0.031²)/(30−3)] = <strong>0.034 mg</strong> (used as σ)</div>
+      <div class="example-step">(i) z = 1.96; CI = 1.246 ± 1.96×0.034/√3 = <strong>[1.207, 1.284] mg</strong></div>
+      <div class="example-step">(ii) df = 2, t = 4.30; CI = 1.198 ± 4.30×0.042/√3 = <strong>[1.094, 1.302] mg</strong></div>
+      <div class="example-answer">CI (i) is narrower because z &lt; t. CI (ii) wider due to t-statistic with low df (df = 2).</div>
+    </div>
+
+    <h2 id="t2-twomeans">Comparing Two Means</h2>
+    <p>Test whether two independently measured means are <strong>statistically significantly different</strong> at a given confidence level.</p>
+
+    <div class="formula-block">
+      <div class="formula-name">Two-means t-test — reject null if:</div>
+      <div class="formula-eq">|x̄₁ − x̄₂| > t · s_pooled · √[(N₁ + N₂) / (N₁ · N₂)]</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">df</span>N₁ + N₂ − 2</div>
+        <div class="formula-var"><span class="formula-var-symbol">s_pooled</span>calculated from the two datasets</div>
+      </div>
+      <p style="margin-top:10px">If |difference| > right-hand side → reject null → means are <strong>significantly different</strong>.</p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — Chloride in concrete (two environments)</div>
+      <p class="example-q">Env. A (full immersion, N=5): x̄_A = 15.30 mL, s_A = 0.158. Env. B (splash zone, N=5): x̄_B = 14.02 mL, s_B = 0.152. 95% CI. Is the difference significant?</p>
+      <div class="example-step">s_pooled = √[(4×0.158² + 4×0.152²)/8] = <strong>0.155 mL</strong></div>
+      <div class="example-step">df = 8, t = 2.31; threshold = 2.31 × 0.155 × √(10/25) = <strong>0.227 mL</strong></div>
+      <div class="example-step">|x̄_A − x̄_B| = |15.30 − 14.02| = 1.28 mL</div>
+      <div class="example-answer">1.28 mL > 0.227 mL → difference IS statistically significant. Environment A (full immersion) has higher chloride → greater corrosion risk.</div>
+    </div>
+
+    <h2 id="t2-bias">Detecting Systematic Error (Bias)</h2>
+    <div class="formula-block">
+      <div class="formula-name">Bias test — reject null (no bias) if:</div>
+      <div class="formula-eq">|x̄ − xₜ| > t · s / √N</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">xₜ</span>known true value (e.g. certified reference material)</div>
+        <div class="formula-var"><span class="formula-var-symbol">df</span>N − 1</div>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — Soil contamination</div>
+      <p class="example-q">Permissible Pb limit = 20 ppm. N = 16 measurements: x̄ = 19.36 ppm, s = 0.920 ppm. Is the soil contaminated beyond the limit?</p>
+      <div class="example-step">df = 15, t = 2.13; threshold = 2.13 × 0.920/√16 = <strong>0.49 ppm</strong></div>
+      <div class="example-step">|19.36 − 20| = 0.64 ppm</div>
+      <div class="example-answer">0.64 > 0.49 → reject null → soil IS statistically confirmed to contain Pb above the permissible limit.</div>
+    </div>
+
+    <h2 id="t2-qtest">Q-Test for Outliers</h2>
+    <div class="formula-block">
+      <div class="formula-name">Dixon Q-test</div>
+      <div class="formula-eq">Q = gap / range = |x_q − x_neighbour| / w</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">x_q</span>suspect value</div>
+        <div class="formula-var"><span class="formula-var-symbol">x_neighbour</span>nearest neighbour to x_q (NOT next-nearest)</div>
+        <div class="formula-var"><span class="formula-var-symbol">w</span>total range = x_max − x_min</div>
+      </div>
+      <p style="margin-top:10px">Reject outlier if Q > Q_critical. <strong>Always sort data in ascending order first.</strong> After rejecting, recalculate mean and SD on the remaining N−1 points.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>N</th><th>Q_crit (90%)</th><th>Q_crit (95%)</th><th>N</th><th>Q_crit (90%)</th><th>Q_crit (95%)</th></tr></thead>
+        <tbody>
+          <tr><td>3</td><td>0.941</td><td>0.970</td><td>7</td><td>0.507</td><td>0.568</td></tr>
+          <tr><td>4</td><td>0.765</td><td>0.829</td><td>8</td><td>0.468</td><td>0.526</td></tr>
+          <tr><td>5</td><td>0.642</td><td>0.710</td><td>9</td><td>0.437</td><td>0.493</td></tr>
+          <tr><td>6</td><td>0.560</td><td>0.625</td><td>10</td><td>0.412</td><td>0.466</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — Pump flow rates</div>
+      <p class="example-q">Flow rates: 112, 115, 110, 113, 116, 114, 103, 115, 119, 112 m³/min. Is 103 an outlier at 90% confidence?</p>
+      <div class="example-step">Sorted: 103, 110, 112, 112, 113, 114, 115, 115, 116, 119</div>
+      <div class="example-step">Q = |103 − 110| / (119 − 103) = 7/16 = <strong>0.437</strong></div>
+      <div class="example-step">Q_crit (N=10, 90%) = 0.412; 0.437 > 0.412 → <strong>reject outlier</strong></div>
+      <div class="example-answer">Recalculate without 103: N = 9, x̄ = 114 m³/min, s = 2.8 m³/min</div>
+    </div>
+
+    <h2>Topic 2 essentials</h2>
+    <div class="concept-box">
+      <div class="concept-box-title revise-only">EXAM CHEAT SHEET</div>
+      <div class="concept-box-title learn-only">Quick recap</div>
+      <ul>
+        <li>Use <strong>z</strong> when σ is known; use <strong>t</strong> (df=N−1) when only s is known</li>
+        <li>t-CI is <strong>wider</strong> than z-CI — t accounts for uncertainty in estimating σ</li>
+        <li>Two-means test: reject null if |x̄₁−x̄₂| > t·s_pooled·√[(N₁+N₂)/(N₁N₂)]; df = N₁+N₂−2</li>
+        <li>Bias test: reject null if |x̄−xₜ| > t·s/√N</li>
+        <li>Q-test: sort data; Q = gap/range; reject if Q > Q_crit; recalculate mean/SD without outlier</li>
+        <li>Q-test gap = |suspect − nearest neighbour|, NOT next-nearest</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- TOPIC 3 — GRAVIMETRIC ANALYSIS -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="t3" class="section">
+  <div class="container">
+    <div class="topic-num">Topic 3 of 5</div>
+    <h1>Gravimetric Analysis</h1>
+    <p class="hero-subtitle learn-only">If you can convert your analyte into a pure solid of known formula, weigh it, and do some molar mass arithmetic — that's gravimetric analysis. It's one of the most accurate methods in analytical chemistry.</p>
+
+    <div class="toc">
+      <div class="toc-title">In this topic</div>
+      <ul class="toc-list">
+        <li><a href="#t3-types" class="toc-link">→ Four types</a></li>
+        <li><a href="#t3-precip" class="toc-link">→ Precipitation gravimetry — 8 steps</a></li>
+        <li><a href="#t3-gf" class="toc-link">→ Gravimetric factor &amp; calculations</a></li>
+        <li><a href="#t3-coprecip" class="toc-link">→ Coprecipitation errors</a></li>
+        <li><a href="#t3-volatil" class="toc-link">→ Volatilisation &amp; TGA</a></li>
+        <li><a href="#t3-combustion" class="toc-link">→ Combustion analysis</a></li>
+      </ul>
+    </div>
+
+    <h2 id="t3-types">Four Types of Gravimetric Analysis</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h4 style="color:var(--green)">1. Precipitation</h4>
+        <p>Analyte converted to <strong>insoluble precipitate</strong>, filtered, dried or ignited, weighed. Most common. Basis of this topic.</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--green)">2. Volatilisation</h4>
+        <p>Mass change from a <strong>volatile component</strong> (CO₂, H₂O) released by heating. Measured directly (mass loss) or by trapping in a weighed absorbent.</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--green)">3. Electrogravimetry</h4>
+        <p>Analyte <strong>electrodeposited onto a pre-weighed platinum electrode</strong>. Mass gain = mass of analyte. Very accurate — no coprecipitation.</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--green)">4. Thermogravimetric Analysis (TGA)</h4>
+        <p>Mass recorded <strong>continuously as temperature increases</strong> at a controlled rate. Decomposition steps appear as discrete mass-loss events.</p>
+      </div>
+    </div>
+
+    <h2 id="t3-precip">Precipitation Gravimetry — 8 Steps</h2>
+    <div class="process-flow">
+      <div class="process-step"><div class="process-step-num">1</div><div class="process-step-name">Weigh sample</div><div class="process-step-desc">Analytical balance, 4 d.p.</div></div>
+      <div class="process-step"><div class="process-step-num">2</div><div class="process-step-name">Dissolve</div><div class="process-step-desc">Appropriate solvent</div></div>
+      <div class="process-step"><div class="process-step-num">3</div><div class="process-step-name">Precipitate</div><div class="process-step-desc">Add precipitating agent</div></div>
+      <div class="process-step"><div class="process-step-num">4</div><div class="process-step-name">Filter</div><div class="process-step-desc">Gravimetric filter paper</div></div>
+      <div class="process-step"><div class="process-step-num">5</div><div class="process-step-name">Wash</div><div class="process-step-desc">Remove impurities</div></div>
+      <div class="process-step"><div class="process-step-num">6</div><div class="process-step-name">Dry/ignite</div><div class="process-step-desc">Constant mass</div></div>
+      <div class="process-step"><div class="process-step-num">7</div><div class="process-step-name">Weigh</div><div class="process-step-desc">Precipitate mass</div></div>
+      <div class="process-step"><div class="process-step-num">8</div><div class="process-step-name">Calculate</div><div class="process-step-desc">Using GF</div></div>
+    </div>
+
+    <h3>Common precipitating agents</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Precipitating agent</th><th>Analyte</th><th>Precipitate</th></tr></thead>
+        <tbody>
+          <tr><td>AgNO₃ (silver nitrate)</td><td>Cl⁻, Br⁻, I⁻</td><td>AgCl, AgBr, AgI (white/pale yellow/yellow)</td></tr>
+          <tr><td>BaCl₂ (barium chloride)</td><td>SO₄²⁻</td><td>BaSO₄ (white)</td></tr>
+          <tr><td>(NH₄)₂C₂O₄ (ammonium oxalate)</td><td>Ca²⁺</td><td>CaC₂O₄ (white)</td></tr>
+          <tr><td>Dimethylglyoxime (DMG)</td><td>Ni²⁺</td><td>Ni(DMG)₂ (bright red)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="concept-box tip">
+      <div class="concept-box-title">Digestion — why it matters</div>
+      <p>After precipitation, <strong>heating the precipitate in the mother liquor</strong> (digestion) improves crystal quality via Ostwald ripening — small crystals dissolve and redeposit on larger ones. Result: fewer, larger crystals that filter more cleanly with less occlusion.</p>
+    </div>
+
+    <h2 id="t3-gf">Gravimetric Factor and Calculations</h2>
+    <div class="formula-block">
+      <div class="formula-name">Gravimetric factor (GF)</div>
+      <div class="formula-eq">GF = (a × MM_analyte) / (b × MM_precipitate)</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">a</span>moles of analyte per formula unit</div>
+        <div class="formula-var"><span class="formula-var-symbol">b</span>moles of precipitate produced per formula unit</div>
+      </div>
+      <p style="margin-top:10px"><strong>mass(analyte) = mass(precipitate) × GF</strong></p>
+      <p>The GF converts directly from what you weigh (precipitate) to what you want to know (analyte).</p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — Impure pyrite → BaSO₄</div>
+      <p class="example-q">An impure pyrite sample contains 90% FeS₂. How many grams must be dissolved to produce at least 1.00 g BaSO₄? (1 FeS₂ → 2 BaSO₄; MM(FeS₂) = 119.98; MM(BaSO₄) = 233.39)</p>
+      <div class="example-step">n(BaSO₄) = 1.00/233.39 = 4.28×10⁻³ mol</div>
+      <div class="example-step">n(FeS₂) = 4.28×10⁻³/2 = 2.14×10⁻³ mol (ratio 1:2)</div>
+      <div class="example-step">m(pure FeS₂) = 2.14×10⁻³ × 119.98 = 0.257 g</div>
+      <div class="example-answer">m(impure pyrite) = 0.257 / 0.90 = <strong>0.286 g</strong></div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — Ferrocene: %Fe, then empirical formula</div>
+      <p class="example-q">0.4873 g sample → 0.2091 g Fe₂O₃. Combustion of 0.5123 g → 1.2119 g CO₂ + 0.2482 g H₂O. Find %Fe, %C, %H, and identify compound.</p>
+      <div class="example-step">n(Fe₂O₃) = 0.2091/159.69 = 1.309×10⁻³ mol → n(Fe) = 2.619×10⁻³ mol → m(Fe) = 0.1463 g</div>
+      <div class="example-step">%Fe = 0.1463/0.4873 × 100 = <strong>30.02%</strong></div>
+      <div class="example-step">n(CO₂) = 1.2119/44.01 = 0.02754 mol → n(C) = 0.02754 mol → m(C) = 0.3305 g → %C = <strong>64.52%</strong></div>
+      <div class="example-step">n(H₂O) = 0.2482/18.02 = 0.01377 mol → n(H) = 0.02754 mol → m(H) = 0.02775 g → %H = <strong>5.42%</strong></div>
+      <div class="example-step">Molar ratios: Fe : C : H = (30.02/55.85) : (64.52/12.01) : (5.42/1.008) = 0.5376 : 5.373 : 5.377</div>
+      <div class="example-answer">Divide by 0.5376 → Fe:C:H = 1:10:10 → Empirical formula <strong>FeC₁₀H₁₀ = ferrocene, Fe(C₅H₅)₂</strong></div>
+    </div>
+
+    <h2 id="t3-coprecip">Coprecipitation Errors</h2>
+    <div class="card-grid">
+      <div class="card"><h4 style="color:var(--coral)">Surface adsorption</h4><p>Ions adsorb onto crystal surface. Minimised by washing with appropriate wash solution.</p></div>
+      <div class="card"><h4 style="color:var(--coral)">Occlusion</h4><p>Impurities physically trapped inside crystal during rapid growth. Cannot be removed by washing. Minimised by slow precipitation and digestion.</p></div>
+      <div class="card"><h4 style="color:var(--coral)">Mechanical entrapment</h4><p>Mother liquor trapped within precipitate mass. Minimised by proper filtration.</p></div>
+      <div class="card"><h4 style="color:var(--coral)">Post-precipitation</h4><p>A second compound nucleates on the precipitate surface during prolonged standing. Minimised by filtering promptly.</p></div>
+    </div>
+
+    <h2 id="t3-volatil">Volatilisation Gravimetry &amp; TGA</h2>
+    <p><strong>TGA:</strong> sample heated at a controlled rate (~10°C/min); balance records mass continuously. Each decomposition reaction appears as a distinct mass-loss step. The derivative (DTG) shows a peak at each event.</p>
+
+    <div class="example">
+      <div class="example-label">Worked example — CaCO₃ in concrete by TGA</div>
+      <p class="example-q">A 15.0293 mg sample loses 0.2201 mg between 600–800°C (CaCO₃ → CaO + CO₂). Is the CaCO₃ content below the 5 w/w% safe limit?</p>
+      <div class="example-step">n(CO₂) = 0.2201×10⁻³ / 44.01 = 5.001×10⁻⁶ mol = n(CaCO₃)</div>
+      <div class="example-step">m(CaCO₃) = 5.001×10⁻⁶ × 100.09 × 10³ mg/g = 0.5006 mg</div>
+      <div class="example-answer">w/w% = 0.5006/15.0293 × 100 = <strong>3.33%</strong> → below 5% threshold ✓</div>
+    </div>
+
+    <h2 id="t3-combustion">Combustion Analysis</h2>
+    <p>Organic sample burned completely in excess O₂. Products trapped in sequence: <strong>H₂O</strong> in Drierite (CaSO₄), then <strong>CO₂</strong> in Ascarite (NaOH on silica). Mass gain of each trap gives moles of H and C.</p>
+    <ul>
+      <li>n(H) = 2 × m(H₂O)/18.015</li>
+      <li>n(C) = m(CO₂)/44.009</li>
+      <li>%N determined separately by Kjeldahl method or elemental analyser</li>
+    </ul>
+
+    <h2>Topic 3 essentials</h2>
+    <div class="concept-box">
+      <div class="concept-box-title revise-only">EXAM CHEAT SHEET</div>
+      <div class="concept-box-title learn-only">Quick recap</div>
+      <ul>
+        <li>4 gravimetric types: precipitation, volatilisation, electrogravimetry, TGA</li>
+        <li>8 precipitation steps: weigh → dissolve → precipitate → filter → wash → dry/ignite → weigh → calculate</li>
+        <li>GF = (a × MM_analyte)/(b × MM_precipitate); mass(analyte) = mass(precipitate) × GF</li>
+        <li>1 FeS₂ → 2 BaSO₄ — the 1:2 stoichiometry is the most-tested GF trap</li>
+        <li>Coprecipitation types: surface adsorption, occlusion (untreatable), mechanical entrapment, post-precipitation</li>
+        <li>TGA: mass loss between 600–800°C = CaCO₃ → CaO + CO₂; use n(CO₂) to find n(CaCO₃)</li>
+        <li>Combustion: Drierite traps H₂O first; Ascarite traps CO₂ second</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- TOPIC 4 — SPECTROSCOPY -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="t4" class="section">
+  <div class="container">
+    <div class="topic-num">Topic 4 of 5</div>
+    <h1>Spectroscopy in Analytical Chemistry</h1>
+    <p class="hero-subtitle learn-only">Spectroscopy uses the interaction between electromagnetic radiation and matter to identify and quantify substances. Understanding the Beer-Lambert law and how to use it correctly is the core skill of this topic.</p>
+
+    <div class="toc">
+      <div class="toc-title">In this topic</div>
+      <ul class="toc-list">
+        <li><a href="#t4-emr" class="toc-link">→ Properties of EMR</a></li>
+        <li><a href="#t4-spectrum" class="toc-link">→ The EM spectrum</a></li>
+        <li><a href="#t4-transitions" class="toc-link">→ Atomic transitions</a></li>
+        <li><a href="#t4-bl" class="toc-link">→ Beer-Lambert law</a></li>
+        <li><a href="#t4-blank" class="toc-link">→ Blank correction</a></li>
+        <li><a href="#t4-methods" class="toc-link">→ Four concentration methods</a></li>
+        <li><a href="#t4-instrument" class="toc-link">→ UV-Vis spectrometer components</a></li>
+        <li><a href="#t4-emission" class="toc-link">→ Atomic emission &amp; ICP-OES</a></li>
+      </ul>
+    </div>
+
+    <h2 id="t4-emr">Properties of Electromagnetic Radiation</h2>
+    <div class="formula-block">
+      <div class="formula-name">Wave equation &amp; derived quantities</div>
+      <div class="formula-eq">c = λυ &nbsp;&nbsp;&nbsp; ν̄ = 1/λ &nbsp;&nbsp;&nbsp; E = hυ = hc/λ = hcν̄</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">c</span>speed of light = 2.998×10⁸ m s⁻¹ (in vacuum)</div>
+        <div class="formula-var"><span class="formula-var-symbol">λ</span>wavelength (m, nm, or cm)</div>
+        <div class="formula-var"><span class="formula-var-symbol">υ</span>frequency (Hz = s⁻¹)</div>
+        <div class="formula-var"><span class="formula-var-symbol">ν̄</span>wavenumber (cm⁻¹); ν̄ = 10⁷/λ(nm)</div>
+        <div class="formula-var"><span class="formula-var-symbol">h</span>Planck's constant = 6.626×10⁻³⁴ J s</div>
+        <div class="formula-var"><span class="formula-var-symbol">E</span>photon energy (J) — proportional to frequency</div>
+      </div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Radiation intensity</div>
+      <div class="formula-eq">I = P / A = E·Φ / A</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">P</span>power (W)</div>
+        <div class="formula-var"><span class="formula-var-symbol">A</span>cross-sectional area (m² or μm²)</div>
+        <div class="formula-var"><span class="formula-var-symbol">Φ</span>photon flux (photons s⁻¹)</div>
+      </div>
+    </div>
+
+    <div class="concept-box note">
+      <div class="concept-box-title">When light enters a medium</div>
+      <p>Velocity <em>v</em> and wavelength λ change. Frequency υ and energy E <strong>remain constant</strong>. The wavenumber and energy travel with the wave irrespective of the medium.</p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — Hα Balmer line (λ = 656 nm)</div>
+      <p class="example-q">Find frequency, wavenumber, and intensity of a beam with Φ = 5×10¹⁴ photons/s through A = 3.15 μm².</p>
+      <div class="example-step">υ = c/λ = 3×10⁸/(656×10⁻⁹) = <strong>4.57×10¹⁴ Hz</strong></div>
+      <div class="example-step">ν̄ = 10⁷/656 = <strong>15,244 cm⁻¹</strong></div>
+      <div class="example-step">E = hc/λ = 6.626×10⁻³⁴ × 3×10⁸/(656×10⁻⁹) = 3.03×10⁻¹⁹ J</div>
+      <div class="example-answer">I = 3.03×10⁻¹⁹ × 5×10¹⁴ / 3.15 = <strong>4.81×10⁻⁵ W μm⁻²</strong></div>
+    </div>
+
+    <h2 id="t4-spectrum">The Electromagnetic Spectrum</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Region</th><th>Wavelength range</th><th>Type of transition</th></tr></thead>
+        <tbody>
+          <tr><td>Gamma rays</td><td>&lt;0.01 nm</td><td>Nuclear</td></tr>
+          <tr><td>X-rays</td><td>0.01–10 nm</td><td>Inner-shell electronic</td></tr>
+          <tr><td>UV</td><td>10–400 nm</td><td>Outer electronic</td></tr>
+          <tr><td><strong>Visible</strong></td><td><strong>380–750 nm</strong></td><td>Outer electronic</td></tr>
+          <tr><td>Near-IR</td><td>750 nm–2.5 μm</td><td>Vibrational overtones</td></tr>
+          <tr><td>Mid-IR</td><td>2.5–50 μm</td><td>Vibrational (fundamental)</td></tr>
+          <tr><td>Microwave</td><td>0.1–100 mm</td><td>Rotational</td></tr>
+          <tr><td>Radio</td><td>&gt;10 cm</td><td>Nuclear spin (NMR)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Visible light:</strong> Violet 380–450 nm · Blue 450–495 nm · Green 495–570 nm · Yellow 570–590 nm · Orange 590–620 nm · Red 620–750 nm</p>
+
+    <h2 id="t4-transitions">Atomic Energy Transitions</h2>
+    <div class="two-col">
+      <div class="concept-box">
+        <div class="concept-box-title">Absorption</div>
+        <p>Photon absorbed → atom goes from ground to excited state. Requires E_photon = ΔE exactly (quantised).</p>
+      </div>
+      <div class="concept-box note">
+        <div class="concept-box-title">Emission</div>
+        <p>Excited atom releases photon → returns to lower state. Emitted λ characteristic of the element.</p>
+      </div>
+    </div>
+    <div class="card-grid">
+      <div class="card"><h4>Fluorescence</h4><p>Rapid radiative emission after absorption. Spin-allowed → lifetime ~ns. Same or longer λ than absorbed.</p></div>
+      <div class="card"><h4>Phosphorescence</h4><p>Delayed emission. Spin-forbidden transition → lifetime ms to s.</p></div>
+      <div class="card"><h4>Non-radiative relaxation</h4><p>Energy dissipated as heat. Competes with fluorescence/phosphorescence. Lowers fluorescence quantum yield.</p></div>
+    </div>
+
+    <h2 id="t4-bl">Beer-Lambert Law</h2>
+    <div class="formula-block">
+      <div class="formula-name">Transmittance, Absorbance, Beer-Lambert</div>
+      <div class="formula-eq">T = I/I₀ &nbsp;&nbsp;&nbsp;&nbsp; A = −log T = log(I₀/I) = εbc</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">T</span>transmittance (0–1); %T = T×100</div>
+        <div class="formula-var"><span class="formula-var-symbol">A</span>absorbance — dimensionless, additive for multiple species</div>
+        <div class="formula-var"><span class="formula-var-symbol">ε</span>molar absorptivity (L mol⁻¹ cm⁻¹) — maximum at λ_max</div>
+        <div class="formula-var"><span class="formula-var-symbol">b</span>path length (cm) — usually 1 cm cuvette</div>
+        <div class="formula-var"><span class="formula-var-symbol">c</span>concentration (mol L⁻¹)</div>
+      </div>
+      <p style="margin-top:10px"><strong>Valid only for:</strong> monochromatic radiation, dilute solutions, no fluorescence, no chemical equilibria changing with concentration.</p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — β-carotene (λ = 445 nm)</div>
+      <p class="example-q">Φ₀ = 4.75×10¹⁵, Φ = 2.81×10¹⁵ photons/s; A = 3.15 μm². Find T and A.</p>
+      <div class="example-step">E = hc/λ = 6.626×10⁻³⁴ × 3×10⁸/(445×10⁻⁹) = 4.47×10⁻¹⁹ J</div>
+      <div class="example-step">I₀ = 4.47×10⁻¹⁹ × 4.75×10¹⁵/3.15 = 6.74×10⁻⁴ W μm⁻²; I = 3.99×10⁻⁴ W μm⁻²</div>
+      <div class="example-answer">T = 3.99/6.74 = <strong>0.592</strong>; A = −log(0.592) = <strong>0.228</strong></div>
+    </div>
+
+    <h2 id="t4-blank">Blank Correction</h2>
+    <p>A <strong>blank</strong> (solvent + cuvette, no analyte) is measured to remove background absorbance from the solvent, cuvette, and instrument optics.</p>
+    <div class="formula-block">
+      <div class="formula-name">Blank-corrected absorbance</div>
+      <div class="formula-eq">A_analyte = −log(I_A / I_B)</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">I_A</span>intensity transmitted through analyte solution</div>
+        <div class="formula-var"><span class="formula-var-symbol">I_B</span>intensity transmitted through blank</div>
+      </div>
+      <p style="margin-top:10px">If raw I₀ is used instead of I_B (blank), the measured absorbance will be <em>overestimated</em> — the solvent's own absorption is incorrectly attributed to the analyte.</p>
+    </div>
+
+    <h2 id="t4-methods">Four Methods of Determining Concentration</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h4 style="color:var(--purple)">Method A — Known ε</h4>
+        <p><code>C = A / (ε·b)</code></p>
+        <p>Quick. Requires accurate prior knowledge of ε for the analyte at the measurement wavelength and conditions.</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--purple)">Method B/C — Direct comparison</h4>
+        <p><code>C_analyte = (A_analyte / A_std) × C_std</code></p>
+        <p>ε and b cancel. Requires standard prepared under <em>identical</em> conditions to sample. Simple and robust.</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--purple)">Method D — Standard addition</h4>
+        <p><code>C_analyte = [A_analyte / (A_spiked − A_analyte)] × C_spike</code></p>
+        <p>Add known spike of standard to the unknown sample. <strong>Compensates for matrix effects</strong> — any other species affecting absorbance affects both measurements equally and cancels.</p>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — BP-3 sunscreen (known ε)</div>
+      <p class="example-q">λ = 320 nm; I₀ = 4.342 W m⁻², I = 1.206 W m⁻²; ε = 13,028 L mol⁻¹ cm⁻¹; b = 1 cm; sample volume = 250 mL; sample mass = 53.01 mg. Find %w/w BP-3.</p>
+      <div class="example-step">A = −log(1.206/4.342) = <strong>0.556</strong></div>
+      <div class="example-step">C = 0.556/(13028 × 1) = 4.27×10⁻⁵ mol/L</div>
+      <div class="example-step">n(BP-3) = 4.27×10⁻⁵ × 0.250 = 1.07×10⁻⁵ mol; m(BP-3) = 1.07×10⁻⁵ × 228.24 = 2.44 mg</div>
+      <div class="example-answer">%w/w = 2.44/53.01 × 100 = <strong>4.60%</strong></div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — Indium in InP semiconductor (standard addition)</div>
+      <p class="example-q">A_sample = 1.002; add 5 mL of 2.50×10⁻³ M In standard to 100 mL solution → A_spiked = 1.102. Find C(In) in sample.</p>
+      <div class="example-step">C_spike = 2.50×10⁻³ × 5/100 = 1.25×10⁻⁴ M (concentration added to solution)</div>
+      <div class="example-step">C_sample = [1.002 / (1.102 − 1.002)] × 1.25×10⁻⁴ = [1.002/0.100] × 1.25×10⁻⁴</div>
+      <div class="example-answer">C_sample = <strong>1.25×10⁻³ M</strong></div>
+    </div>
+
+    <h2 id="t4-instrument">UV-Vis Spectrometer Components</h2>
+    <p><strong>Signal path:</strong> Source → Wavelength selector → Sample → Detector → Signal processor</p>
+    <div class="card-grid">
+      <div class="card"><h4>Sources</h4><p><strong>Deuterium lamp</strong>: UV 150–400 nm, continuous spectrum.<br><strong>Tungsten-halogen</strong>: Vis 400–800 nm, ~3500 K blackbody.</p></div>
+      <div class="card"><h4>Wavelength selectors</h4><p><strong>Diffraction grating</strong>: nλ = d sinθ; tunable by rotation.<br><strong>Prism</strong>: Snell's law refraction; quartz for UV+Vis, glass for Vis only.</p></div>
+      <div class="card"><h4>Cuvettes</h4><p><strong>Quartz</strong>: transparent 160–3000 nm → use for UV.<br><strong>Glass/plastic</strong>: Vis only → never use for UV measurements.</p></div>
+      <div class="card"><h4>Detectors</h4><p><strong>PMT</strong>: cascade dynode amplification, ~150–1000 nm, very sensitive.<br><strong>Photodiode</strong>: solid state, 350–1100 nm, fast; used in diode-array instruments.</p></div>
+    </div>
+    <div class="concept-box note">
+      <div class="concept-box-title">Single-beam vs double-beam</div>
+      <p><strong>Single-beam:</strong> blank and sample measured sequentially through the same path — susceptible to source drift between measurements.<br>
+      <strong>Double-beam:</strong> beam split to reference and sample paths simultaneously — compensates source fluctuations, more accurate.</p>
+    </div>
+
+    <h2 id="t4-emission">Atomic Emission &amp; ICP-OES</h2>
+    <p><strong>Principle:</strong> analyte atoms excited by heat source → emit characteristic photons as they return to lower state → emission intensity ∝ concentration.</p>
+    <p><strong>Atomisation sequence:</strong> Nebulisation → Desolvation → Atomisation (vapourisation and dissociation)</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Technique</th><th>Source temperature</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>FES (Flame)</td><td>1700–3000 K</td><td>Simple; best for alkali metals (Na, K)</td></tr>
+          <tr><td><strong>ICP-OES</strong></td><td><strong>6000–10,000 K</strong></td><td>Multi-element; wide dynamic range 0.01–500 µg/mL</td></tr>
+          <tr><td>LIBS</td><td>~10,000–20,000 K peak</td><td>Laser-induced; remote/in-situ analysis</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="concept-box tip">
+      <div class="concept-box-title">ICP-OES mechanism (exam question)</div>
+      <p>1. RF coil at 20–40 MHz generates oscillating magnetic field in argon gas.<br>
+      2. Tesla coil spark provides seed electrons.<br>
+      3. Electrons accelerated by induced electric field → ionise Ar → self-sustaining plasma at 6000–10,000 K.<br>
+      4. Sample injected as aerosol → atoms excited → emit characteristic radiation → measured by spectrometer.</p>
+    </div>
+
+    <h2>Topic 4 essentials</h2>
+    <div class="concept-box">
+      <div class="concept-box-title revise-only">EXAM CHEAT SHEET</div>
+      <div class="concept-box-title learn-only">Quick recap</div>
+      <ul>
+        <li>c = λυ; E = hυ = hc/λ; ν̄ = 1/λ (cm⁻¹) = 10⁷/λ(nm)</li>
+        <li>Frequency and energy stay constant when light enters a medium</li>
+        <li>A = −log T = εbc; T = I/I₀; A = 0 means no absorption (T=1); A = 1 means 90% absorbed (T=0.1)</li>
+        <li>Blank correction: A_analyte = −log(I_A/I_B). Using raw I₀ overestimates A.</li>
+        <li>Standard addition: C = [A_analyte/(A_spiked − A_analyte)] × C_spike. Denominator is the <em>difference</em>.</li>
+        <li>Quartz cuvette for UV; glass/plastic only for Vis</li>
+        <li>ICP-OES: RF Ar plasma, 6000–10,000 K, multi-element, wide dynamic range</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- TOPIC 5 — TITRATIONS -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="t5" class="section">
+  <div class="container">
+    <div class="topic-num">Topic 5 of 5</div>
+    <h1>Titrations in Analytical Chemistry</h1>
+    <p class="hero-subtitle learn-only">The biggest topic in the module. Five types of titration, each with a different reaction, different endpoint detection, and different calculation. Master the pattern: find moles of titrant → use stoichiometric ratio → find moles of analyte.</p>
+
+    <div class="toc">
+      <div class="toc-title">In this topic</div>
+      <ul class="toc-list">
+        <li><a href="#t5-basics" class="toc-link">→ Fundamentals</a></li>
+        <li><a href="#t5-strongstrong" class="toc-link">→ Strong acid / strong base</a></li>
+        <li><a href="#t5-weakstrong" class="toc-link">→ Weak acid / strong base</a></li>
+        <li><a href="#t5-edta" class="toc-link">→ EDTA complexometric</a></li>
+        <li><a href="#t5-precip" class="toc-link">→ Argentometric &amp; Volhard</a></li>
+        <li><a href="#t5-redox" class="toc-link">→ Redox titrations</a></li>
+      </ul>
+    </div>
+
+    <h2 id="t5-basics">Fundamentals</h2>
+    <div class="concept-box">
+      <div class="concept-box-title">Key terms</div>
+      <ul>
+        <li><strong>Titrant</strong>: known-concentration reagent added from the burette</li>
+        <li><strong>Equivalence point (EQ)</strong>: stoichiometric amount of titrant added — theoretical, not directly observable</li>
+        <li><strong>End point (EP)</strong>: experimentally observed signal change (colour, pH, conductivity)</li>
+        <li><strong>Titration error</strong>: E_t = V_EP − V_EQ</li>
+      </ul>
+    </div>
+
+    <h2 id="t5-strongstrong">Strong Acid / Strong Base Titrations</h2>
+    <p><strong>pH at equivalence point = 7</strong> (neutral salt formed, 25°C).</p>
+    <div class="formula-block">
+      <div class="formula-name">Titration curve — three regions (HCl titrated with NaOH)</div>
+      <div class="formula-eq">Pre-EQ: [H₃O⁺] = (C_HCl·V_HCl − C_NaOH·V_NaOH) / V_total</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">Post-EQ: [OH⁻] = (C_NaOH·V_NaOH − C_HCl·V_HCl) / V_total → pH = 14 + log[OH⁻]</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Indicator</th><th>pKa</th><th>Colour change (acid→base)</th><th>pH range</th></tr></thead>
+        <tbody>
+          <tr><td>Bromophenol blue</td><td>4.1</td><td>Yellow → blue-violet</td><td>3.1–5.1</td></tr>
+          <tr><td>Methyl red</td><td>5.0</td><td>Red → yellow</td><td>4.0–6.0</td></tr>
+          <tr><td>Bromothymol blue</td><td>7.3</td><td>Yellow → blue</td><td>6.3–8.3</td></tr>
+          <tr><td>Phenolphthalein</td><td>9.5</td><td>Colourless → pink</td><td>8.5–10.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="concept-box tip">
+      <div class="concept-box-title">Choosing an indicator</div>
+      <p>The indicator's colour-change range must <em>overlap</em> the equivalence point pH. For strong acid/strong base (EQ at pH 7), any indicator with range between pH ~4–10 is acceptable due to the steep titration curve near EQ.</p>
+    </div>
+
+    <h2 id="t5-weakstrong">Weak Acid / Strong Base</h2>
+    <p class="learn-only">When the acid is weak, it doesn't fully dissociate. This changes the shape of the titration curve and moves the equivalence point above pH 7.</p>
+
+    <div class="formula-block">
+      <div class="formula-name">Weak acid titration curve formulas (HA + NaOH)</div>
+      <div class="formula-eq">Start: pH = −log√(Ka · C_HA)</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">Buffer region: pH = pKa + log([A⁻]/[HA]) (Henderson-Hasselbalch)</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">Half-EQ point: pH = pKa &nbsp;(when [A⁻] = [HA])</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">Equivalence point: pH = −log√(Kw · Ka / C_AB) &nbsp;→ pH &gt; 7</div>
+    </div>
+
+    <div class="concept-box danger">
+      <div class="concept-box-title">⚠️ Equivalence point for weak acid/strong base is BASIC</div>
+      <p>At the equivalence point, the analyte has been fully converted to its conjugate base A⁻. This base is weakly basic, so the solution is <strong>pH > 7</strong>. Choose an indicator whose range is above 7 — e.g. phenolphthalein (pH 8.5–10.5).</p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — Mixed weak acids (exam question)</div>
+      <p class="example-q">2.006 g sample contains 2-methylanilinium chloride (pKa 4.447) and 3-nitrophenol (pKa 8.39). Titrated with 0.200 M NaOH. Volume to bromocresol purple EP (pH ~4.8) = 19.65 mL. Total to phenolphthalein EP = 48.41 mL. Find %w/w of each.</p>
+      <div class="example-step">n(2-methylanilinium) = 0.200 × 0.01965 = 3.93×10⁻³ mol; MM = 143.61 g/mol</div>
+      <div class="example-step">m = 3.93×10⁻³ × 143.61 = 0.5644 g → <strong>%w/w = 28.1%</strong></div>
+      <div class="example-step">V for 3-nitrophenol = 48.41 − 19.65 = 28.76 mL; n = 0.200 × 0.02876 = 5.752×10⁻³ mol; MM = 139.11 g/mol</div>
+      <div class="example-answer">m = 5.752×10⁻³ × 139.11 = 0.8002 g → <strong>%w/w = 39.9%</strong></div>
+    </div>
+
+    <h2 id="t5-edta">EDTA Complexometric Titrations</h2>
+    <p class="learn-only">EDTA (ethylenediaminetetraacetic acid) is a hexadentate ligand — it grabs a metal ion with 2 nitrogen and 4 oxygen donor atoms simultaneously, forming an exceptionally stable 1:1 complex regardless of the metal's charge.</p>
+
+    <div class="concept-box">
+      <div class="concept-box-title">The key facts about EDTA</div>
+      <ul>
+        <li>Hexadentate (6 donor atoms: 2 N + 4 O) → chelate effect → very stable complexes</li>
+        <li><strong>Always 1:1 molar ratio with metal ion</strong> — M^n+ + Y⁴⁻ → MY^(n-4)+, regardless of charge</li>
+        <li>Y⁴⁻ is the active form; dominant at pH &gt; 10</li>
+        <li>Buffer required in EDTA titrations: (1) maintain pH so Y⁴⁻ dominates; (2) keep indicator in correct colour form</li>
+      </ul>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metal ion</th><th>log K_MY</th><th>Metal ion</th><th>log K_MY</th></tr></thead>
+        <tbody>
+          <tr><td>Ag⁺</td><td>7.3</td><td>Al³⁺</td><td>16.1</td></tr>
+          <tr><td>Ca²⁺</td><td>10.7</td><td>Fe³⁺</td><td>25.1</td></tr>
+          <tr><td>Cu²⁺</td><td>18.8</td><td>V³⁺</td><td>25.9</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="two-col">
+      <div class="concept-box tip">
+        <div class="concept-box-title">Eriochrome Black T (EBT) — pH 10</div>
+        <p>Metal-EBT complex = <strong>red</strong>. Free EBT at pH 10 = <strong>blue</strong>.</p>
+        <p>Endpoint: red → blue (as EDTA displaces EBT from the metal complex).</p>
+        <p>Must be pH &gt; 6.3 to see blue free EBT. pH 10 ammonia buffer is standard.</p>
+      </div>
+      <div class="concept-box note">
+        <div class="concept-box-title">Xylenol Orange (XO) — pH 4–6</div>
+        <p>Metal-XO complex = <strong>red/pink</strong>. Free XO at pH ~5.7 = <strong>yellow</strong>.</p>
+        <p>Endpoint: red → yellow.</p>
+        <p>Used for Zn²⁺, Ga³⁺, Pb²⁺, Bi³⁺ with acetate buffer.</p>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — CaCO₃ in eggshells</div>
+      <p class="example-q">5.487 g eggshells dissolved → Solution A (100 mL). 20 mL A → diluted to 1 L (Solution B). 20 mL B titrated with 0.0115 M EDTA; mean titre = 17.71 mL. Find mass fraction of CaCO₃.</p>
+      <div class="example-step">n(EDTA) in 20 mL B = 0.01771 × 0.0115 = 2.037×10⁻⁴ mol = n(Ca²⁺) in 20 mL B</div>
+      <div class="example-step">n(Ca²⁺) in all B (1 L) = 2.037×10⁻⁴ × (1000/20) = 1.0185×10⁻² mol</div>
+      <div class="example-step">n(Ca²⁺) in 20 mL A = 1.0185×10⁻² mol (B came from 20 mL A)</div>
+      <div class="example-step">n(Ca²⁺) in all A (100 mL) = 1.0185×10⁻² × (100/20) = 5.093×10⁻² mol = n(CaCO₃)</div>
+      <div class="example-step">m(CaCO₃) = 5.093×10⁻² × 100.09 = 5.097 g</div>
+      <div class="example-answer">Mass fraction = 5.097/5.487 = <strong>0.929</strong></div>
+    </div>
+
+    <h2 id="t5-precip">Argentometric &amp; Volhard Method</h2>
+    <div class="formula-block">
+      <div class="formula-name">Solubility product</div>
+      <div class="formula-eq">K_sp = [A]^a [B]^b &nbsp;&nbsp; (for A_aB_b ⇌ aA + bB)</div>
+      <p style="margin-top:8px">AgCl: Ksp = 1.8×10⁻¹⁰ · AgBr: 5.3×10⁻¹³ · AgI: 8.5×10⁻¹⁷ · AgSCN: 1.0×10⁻¹²</p>
+    </div>
+
+    <div class="concept-box">
+      <div class="concept-box-title">Volhard method — back-titration for halides</div>
+      <ol>
+        <li>Add <strong>known excess</strong> AgNO₃ to acidified halide sample → precipitate AgX</li>
+        <li><strong>Filter off AgX</strong> (critical step — must remove before back-titrating)</li>
+        <li>Add Fe(NO₃)₃ indicator to filtrate</li>
+        <li>Back-titrate excess Ag⁺ with standard KSCN → AgSCN precipitates</li>
+        <li>Endpoint: Fe³⁺ + SCN⁻ → FeSCN²⁺ (<strong>first permanent red colour</strong>)</li>
+      </ol>
+      <p style="margin-top:8px"><code>n(X⁻) = n(Ag total) − n(SCN) = C_AgNO₃·V_AgNO₃ − C_KSCN·V_KSCN</code></p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — Volhard for Br⁻</div>
+      <p class="example-q">25.00 mL sample + 25.00 mL 0.0123 M AgNO₃. Excess Ag⁺ back-titrated with 7.45 mL 0.0077 M KSCN. Find [Br⁻].</p>
+      <div class="example-step">n(Ag total) = 0.0123 × 0.02500 = 3.075×10⁻⁴ mol</div>
+      <div class="example-step">n(SCN) = 0.0077 × 0.00745 = 5.74×10⁻⁵ mol = n(Ag excess)</div>
+      <div class="example-step">n(Br⁻) = 3.075×10⁻⁴ − 5.74×10⁻⁵ = 2.50×10⁻⁴ mol</div>
+      <div class="example-answer">C(Br⁻) = 2.50×10⁻⁴/0.02500 = <strong>0.0100 M</strong></div>
+    </div>
+
+    <h2 id="t5-redox">Redox Titrations</h2>
+    <div class="formula-block">
+      <div class="formula-name">Reaction spontaneity from standard potentials</div>
+      <div class="formula-eq">E⁰_rxn = E⁰_red − E⁰_ox &gt; 0 → spontaneous</div>
+      <p style="margin-top:8px">More positive E⁰ → species more easily reduced (stronger oxidising agent). Reaction: higher E⁰ species is reduced; lower E⁰ species is oxidised.</p>
+    </div>
+
+    <div class="two-col">
+      <div class="concept-box success">
+        <div class="concept-box-title">KMnO₄ / Fe²⁺ (ratio 1:5)</div>
+        <p>MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O</p>
+        <p>E⁰_rxn = 1.51 − 0.77 = +0.74 V ✓</p>
+        <p><strong>Self-indicating</strong>: endpoint = first permanent purple colour (excess MnO₄⁻ not reduced)</p>
+        <p>Run in dilute H₂SO₄ (not HCl — Cl⁻ interferes)</p>
+      </div>
+      <div class="concept-box note">
+        <div class="concept-box-title">K₂Cr₂O₇ / Fe²⁺ (ratio 1:6)</div>
+        <p>Cr₂O₇²⁻ + 6Fe²⁺ + 14H⁺ → 2Cr³⁺ + 6Fe³⁺ + 7H₂O</p>
+        <p>Indicator: <strong>diphenylamine sulfonate</strong> — colourless → blue-green at endpoint</p>
+        <p>Greener alternative to KMnO₄; more stable standard solution</p>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Worked example — Fe²⁺ in soil (KMnO₄)</div>
+      <p class="example-q">20.00 g soil dissolved in 250 mL. 25 mL filtrate titrated with 6.55 mL 0.0023 M KMnO₄. Find Fe²⁺ content in mg/kg.</p>
+      <div class="example-step">n(MnO₄⁻) = 0.0023 × 0.00655 = 1.507×10⁻⁵ mol</div>
+      <div class="example-step">n(Fe²⁺) = 5 × 1.507×10⁻⁵ = 7.53×10⁻⁵ mol (in 25 mL)</div>
+      <div class="example-step">n(Fe²⁺ total) = 7.53×10⁻⁵ × (250/25) = 7.53×10⁻⁴ mol</div>
+      <div class="example-step">m(Fe) = 7.53×10⁻⁴ × 55.845 = 0.04205 g = 42.05 mg</div>
+      <div class="example-answer">Content = 42.05 mg / 0.02000 kg = <strong>2103 mg/kg (ppm)</strong></div>
+    </div>
+
+    <h2>Topic 5 essentials</h2>
+    <div class="concept-box">
+      <div class="concept-box-title revise-only">EXAM CHEAT SHEET</div>
+      <div class="concept-box-title learn-only">Quick recap</div>
+      <ul>
+        <li>EQ at pH 7 (strong/strong); EQ at pH &gt;7 (weak acid/strong base); half-EQ: pH = pKa</li>
+        <li>Indicator must change colour at EQ pH (range = pKa ± 1)</li>
+        <li>EDTA: always <strong>1:1</strong> with metal ion regardless of charge; Y⁴⁻ active above pH 10; EBT at pH 10 (red→blue); XO at pH 5 (red→yellow)</li>
+        <li>Buffer in EDTA titration: controls pH to keep Y⁴⁻ dominant AND indicator in correct form</li>
+        <li>Volhard: <strong>filter AgX before back-titrating</strong> or SCN⁻ also reacts with AgX surface</li>
+        <li>KMnO₄:Fe²⁺ = <strong>1:5</strong>; self-indicating; use H₂SO₄</li>
+        <li>Cr₂O₇²⁻:Fe²⁺ = <strong>1:6</strong>; diphenylamine sulfonate indicator</li>
+        <li>E⁰_rxn = E⁰_red − E⁰_ox; positive = spontaneous</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- FORMULA SHEET -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="formulas" class="section">
+  <div class="container">
+    <h1>Formula Sheet</h1>
+    <p class="hero-subtitle">Every calculation in the module. Variables defined, units stated.</p>
+
+    <h2>Topic 1 &amp; 2 — Statistics</h2>
+    <div class="formula-block">
+      <div class="formula-name">Error formulas</div>
+      <div class="formula-eq">Eᵢ = |xᵢ − xₜ| &nbsp;&nbsp;&nbsp; Rᵢ = |xᵢ − xₜ| / xₜ</div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Descriptive statistics</div>
+      <div class="formula-eq">x̄ = Σxᵢ/N &nbsp;&nbsp;&nbsp; s = √[Σ(xᵢ−x̄)²/(N−1)] &nbsp;&nbsp;&nbsp; Sₘ = s/√N &nbsp;&nbsp;&nbsp; RSD = (s/x̄)×100%</div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Pooled standard deviation</div>
+      <div class="formula-eq">s_pooled = √[ Σ(Nᵢ−1)sᵢ² / (ΣNᵢ − k) ]</div>
+      <div class="formula-vars"><div class="formula-var"><span class="formula-var-symbol">k</span>number of datasets being pooled</div></div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Confidence intervals</div>
+      <div class="formula-eq">CI = x̄ ± zσ/√N &nbsp;&nbsp;&nbsp; (σ known, z-statistic)</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:18px">CI = x̄ ± ts/√N &nbsp;&nbsp;&nbsp; (σ unknown, t-statistic; df = N−1)</div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Two-means comparison — reject null if:</div>
+      <div class="formula-eq">|x̄₁ − x̄₂| &gt; t · s_pooled · √[(N₁+N₂)/(N₁·N₂)] &nbsp;&nbsp; (df = N₁+N₂−2)</div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Bias test — reject null (no bias) if:</div>
+      <div class="formula-eq">|x̄ − xₜ| &gt; t · s / √N &nbsp;&nbsp; (df = N−1)</div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Dixon Q-test</div>
+      <div class="formula-eq">Q = |x_q − x_neighbour| / (x_max − x_min)</div>
+      <p style="margin-top:8px">Reject outlier if Q &gt; Q_critical. Sort data ascending first. Gap to <em>nearest</em> neighbour only.</p>
+    </div>
+
+    <h2>Topic 3 — Gravimetric</h2>
+    <div class="formula-block">
+      <div class="formula-name">Gravimetric factor</div>
+      <div class="formula-eq">GF = (a × MM_analyte) / (b × MM_precipitate)</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:18px">mass(analyte) = mass(precipitate) × GF</div>
+    </div>
+
+    <h2>Topic 4 — Spectroscopy</h2>
+    <div class="formula-block">
+      <div class="formula-name">EMR relationships</div>
+      <div class="formula-eq">c = λυ &nbsp;&nbsp;&nbsp; ν̄ = 1/λ (cm⁻¹) &nbsp;&nbsp;&nbsp; E = hυ = hc/λ &nbsp;&nbsp;&nbsp; I = EΦ/A</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">c</span>2.998×10⁸ m s⁻¹</div>
+        <div class="formula-var"><span class="formula-var-symbol">h</span>6.626×10⁻³⁴ J s</div>
+        <div class="formula-var"><span class="formula-var-symbol">ν̄ (cm⁻¹)</span>= 10⁷/λ(nm)</div>
+      </div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Beer-Lambert law</div>
+      <div class="formula-eq">T = I/I₀ &nbsp;&nbsp;&nbsp; A = −log T = log(I₀/I) = εbc</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">A_analyte = −log(I_A/I_B) &nbsp;&nbsp;&nbsp; (blank-corrected)</div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Concentration methods</div>
+      <div class="formula-eq">C = A/(εb) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Method A — known ε)</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">C_x = (A_x / A_std) × C_std &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Method B/C — direct comparison)</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">C_x = A_x / (A_spiked − A_x) × C_spike &nbsp; (Method D — standard addition)</div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Diffraction grating</div>
+      <div class="formula-eq">nλ = d sinθ</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">n</span>order of diffraction (integer)</div>
+        <div class="formula-var"><span class="formula-var-symbol">d</span>groove spacing</div>
+        <div class="formula-var"><span class="formula-var-symbol">θ</span>diffraction angle</div>
+      </div>
+    </div>
+
+    <h2>Topic 5 — Titrations</h2>
+    <div class="formula-block">
+      <div class="formula-name">pH relationships</div>
+      <div class="formula-eq">pH = −log[H₃O⁺] &nbsp;&nbsp;&nbsp; pOH = −log[OH⁻] &nbsp;&nbsp;&nbsp; pH + pOH = 14</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">Kw = [H₃O⁺][OH⁻] = 10⁻¹⁴ &nbsp;&nbsp;&nbsp; Ka×Kb = Kw &nbsp;&nbsp;&nbsp; pKa + pKb = 14</div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Henderson-Hasselbalch (buffer / half-EQ)</div>
+      <div class="formula-eq">pH = pKa + log([A⁻]/[HA]) &nbsp;&nbsp;&nbsp; → at half-EQ: pH = pKa</div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Weak acid equivalence point pH</div>
+      <div class="formula-eq">pH = −log√(Kw · Ka / C_AB) &nbsp;&nbsp;&nbsp; C_AB = concentration of conjugate base at EQ</div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Solubility product</div>
+      <div class="formula-eq">K_sp = [A]^a [B]^b &nbsp;&nbsp;&nbsp; (for A_aB_b ⇌ aA + bB in saturated solution)</div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Volhard back-titration</div>
+      <div class="formula-eq">n(X⁻) = n(Ag total) − n(SCN) = C_Ag·V_Ag − C_SCN·V_SCN</div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Redox spontaneity</div>
+      <div class="formula-eq">E⁰_rxn = E⁰_red − E⁰_ox &nbsp;&nbsp;&nbsp; (positive = spontaneous)</div>
+    </div>
+    <div class="formula-block">
+      <div class="formula-name">Conductivity</div>
+      <div class="formula-eq">σ = 1/ρ &nbsp;&nbsp;&nbsp; ρ = R·A/ℓ</div>
+      <div class="formula-vars">
+        <div class="formula-var"><span class="formula-var-symbol">σ</span>conductivity (S cm⁻¹)</div>
+        <div class="formula-var"><span class="formula-var-symbol">ρ</span>resistivity (Ω cm)</div>
+        <div class="formula-var"><span class="formula-var-symbol">R</span>resistance (Ω)</div>
+        <div class="formula-var"><span class="formula-var-symbol">A</span>electrode area (cm²)</div>
+        <div class="formula-var"><span class="formula-var-symbol">ℓ</span>electrode distance (cm)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- GLOSSARY -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="glossary" class="section">
+  <div class="container-wide">
+    <h1>Complete Glossary</h1>
+    <p style="margin-bottom:24px;color:var(--text-2)">Search across all 130+ terms instantly. Filter by topic.</p>
+    <div class="glossary-search-wrap">
+      <div class="search-input-wrap">
+        <input type="text" class="search-input" id="glossary-search-input" placeholder="Search any term, definition, or concept..." autocomplete="off">
+        <span class="search-icon">⌕</span>
+      </div>
+      <span id="search-results-count"></span>
+    </div>
+    <div class="filter-row">
+      <button class="filter-btn active" data-gfilter="all">All topics</button>
+      <button class="filter-btn" data-gfilter="t1">T1 Data &amp; Errors</button>
+      <button class="filter-btn" data-gfilter="t2">T2 Statistics</button>
+      <button class="filter-btn" data-gfilter="t3">T3 Gravimetric</button>
+      <button class="filter-btn" data-gfilter="t4">T4 Spectroscopy</button>
+      <button class="filter-btn" data-gfilter="t5">T5 Titrations</button>
+    </div>
+    <div id="glossary-container"></div>
+    <div id="no-results" style="display:none;text-align:center;padding:60px 20px;color:var(--muted);font-family:'JetBrains Mono',monospace">No terms found — try a different search</div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- MCQ TRAPS -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="traps" class="section">
+  <div class="container">
+    <h1>MCQ Traps</h1>
+    <p class="hero-subtitle">Plausible-but-wrong claims the exam uses. Read each one. Know what's actually true.</p>
+
+    <h2>Topics 1 &amp; 2 — Statistics</h2>
+    <div class="trap-card"><span class="trap-tag">Stats T1</span><div class="trap-claim">"Standard deviation measures accuracy."</div><div class="trap-truth"><strong>FALSE.</strong> Standard deviation measures <strong>precision</strong>. Accuracy is measured by error (how close to the true value). You can have high precision with poor accuracy.</div></div>
+    <div class="trap-card"><span class="trap-tag">Stats T2</span><div class="trap-claim">"The z-based confidence interval is wider than the t-based CI at the same confidence level."</div><div class="trap-truth"><strong>FALSE.</strong> The <strong>t-based CI is always wider</strong>. t accounts for additional uncertainty from estimating σ from a small sample. t-values are always ≥ z (equal only at df = ∞).</div></div>
+    <div class="trap-card"><span class="trap-tag">Stats T3</span><div class="trap-claim">"In the Q-test, the gap is the distance from the suspect value to the next-nearest neighbour."</div><div class="trap-truth"><strong>FALSE.</strong> The gap is |x_q − <em>nearest</em> neighbour|. Always sort the data first, then take the difference to the <em>adjacent</em> value.</div></div>
+    <div class="trap-card"><span class="trap-tag">Stats T4</span><div class="trap-claim">"After identifying an outlier with the Q-test, you can include it in the recalculated mean."</div><div class="trap-truth"><strong>FALSE.</strong> After rejecting an outlier, recalculate mean and SD on the <strong>remaining N−1 data points only</strong>.</div></div>
+    <div class="trap-card"><span class="trap-tag">Stats T5</span><div class="trap-claim">"The sample standard deviation formula divides by N."</div><div class="trap-truth"><strong>FALSE.</strong> Sample SD divides by <strong>N−1</strong> (Bessel's correction) to give an unbiased estimate of σ. Only the population SD divides by N.</div></div>
+
+    <h2>Topic 3 — Gravimetric</h2>
+    <div class="trap-card"><span class="trap-tag">Grav T1</span><div class="trap-claim">"1 mole of FeS₂ produces 1 mole of BaSO₄."</div><div class="trap-truth"><strong>FALSE.</strong> FeS₂ contains <strong>2 sulfur atoms</strong>, each forming one SO₄²⁻ → one BaSO₄. So 1 mol FeS₂ → 2 mol BaSO₄. Forgetting this stoichiometry halves your answer.</div></div>
+    <div class="trap-card"><span class="trap-tag">Grav T2</span><div class="trap-claim">"Occlusion can be removed by washing the precipitate."</div><div class="trap-truth"><strong>FALSE.</strong> Occluded impurities are <strong>physically trapped inside</strong> the crystal lattice — washing cannot reach them. Only digestion (slow crystal growth, Ostwald ripening) reduces occlusion.</div></div>
+    <div class="trap-card"><span class="trap-tag">Grav T3</span><div class="trap-claim">"TGA mass loss between 600–800°C represents the mass of CaO lost."</div><div class="trap-truth"><strong>FALSE.</strong> The mass lost is <strong>CO₂</strong> (from CaCO₃ → CaO + CO₂). CaO remains in the crucible. Use m(CO₂) to find n(CO₂) = n(CaCO₃), then calculate m(CaCO₃).</div></div>
+    <div class="trap-card"><span class="trap-tag">Grav T4</span><div class="trap-claim">"Electrogravimetry requires a gravimetric factor calculation."</div><div class="trap-truth"><strong>FALSE.</strong> In electrogravimetry, the analyte is deposited as the <strong>pure element</strong> on the electrode — mass gain directly equals mass of analyte. No GF needed.</div></div>
+
+    <h2>Topic 4 — Spectroscopy</h2>
+    <div class="trap-card"><span class="trap-tag">Spec T1</span><div class="trap-claim">"When light enters a denser medium, its frequency decreases."</div><div class="trap-truth"><strong>FALSE.</strong> Frequency (and energy) are <strong>unchanged</strong> when light changes media. Only velocity and wavelength change (both decrease in a denser medium).</div></div>
+    <div class="trap-card"><span class="trap-tag">Spec T2</span><div class="trap-claim">"Measuring absorbance without a blank is fine because the blank has zero absorbance."</div><div class="trap-truth"><strong>FALSE.</strong> Solvents, cuvettes, and dissolved species all absorb. Without blank correction you <strong>overestimate</strong> the analyte absorbance. Always measure I_blank.</div></div>
+    <div class="trap-card"><span class="trap-tag">Spec T3</span><div class="trap-claim">"In standard addition: C_analyte = A_analyte / A_spiked × C_spike."</div><div class="trap-truth"><strong>FALSE.</strong> The denominator is the <strong>difference</strong>: C_analyte = A_analyte / (A_spiked − A_analyte) × C_spike. Using A_spiked directly gives a systematically low result.</div></div>
+    <div class="trap-card"><span class="trap-tag">Spec T4</span><div class="trap-claim">"Glass cuvettes can be used for UV measurements."</div><div class="trap-truth"><strong>FALSE.</strong> Glass absorbs UV radiation. Use <strong>quartz (SiO₂) cuvettes</strong> for UV. Glass and plastic are only suitable for Vis (400–800 nm).</div></div>
+
+    <h2>Topic 5 — Titrations</h2>
+    <div class="trap-card"><span class="trap-tag">Tit T1</span><div class="trap-claim">"The equivalence point for a weak acid/strong base titration is at pH 7."</div><div class="trap-truth"><strong>FALSE.</strong> The equivalence point is <strong>basic (pH &gt; 7)</strong> because the product is the conjugate base A⁻, which is weakly basic. Choose an indicator that changes above pH 7 (e.g. phenolphthalein).</div></div>
+    <div class="trap-card"><span class="trap-tag">Tit T2</span><div class="trap-claim">"EDTA reacts with Ca²⁺ in a 2:1 molar ratio."</div><div class="trap-truth"><strong>FALSE.</strong> EDTA always reacts <strong>1:1 with any metal ion</strong> regardless of its charge. Ca²⁺, Fe³⁺, and Th⁴⁺ all consume exactly 1 mole of EDTA per mole of metal.</div></div>
+    <div class="trap-card"><span class="trap-tag">Tit T3</span><div class="trap-claim">"In the Volhard method, you add KSCN directly to the original sample without filtering."</div><div class="trap-truth"><strong>FALSE.</strong> You must <strong>filter off the AgX precipitate first</strong>. If AgCl remains, SCN⁻ reacts with it at the surface (Ksp AgSCN &lt; Ksp AgCl) giving a falsely high Ag⁺ value and wrong Cl⁻ result.</div></div>
+    <div class="trap-card"><span class="trap-tag">Tit T4</span><div class="trap-claim">"The molar ratio of MnO₄⁻ to Fe²⁺ in permanganate titration is 1:1."</div><div class="trap-truth"><strong>FALSE.</strong> MnO₄⁻ accepts <strong>5 electrons</strong> (Mn⁷⁺ → Mn²⁺); Fe²⁺ donates 1 electron. Ratio is <strong>1 MnO₄⁻ : 5 Fe²⁺</strong>. Forgetting this gives a result that is 5× too low.</div></div>
+    <div class="trap-card"><span class="trap-tag">Tit T5</span><div class="trap-claim">"KMnO₄ titrations require an external indicator."</div><div class="trap-truth"><strong>FALSE.</strong> KMnO₄ is <strong>self-indicating</strong>. The purple MnO₄⁻ is immediately decolourised by Fe²⁺ before the endpoint. The first <em>permanent</em> purple colour marks the endpoint. No separate indicator is needed.</div></div>
+    <div class="trap-card"><span class="trap-tag">Tit T6</span><div class="trap-claim">"Eriochrome Black T indicator can be used at pH 5."</div><div class="trap-truth"><strong>FALSE.</strong> At pH &lt; 6.3, free EBT is in the red H₂EBT⁻ form — the same colour as the metal-EBT complex. You cannot see the endpoint. EBT must be used at <strong>pH &gt; 6.3 (typically pH 10)</strong>.</div></div>
+    <div class="trap-card"><span class="trap-tag">Tit T7</span><div class="trap-claim">"The half-equivalence point pH equals the pKb for a weak acid titration."</div><div class="trap-truth"><strong>FALSE.</strong> At the half-equivalence point of a <strong>weak acid</strong> titration, <strong>pH = pKa</strong>. The pKb relates to the conjugate base. Don't confuse which ionisation constant applies.</div></div>
+  </div>
+</section>
+
+</main>
+<script src="js/glossary-data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EGA110 — Definitions &amp; Diagrams</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .def-section{margin-bottom:72px;padding-top:16px}
+  .diagram-wrap{background:#16161e;border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;margin:22px 0;overflow-x:auto}
+  .diagram-wrap svg{display:block;max-width:100%;height:auto;margin:0 auto}
+  .diagram-caption{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-align:center;margin-top:10px;text-transform:uppercase;letter-spacing:0.5px}
+  .def-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;margin:20px 0}
+  .def-item{background:var(--bg-elev);padding:15px 17px;border-left:3px solid var(--amber)}
+  .def-item-name{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:var(--amber);margin-bottom:5px}
+  .def-item-def{font-size:13px;color:var(--text-2);line-height:1.55}
+  .def-item-note{font-size:11px;color:var(--muted);margin-top:5px;font-style:italic}
+  .d-blue{border-left-color:var(--blue)!important}.d-blue .def-item-name{color:var(--blue)}
+  .d-green{border-left-color:var(--green)!important}.d-green .def-item-name{color:var(--green)}
+  .d-purple{border-left-color:var(--purple)!important}.d-purple .def-item-name{color:var(--purple)}
+  .d-teal{border-left-color:var(--teal)!important}.d-teal .def-item-name{color:var(--teal)}
+  .d-coral{border-left-color:var(--coral)!important}.d-coral .def-item-name{color:var(--coral)}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-logo" style="background:linear-gradient(135deg,var(--gold),var(--amber))">EA</div>
+      <span>EGA110</span>
+    </a>
+    <div class="nav-links">
+      <a href="https://ayquresh23.github.io" class="nav-link">← All Modules</a>
+      <a href="index.html" class="nav-link">← Back to EGA110</a>
+      <a href="#t1" class="nav-link">T1 Errors</a>
+      <a href="#t2" class="nav-link">T2 Stats</a>
+      <a href="#t3" class="nav-link">T3 Gravimetric</a>
+      <a href="#t4" class="nav-link">T4 Spectroscopy</a>
+      <a href="#t5" class="nav-link">T5 Titrations</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<div class="container">
+  <div style="padding-top:20px">
+    <span class="hero-tag">EGA110 — Definitions &amp; Diagrams</span>
+    <h1>Definitions with Diagrams</h1>
+    <p style="font-size:17px;color:var(--text-2);max-width:700px;margin-bottom:32px">Key terms illustrated. Diagrams built from the lecture notes — every label corresponds to an exam target.</p>
+  </div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- T1 — DATA & ERRORS -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<div class="def-section" id="t1">
+  <h2 style="color:var(--amber)">Topic 1 — Data &amp; Errors</h2>
+
+  <h3>Accuracy vs Precision — dartboard analogy</h3>
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 620 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- Labels -->
+      <text x="80" y="18" font-family="JetBrains Mono,monospace" font-size="11" fill="#c8c8d8" text-anchor="middle" font-weight="700">ACCURATE + PRECISE</text>
+      <text x="230" y="18" font-family="JetBrains Mono,monospace" font-size="11" fill="#c8c8d8" text-anchor="middle" font-weight="700">PRECISE, NOT ACCURATE</text>
+      <text x="390" y="18" font-family="JetBrains Mono,monospace" font-size="11" fill="#c8c8d8" text-anchor="middle" font-weight="700">ACCURATE, NOT PRECISE</text>
+      <text x="540" y="18" font-family="JetBrains Mono,monospace" font-size="11" fill="#c8c8d8" text-anchor="middle" font-weight="700">NEITHER</text>
+      <!-- Dartboard 1 — accurate + precise -->
+      <circle cx="80" cy="120" r="70" fill="none" stroke="#2e2e3e" stroke-width="1"/>
+      <circle cx="80" cy="120" r="50" fill="none" stroke="#2e2e3e" stroke-width="1"/>
+      <circle cx="80" cy="120" r="30" fill="none" stroke="#2e2e3e" stroke-width="1"/>
+      <circle cx="80" cy="120" r="12" fill="#7c6af7" opacity="0.3"/>
+      <circle cx="78" cy="118" r="5" fill="#7c6af7"/><circle cx="82" cy="122" r="5" fill="#7c6af7"/><circle cx="80" cy="116" r="5" fill="#7c6af7"/><circle cx="76" cy="123" r="5" fill="#7c6af7"/>
+      <text x="80" y="205" font-family="JetBrains Mono,monospace" font-size="9" fill="#7af76a" text-anchor="middle">✓ Low error, low SD</text>
+      <!-- Dartboard 2 — precise not accurate -->
+      <circle cx="230" cy="120" r="70" fill="none" stroke="#2e2e3e" stroke-width="1"/>
+      <circle cx="230" cy="120" r="50" fill="none" stroke="#2e2e3e" stroke-width="1"/>
+      <circle cx="230" cy="120" r="30" fill="none" stroke="#2e2e3e" stroke-width="1"/>
+      <circle cx="210" cy="100" r="5" fill="#f7a84a"/><circle cx="214" cy="96" r="5" fill="#f7a84a"/><circle cx="207" cy="104" r="5" fill="#f7a84a"/><circle cx="212" cy="101" r="5" fill="#f7a84a"/>
+      <text x="230" y="205" font-family="JetBrains Mono,monospace" font-size="9" fill="#f7a84a" text-anchor="middle">High error, low SD</text>
+      <!-- Dartboard 3 — accurate not precise -->
+      <circle cx="390" cy="120" r="70" fill="none" stroke="#2e2e3e" stroke-width="1"/>
+      <circle cx="390" cy="120" r="50" fill="none" stroke="#2e2e3e" stroke-width="1"/>
+      <circle cx="390" cy="120" r="30" fill="none" stroke="#2e2e3e" stroke-width="1"/>
+      <circle cx="370" cy="105" r="5" fill="#6aabf7"/><circle cx="400" cy="130" r="5" fill="#6aabf7"/><circle cx="385" cy="95" r="5" fill="#6aabf7"/><circle cx="395" cy="140" r="5" fill="#6aabf7"/>
+      <text x="390" y="205" font-family="JetBrains Mono,monospace" font-size="9" fill="#6aabf7" text-anchor="middle">Low error, high SD</text>
+      <!-- Dartboard 4 — neither -->
+      <circle cx="540" cy="120" r="70" fill="none" stroke="#2e2e3e" stroke-width="1"/>
+      <circle cx="540" cy="120" r="50" fill="none" stroke="#2e2e3e" stroke-width="1"/>
+      <circle cx="540" cy="120" r="30" fill="none" stroke="#2e2e3e" stroke-width="1"/>
+      <circle cx="510" cy="100" r="5" fill="#f76c8a"/><circle cx="565" cy="140" r="5" fill="#f76c8a"/><circle cx="555" cy="95" r="5" fill="#f76c8a"/><circle cx="520" cy="148" r="5" fill="#f76c8a"/>
+      <text x="540" y="205" font-family="JetBrains Mono,monospace" font-size="9" fill="#f76c8a" text-anchor="middle">High error, high SD</text>
+    </svg>
+    <div class="diagram-caption">Accuracy vs precision — four possible combinations</div>
+  </div>
+
+  <h3>Gaussian distribution</h3>
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arr" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#5a5a72"/></marker>
+      </defs>
+      <!-- Axes -->
+      <line x1="40" y1="195" x2="570" y2="195" stroke="#3a3a52" stroke-width="1.5" marker-end="url(#arr)"/>
+      <line x1="300" y1="205" x2="300" y2="20" stroke="#3a3a52" stroke-width="1.5" marker-end="url(#arr)"/>
+      <text x="575" y="198" font-family="JetBrains Mono,monospace" font-size="10" fill="#7a7a92">x</text>
+      <text x="295" y="16" font-family="JetBrains Mono,monospace" font-size="10" fill="#7a7a92">p(x)</text>
+      <!-- Bell curve path -->
+      <path d="M 60,192 C 100,191 150,188 200,170 C 230,156 260,115 280,70 C 290,45 300,32 300,32 C 300,32 310,45 320,70 C 340,115 370,156 400,170 C 450,188 500,191 540,192" fill="rgba(124,106,247,0.12)" stroke="#7c6af7" stroke-width="2"/>
+      <!-- μ label -->
+      <line x1="300" y1="32" x2="300" y2="195" stroke="#7c6af7" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+      <text x="300" y="210" font-family="JetBrains Mono,monospace" font-size="11" fill="#7c6af7" text-anchor="middle">μ</text>
+      <!-- ±1σ shading -->
+      <path d="M 220,192 C 240,188 260,150 280,85 C 290,55 295,38 300,32 C 305,38 310,55 320,85 C 340,150 360,188 380,192 Z" fill="rgba(124,106,247,0.2)"/>
+      <line x1="220" y1="175" x2="220" y2="195" stroke="#7c6af7" stroke-width="1.2" stroke-dasharray="3,3"/>
+      <line x1="380" y1="175" x2="380" y2="195" stroke="#7c6af7" stroke-width="1.2" stroke-dasharray="3,3"/>
+      <text x="220" y="210" font-family="JetBrains Mono,monospace" font-size="10" fill="#7c6af7" text-anchor="middle">μ−σ</text>
+      <text x="380" y="210" font-family="JetBrains Mono,monospace" font-size="10" fill="#7c6af7" text-anchor="middle">μ+σ</text>
+      <!-- ±2σ markers -->
+      <line x1="140" y1="190" x2="140" y2="195" stroke="#4af7c0" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="460" y1="190" x2="460" y2="195" stroke="#4af7c0" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="140" y="210" font-family="JetBrains Mono,monospace" font-size="9" fill="#4af7c0" text-anchor="middle">μ−2σ</text>
+      <text x="460" y="210" font-family="JetBrains Mono,monospace" font-size="9" fill="#4af7c0" text-anchor="middle">μ+2σ</text>
+      <!-- Percentage labels -->
+      <text x="300" y="100" font-family="JetBrains Mono,monospace" font-size="11" fill="#7c6af7" text-anchor="middle" font-weight="700">68%</text>
+      <text x="300" y="135" font-family="JetBrains Mono,monospace" font-size="10" fill="#4af7c0" text-anchor="middle">95%</text>
+      <text x="300" y="160" font-family="JetBrains Mono,monospace" font-size="9" fill="#f7a84a" text-anchor="middle">99.7%</text>
+    </svg>
+    <div class="diagram-caption">Gaussian distribution — 68-95-99.7 rule. Shaded area = ±1σ = 68% of measurements.</div>
+  </div>
+
+  <div class="def-grid">
+    <div class="def-item"><div class="def-item-name">Absolute error</div><div class="def-item-def">Eᵢ = |xᵢ − xₜ|. Magnitude of deviation from true value. Same units as measurement.</div></div>
+    <div class="def-item"><div class="def-item-name">Relative error</div><div class="def-item-def">Rᵢ = |xᵢ − xₜ| / xₜ. Dimensionless fraction (or %). Allows comparison across different magnitudes.</div></div>
+    <div class="def-item"><div class="def-item-name">Sample standard deviation</div><div class="def-item-def">s = √[Σ(xᵢ−x̄)²/(N−1)]. Uses N−1 (Bessel's correction). Measures scatter of replicate measurements.</div></div>
+    <div class="def-item"><div class="def-item-name">Standard error of the mean</div><div class="def-item-def">Sₘ = s/√N. Uncertainty in the mean x̄. Decreases with more measurements. NOT the same as s.</div></div>
+  </div>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- T4 — SPECTROSCOPY -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<div class="def-section" id="t4">
+  <h2 style="color:var(--purple)">Topic 4 — Spectroscopy</h2>
+
+  <h3>Beer-Lambert law — light path through a cuvette</h3>
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 640 180" xmlns="http://www.w3.org/2000/svg">
+      <!-- Incident beam -->
+      <line x1="20" y1="90" x2="160" y2="90" stroke="#f7a84a" stroke-width="8" opacity="0.9"/>
+      <text x="90" y="78" font-family="JetBrains Mono,monospace" font-size="10" fill="#f7a84a" text-anchor="middle">I₀</text>
+      <!-- Cuvette -->
+      <rect x="160" y="30" width="240" height="120" fill="rgba(74,247,192,0.06)" stroke="#4af7c0" stroke-width="2" rx="4"/>
+      <text x="280" y="22" font-family="JetBrains Mono,monospace" font-size="10" fill="#4af7c0" text-anchor="middle" font-weight="700">SAMPLE SOLUTION (concentration c)</text>
+      <text x="280" y="170" font-family="JetBrains Mono,monospace" font-size="10" fill="#7a7a92" text-anchor="middle">path length b (cm)</text>
+      <line x1="160" y1="162" x2="400" y2="162" stroke="#7a7a92" stroke-width="1.2" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <!-- Transmitted beam (thinner — less intensity) -->
+      <line x1="400" y1="90" x2="540" y2="90" stroke="#7c6af7" stroke-width="4" opacity="0.85"/>
+      <text x="470" y="78" font-family="JetBrains Mono,monospace" font-size="10" fill="#7c6af7" text-anchor="middle">I (transmitted)</text>
+      <!-- Annotations -->
+      <text x="280" y="80" font-family="JetBrains Mono,monospace" font-size="10" fill="#c8c8d8" text-anchor="middle">analyte molecules</text>
+      <text x="280" y="98" font-family="JetBrains Mono,monospace" font-size="10" fill="#c8c8d8" text-anchor="middle">absorb photons</text>
+      <!-- Formula -->
+      <rect x="550" y="60" width="75" height="60" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+      <text x="587" y="82" font-family="JetBrains Mono,monospace" font-size="10" fill="#7c6af7" text-anchor="middle">T = I/I₀</text>
+      <text x="587" y="96" font-family="JetBrains Mono,monospace" font-size="10" fill="#f7a84a" text-anchor="middle">A = εbc</text>
+      <text x="587" y="110" font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7a92" text-anchor="middle">A = −log T</text>
+    </svg>
+    <div class="diagram-caption">Beer-Lambert law — incident intensity I₀ reduced to I as analyte molecules absorb photons</div>
+  </div>
+
+  <h3>UV-Vis spectrometer — signal path</h3>
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 700 110" xmlns="http://www.w3.org/2000/svg">
+      <!-- Boxes -->
+      <rect x="20" y="30" width="110" height="50" fill="var(--surface)" stroke="var(--amber)" stroke-width="1.5" rx="6"/>
+      <text x="75" y="52" font-family="JetBrains Mono,monospace" font-size="10" fill="#f7a84a" text-anchor="middle" font-weight="700">SOURCE</text>
+      <text x="75" y="67" font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7a92" text-anchor="middle">D₂ lamp (UV)</text>
+      <text x="75" y="78" font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7a92" text-anchor="middle">W-halogen (Vis)</text>
+      <line x1="130" y1="55" x2="160" y2="55" stroke="#5a5a72" stroke-width="1.5" marker-end="url(#arr)"/>
+      <rect x="160" y="30" width="130" height="50" fill="var(--surface)" stroke="var(--teal)" stroke-width="1.5" rx="6"/>
+      <text x="225" y="52" font-family="JetBrains Mono,monospace" font-size="10" fill="#4af7c0" text-anchor="middle" font-weight="700">λ SELECTOR</text>
+      <text x="225" y="67" font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7a92" text-anchor="middle">Diffraction grating</text>
+      <text x="225" y="78" font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7a92" text-anchor="middle">nλ = d sinθ</text>
+      <line x1="290" y1="55" x2="320" y2="55" stroke="#5a5a72" stroke-width="1.5" marker-end="url(#arr)"/>
+      <rect x="320" y="30" width="110" height="50" fill="var(--surface)" stroke="var(--blue)" stroke-width="1.5" rx="6"/>
+      <text x="375" y="52" font-family="JetBrains Mono,monospace" font-size="10" fill="#6aabf7" text-anchor="middle" font-weight="700">SAMPLE</text>
+      <text x="375" y="67" font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7a92" text-anchor="middle">Quartz cuvette</text>
+      <text x="375" y="78" font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7a92" text-anchor="middle">(UV + Vis)</text>
+      <line x1="430" y1="55" x2="460" y2="55" stroke="#5a5a72" stroke-width="1.5" marker-end="url(#arr)"/>
+      <rect x="460" y="30" width="110" height="50" fill="var(--surface)" stroke="var(--purple)" stroke-width="1.5" rx="6"/>
+      <text x="515" y="52" font-family="JetBrains Mono,monospace" font-size="10" fill="#c06af7" text-anchor="middle" font-weight="700">DETECTOR</text>
+      <text x="515" y="67" font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7a92" text-anchor="middle">PMT or</text>
+      <text x="515" y="78" font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7a92" text-anchor="middle">Photodiode</text>
+      <line x1="570" y1="55" x2="600" y2="55" stroke="#5a5a72" stroke-width="1.5" marker-end="url(#arr)"/>
+      <rect x="600" y="30" width="80" height="50" fill="var(--surface)" stroke="var(--green)" stroke-width="1.5" rx="6"/>
+      <text x="640" y="52" font-family="JetBrains Mono,monospace" font-size="10" fill="#7af76a" text-anchor="middle" font-weight="700">OUTPUT</text>
+      <text x="640" y="67" font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7a92" text-anchor="middle">A or %T</text>
+    </svg>
+    <div class="diagram-caption">UV-Vis spectrometer signal path — source → wavelength selector → sample → detector → output</div>
+  </div>
+
+  <div class="def-grid">
+    <div class="def-item d-purple"><div class="def-item-name">Molar absorptivity (ε)</div><div class="def-item-def">Species- and wavelength-specific proportionality constant in Beer-Lambert law. Units: L mol⁻¹ cm⁻¹. Maximum at λ_max.</div></div>
+    <div class="def-item d-purple"><div class="def-item-name">λ_max</div><div class="def-item-def">Wavelength of maximum absorbance/molar absorptivity. Most sensitive measurement point; Beer-Lambert most linear here.</div></div>
+    <div class="def-item d-purple"><div class="def-item-name">Standard addition advantage</div><div class="def-item-def">Compensates for matrix effects — any species that affects absorbance in the sample also affects the spiked sample equally, so the effect cancels out in the ratio.</div></div>
+    <div class="def-item d-purple"><div class="def-item-name">PMT (photomultiplier tube)</div><div class="def-item-def">Detector with cascade of dynodes; each dynode multiplies electrons ~5×; total gain ~10⁶. Range 150–1000 nm. Used in high-sensitivity instruments.</div></div>
+  </div>
+</div>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- T5 — TITRATIONS -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<div class="def-section" id="t5">
+  <h2 style="color:var(--teal)">Topic 5 — Titrations</h2>
+
+  <h3>Strong acid / strong base titration curve</h3>
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 560 290" xmlns="http://www.w3.org/2000/svg">
+      <!-- Axes -->
+      <line x1="60" y1="255" x2="520" y2="255" stroke="#3a3a52" stroke-width="1.5"/>
+      <line x1="60" y1="255" x2="60" y2="15" stroke="#3a3a52" stroke-width="1.5"/>
+      <text x="290" y="278" font-family="JetBrains Mono,monospace" font-size="10" fill="#7a7a92" text-anchor="middle">Volume NaOH added (mL) →</text>
+      <text x="20" y="140" font-family="JetBrains Mono,monospace" font-size="10" fill="#7a7a92" text-anchor="middle" transform="rotate(-90 20 140)">pH →</text>
+      <!-- Y-axis ticks -->
+      <text x="52" y="252" font-family="JetBrains Mono,monospace" font-size="9" fill="#5a5a72" text-anchor="end">0</text>
+      <line x1="57" y1="220" x2="60" y2="220" stroke="#3a3a52" stroke-width="1"/>
+      <text x="52" y="223" font-family="JetBrains Mono,monospace" font-size="9" fill="#5a5a72" text-anchor="end">2</text>
+      <line x1="57" y1="185" x2="60" y2="185" stroke="#3a3a52" stroke-width="1"/>
+      <text x="52" y="188" font-family="JetBrains Mono,monospace" font-size="9" fill="#5a5a72" text-anchor="end">4</text>
+      <line x1="57" y1="150" x2="60" y2="150" stroke="#3a3a52" stroke-width="1"/>
+      <text x="52" y="153" font-family="JetBrains Mono,monospace" font-size="9" fill="#5a5a72" text-anchor="end">6</text>
+      <line x1="57" y1="115" x2="60" y2="115" stroke="#3a3a52" stroke-width="1"/>
+      <text x="52" y="118" font-family="JetBrains Mono,monospace" font-size="9" fill="#5a5a72" text-anchor="end">8</text>
+      <line x1="57" y1="80" x2="60" y2="80" stroke="#3a3a52" stroke-width="1"/>
+      <text x="52" y="83" font-family="JetBrains Mono,monospace" font-size="9" fill="#5a5a72" text-anchor="end">10</text>
+      <line x1="57" y1="45" x2="60" y2="45" stroke="#3a3a52" stroke-width="1"/>
+      <text x="52" y="48" font-family="JetBrains Mono,monospace" font-size="9" fill="#5a5a72" text-anchor="end">12</text>
+      <!-- Titration curve — strong/strong S-shape -->
+      <path d="M 80,235 C 120,228 160,215 200,200 C 230,188 250,185 265,178 C 272,150 275,120 278,100 C 280,80 282,60 285,50 C 288,40 292,35 295,36 C 302,40 308,55 312,72 C 318,95 322,115 330,135 C 345,162 370,180 400,192 C 430,203 460,215 500,228" fill="none" stroke="#7c6af7" stroke-width="2.5"/>
+      <!-- EQ point line -->
+      <line x1="60" y1="133" x2="295" y2="133" stroke="#f7a84a" stroke-width="1" stroke-dasharray="5,4" opacity="0.7"/>
+      <line x1="295" y1="133" x2="295" y2="255" stroke="#f7a84a" stroke-width="1" stroke-dasharray="5,4" opacity="0.7"/>
+      <text x="305" y="130" font-family="JetBrains Mono,monospace" font-size="9" fill="#f7a84a">EQ</text>
+      <text x="62" y="130" font-family="JetBrains Mono,monospace" font-size="9" fill="#f7a84a">pH=7</text>
+      <!-- Region labels -->
+      <text x="170" y="210" font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7a92" text-anchor="middle">excess HCl</text>
+      <text x="420" y="210" font-family="JetBrains Mono,monospace" font-size="9" fill="#7a7a92" text-anchor="middle">excess NaOH</text>
+      <!-- Steep jump annotation -->
+      <text x="340" y="100" font-family="JetBrains Mono,monospace" font-size="9" fill="#7c6af7">steep jump</text>
+      <text x="340" y="112" font-family="JetBrains Mono,monospace" font-size="9" fill="#7c6af7">near EQ →</text>
+    </svg>
+    <div class="diagram-caption">Strong acid / strong base titration curve — S-shaped, equivalence point at pH 7, steep jump indicates correct region for indicator selection</div>
+  </div>
+
+  <h3>EDTA structure — hexadentate ligand</h3>
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg">
+      <!-- Central metal ion -->
+      <circle cx="280" cy="85" r="22" fill="rgba(124,106,247,0.2)" stroke="#7c6af7" stroke-width="2"/>
+      <text x="280" y="90" font-family="JetBrains Mono,monospace" font-size="12" fill="#7c6af7" text-anchor="middle" font-weight="700">M^n+</text>
+      <!-- 6 coordinate bonds -->
+      <line x1="258" y1="85" x2="170" y2="85" stroke="#4af7c0" stroke-width="1.8" stroke-dasharray="4,2"/>
+      <line x1="302" y1="85" x2="390" y2="85" stroke="#4af7c0" stroke-width="1.8" stroke-dasharray="4,2"/>
+      <line x1="270" y1="65" x2="210" y2="30" stroke="#f7a84a" stroke-width="1.8" stroke-dasharray="4,2"/>
+      <line x1="290" y1="65" x2="350" y2="30" stroke="#f7a84a" stroke-width="1.8" stroke-dasharray="4,2"/>
+      <line x1="270" y1="105" x2="210" y2="140" stroke="#f7a84a" stroke-width="1.8" stroke-dasharray="4,2"/>
+      <line x1="290" y1="105" x2="350" y2="140" stroke="#f7a84a" stroke-width="1.8" stroke-dasharray="4,2"/>
+      <!-- N donors -->
+      <circle cx="160" cy="85" r="14" fill="rgba(247,108,138,0.2)" stroke="#f76c8a" stroke-width="1.5"/>
+      <text x="160" y="90" font-family="JetBrains Mono,monospace" font-size="11" fill="#f76c8a" text-anchor="middle" font-weight="700">N</text>
+      <circle cx="400" cy="85" r="14" fill="rgba(247,108,138,0.2)" stroke="#f76c8a" stroke-width="1.5"/>
+      <text x="400" y="90" font-family="JetBrains Mono,monospace" font-size="11" fill="#f76c8a" text-anchor="middle" font-weight="700">N</text>
+      <!-- O donors (acetate arms) -->
+      <circle cx="198" cy="22" r="12" fill="rgba(247,168,74,0.2)" stroke="#f7a84a" stroke-width="1.5"/>
+      <text x="198" y="27" font-family="JetBrains Mono,monospace" font-size="10" fill="#f7a84a" text-anchor="middle" font-weight="700">O</text>
+      <circle cx="362" cy="22" r="12" fill="rgba(247,168,74,0.2)" stroke="#f7a84a" stroke-width="1.5"/>
+      <text x="362" y="27" font-family="JetBrains Mono,monospace" font-size="10" fill="#f7a84a" text-anchor="middle" font-weight="700">O</text>
+      <circle cx="198" cy="148" r="12" fill="rgba(247,168,74,0.2)" stroke="#f7a84a" stroke-width="1.5"/>
+      <text x="198" y="153" font-family="JetBrains Mono,monospace" font-size="10" fill="#f7a84a" text-anchor="middle" font-weight="700">O</text>
+      <circle cx="362" cy="148" r="12" fill="rgba(247,168,74,0.2)" stroke="#f7a84a" stroke-width="1.5"/>
+      <text x="362" y="153" font-family="JetBrains Mono,monospace" font-size="10" fill="#f7a84a" text-anchor="middle" font-weight="700">O</text>
+      <!-- Legend -->
+      <circle cx="450" cy="40" r="6" fill="rgba(247,108,138,0.3)" stroke="#f76c8a" stroke-width="1"/>
+      <text x="462" y="44" font-family="JetBrains Mono,monospace" font-size="9" fill="#f76c8a">N donor (×2)</text>
+      <circle cx="450" cy="60" r="6" fill="rgba(247,168,74,0.3)" stroke="#f7a84a" stroke-width="1"/>
+      <text x="462" y="64" font-family="JetBrains Mono,monospace" font-size="9" fill="#f7a84a">O donor (×4)</text>
+      <text x="460" y="85" font-family="JetBrains Mono,monospace" font-size="9" fill="#4af7c0">---  coordinate bond</text>
+      <text x="455" y="105" font-family="JetBrains Mono,monospace" font-size="9" fill="#c8c8d8">Total: 6 bonds → hexadentate</text>
+    </svg>
+    <div class="diagram-caption">EDTA — hexadentate ligand with 2 N and 4 O donors forming 6 simultaneous coordinate bonds with the central metal ion. Ratio is always 1:1 regardless of metal charge.</div>
+  </div>
+
+  <div class="def-grid">
+    <div class="def-item d-teal"><div class="def-item-name">Chelate effect</div><div class="def-item-def">Polydentate ligands form more stable complexes than equivalent monodentate ligands. Driven by entropy — releasing multiple water molecules is thermodynamically favourable.</div></div>
+    <div class="def-item d-teal"><div class="def-item-name">Volhard method</div><div class="def-item-def">Back-titration for halides. Add excess AgNO₃ → precipitate AgX → FILTER → add Fe³⁺ indicator → back-titrate excess Ag⁺ with KSCN → red FeSCN²⁺ endpoint.</div><div class="def-item-note">Filter step is critical — omitting it gives wrong result.</div></div>
+    <div class="def-item d-teal"><div class="def-item-name">Self-indicating titrant</div><div class="def-item-def">KMnO₄ is self-indicating. Purple MnO₄⁻ is immediately decolourised by Fe²⁺. First permanent purple = endpoint. No external indicator required.</div></div>
+    <div class="def-item d-teal"><div class="def-item-name">KMnO₄ : Fe²⁺ stoichiometry</div><div class="def-item-def">1 MnO₄⁻ + 5 Fe²⁺ + 8 H⁺ → Mn²⁺ + 5 Fe³⁺ + 4 H₂O. Mn goes from +7 → +2 (gains 5e⁻); each Fe²⁺ loses 1e⁻. Ratio 1:5.</div></div>
+  </div>
+</div>
+
+</div>
+</main>
+</body>
+</html>
