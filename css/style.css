@@ -315,3 +315,7 @@ body.revise-mode .mode-btn[data-mode="revise"].active{background:var(--amber);co
   h1,h2{color:#111}
   .concept-box{border:1px solid #ccc;background:#f9f9f9}
 }
+
+/* ── HUB BACK LINK ───────────────────────────── */
+.nav-hub-link{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;white-space:nowrap;padding:5px 10px;border-radius:6px;border:1px solid var(--border);transition:all 0.15s;flex-shrink:0}
+.nav-hub-link:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-soft);text-decoration:none}

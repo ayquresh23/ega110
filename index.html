@@ -14,6 +14,7 @@
       <div class="nav-logo" style="background:linear-gradient(135deg,var(--gold),var(--amber))">EA</div>
       <span>EGA110</span>
     </a>
+    <a href="https://ayquresh23.github.io" class="nav-hub-link">← All Modules</a>
     <div class="nav-tabs">
       <button class="nav-tab active" data-section="home" onclick="showSection('home', event)">Home</button>
       <button class="nav-tab" data-section="t1" onclick="showSection('t1', event)">T1 Data & Errors</button>
@@ -27,11 +28,11 @@
       <button class="nav-tab" data-section="glossary" onclick="showSection('glossary', event)">Glossary</button>
       <button class="nav-tab" data-section="traps" onclick="showSection('traps', event)">Traps</button>
       <a href="definitions.html" class="nav-tab" style="text-decoration:none">Definitions ↗</a>
-      <a href="https://ayquresh23.github.io" class="nav-tab" style="text-decoration:none;margin-left:8px;opacity:0.6">← All Modules</a>
     </div>
     <div class="nav-mode">
       <button class="mode-btn active" data-mode="learn" onclick="setMode('learn')">Learn</button>
       <button class="mode-btn" data-mode="revise" onclick="setMode('revise')">Revise</button>
+      <button class="mode-btn" title="Flashcards" onclick="showSection('glossary');setTimeout(()=>{const g=document.getElementById('fc-grid');if(!g.classList.contains('visible'))toggleFlashcards()},200)" style="font-size:14px;padding:5px 8px">📇</button>
     </div>
   </div>
 </nav>
