@@ -15,6 +15,7 @@ function showSection(id, e) {
   const tab = document.querySelector(`[data-section="${id}"]`);
   if (tab) tab.classList.add('active');
   history.pushState({ section: id }, '', `#${id}`);
+  markVisited(id);
 }
 
 window.addEventListener('popstate', e => {
@@ -177,8 +178,86 @@ function buildGlossary(containerId) {
   });
 }
 
+// ── REVEAL ANSWERS (practice problems) ───────
+function toggleReveal(btn) {
+  const card = btn.closest('.problem-card');
+  const ans = card.querySelector('.problem-answer');
+  const showing = ans.classList.contains('visible');
+  ans.classList.toggle('visible', !showing);
+  btn.textContent = showing ? 'Show answer' : 'Hide answer';
+  btn.classList.toggle('revealed', !showing);
+}
+
+// ── FLASHCARDS ────────────────────────────────
+function buildFlashcards() {
+  const grid = document.getElementById('fc-grid');
+  if (!grid || typeof glossaryData === 'undefined') return;
+  const colorMap = {t1:'#f7a84a',t2:'#6aabf7',t3:'#7af76a',t4:'#c06af7',t5:'#4af7c0'};
+  let all = [];
+  Object.entries(glossaryData).forEach(([key, topic]) => {
+    const color = colorMap[key] || '#7c6af7';
+    const label = topic.name.replace(/Topic \d+ — /,'');
+    topic.terms.forEach(([name, def]) => all.push({name, def, label, color}));
+  });
+  // shuffle
+  for (let i = all.length-1; i>0; i--) {
+    const j = Math.floor(Math.random()*(i+1));
+    [all[i],all[j]] = [all[j],all[i]];
+  }
+  const counter = document.getElementById('fc-counter');
+  if (counter) counter.textContent = `${all.length} cards`;
+  grid.innerHTML = all.map(({name,def,label,color}) => `
+    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="fc-front">
+          <div class="fc-topic" style="color:${color}">${label}</div>
+          <div class="fc-term">${name}</div>
+          <div class="fc-hint">tap to reveal definition</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-topic" style="color:${color}">${name}</div>
+          <div class="fc-def">${def}</div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function toggleFlashcards() {
+  const grid = document.getElementById('fc-grid');
+  const list = document.getElementById('glossary-list-view');
+  const btn = document.getElementById('fc-toggle-btn');
+  const showing = grid.classList.contains('visible');
+  grid.classList.toggle('visible', !showing);
+  if (list) list.classList.toggle('hidden', !showing);
+  if (btn) { btn.textContent = showing ? '📇 Flashcards' : '📋 List view'; btn.classList.toggle('active', !showing); }
+}
+
+// ── PROGRESS TRACKING ────────────────────────
+function markVisited(id) {
+  if (!/^t[1-5]$/.test(id)) return;
+  localStorage.setItem(`ega110-visited-${id}`, '1');
+  updateProgress();
+}
+
+function updateProgress() {
+  const topics = ['t1','t2','t3','t4','t5'];
+  const done = topics.filter(id => localStorage.getItem(`ega110-visited-${id}`)).length;
+  // mark visited cards on home page
+  topics.forEach(id => {
+    if (!localStorage.getItem(`ega110-visited-${id}`)) return;
+    document.querySelectorAll('.topic-card').forEach(card => {
+      if ((card.getAttribute('onclick')||'').includes(`'${id}'`)) card.classList.add('visited');
+    });
+  });
+  // update progress bar
+  const fill = document.querySelector('.progress-fill');
+  if (fill) fill.style.width = `${(done/topics.length)*100}%`;
+  const label = document.querySelector('.progress-label');
+  if (label) label.textContent = `${done} of ${topics.length} topics visited`;
+}
+
 // ── KEYBOARD SHORTCUTS ───────────────────────
-const TOPIC_IDS = ['home','t1','t2','t3','t4','t5','formulas','glossary','traps'];
+const TOPIC_IDS = ['home','t1','t2','t3','t4','t5','revision','problems','formulas','glossary','traps'];
 
 document.addEventListener('keydown', e => {
   if (document.activeElement.tagName === 'INPUT') return;
@@ -258,4 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initGlossaryFilters('[data-gfilter]');
   buildTopicNav();
   buildAccentStrips();
+  buildFlashcards();
+  updateProgress();
 });

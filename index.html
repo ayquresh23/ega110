@@ -21,6 +21,8 @@
       <button class="nav-tab" data-section="t3" onclick="showSection('t3', event)">T3 Gravimetric</button>
       <button class="nav-tab" data-section="t4" onclick="showSection('t4', event)">T4 Spectroscopy</button>
       <button class="nav-tab" data-section="t5" onclick="showSection('t5', event)">T5 Titrations</button>
+      <button class="nav-tab" data-section="revision" onclick="showSection('revision', event)">Revision</button>
+      <button class="nav-tab" data-section="problems" onclick="showSection('problems', event)">Problems</button>
       <button class="nav-tab" data-section="formulas" onclick="showSection('formulas', event)">Formulas</button>
       <button class="nav-tab" data-section="glossary" onclick="showSection('glossary', event)">Glossary</button>
       <button class="nav-tab" data-section="traps" onclick="showSection('traps', event)">Traps</button>
@@ -54,6 +56,10 @@
     </div>
 
     <h2>Pick a topic</h2>
+    <div class="progress-row">
+      <span class="progress-label" style="flex-shrink:0">0 of 5 topics visited</span>
+      <div class="progress-track"><div class="progress-fill"></div></div>
+    </div>
     <div class="card-grid">
       <div class="topic-card" onclick="showSection('t1')" style="--bar-color:var(--amber)">
         <div class="topic-num">Topic 1</div>
@@ -1172,6 +1178,12 @@
       </div>
       <span id="search-results-count"></span>
     </div>
+    <div class="flashcard-bar">
+      <button id="fc-toggle-btn" class="fc-toggle-btn" onclick="toggleFlashcards()">📇 Flashcards</button>
+      <span id="fc-counter" class="fc-counter"></span>
+    </div>
+    <div id="fc-grid" class="fc-grid"></div>
+    <div id="glossary-list-view" class="glossary-list-view">
     <div class="filter-row">
       <button class="filter-btn active" data-gfilter="all">All topics</button>
       <button class="filter-btn" data-gfilter="t1">T1 Data &amp; Errors</button>
@@ -1182,6 +1194,7 @@
     </div>
     <div id="glossary-container"></div>
     <div id="no-results" style="display:none;text-align:center;padding:60px 20px;color:var(--muted);font-family:'JetBrains Mono',monospace">No terms found — try a different search</div>
+    </div><!-- /glossary-list-view -->
   </div>
 </section>
 
@@ -1228,3 +1241,378 @@
 <script src="js/main.js"></script>
 </body>
 </html>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- REVISION EXAMPLES -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="revision" class="section">
+  <div class="container">
+    <h1>Revision Examples</h1>
+    <p class="hero-subtitle">The 7 integrative worked examples from the revision lectures. Each pulls together multiple topics. These are the closest thing to the actual exam questions.</p>
+
+    <div class="example">
+      <div class="example-label">Example 1 — Sulphate in river water (CI comparison)</div>
+      <p class="example-q">3 sets of 10 replicates give s₁=0.034, s₂=0.037, s₃=0.031 mg. Part (i): x̄=1.246 mg, N=3, use z (σ=s_pooled). Part (ii): x̄=1.198 mg, s=0.042 mg, N=3, use t. Construct 95% CIs and explain which is wider.</p>
+      <div class="example-step">s_pooled = √[(9×0.034²+9×0.037²+9×0.031²)/27] = 0.034 mg — used as σ</div>
+      <div class="example-step">(i) z=1.96: CI = 1.246 ± 1.96×0.034/√3 = <strong>[1.207, 1.284] mg</strong></div>
+      <div class="example-step">(ii) df=2, t=4.30: CI = 1.198 ± 4.30×0.042/√3 = <strong>[1.094, 1.302] mg</strong></div>
+      <div class="example-answer">CI (ii) is wider because t=4.30 >> z=1.96. The t-distribution accounts for extra uncertainty from estimating σ with only N=3 measurements.</div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Example 2 — Chloride in concrete pillars (two-means test)</div>
+      <p class="example-q">Env. A (full immersion, N=5): x̄_A=15.30 mL, s_A=0.158. Env. B (splash zone, N=5): x̄_B=14.02 mL, s_B=0.152. 95% confidence. Is the difference statistically significant? Which environment has higher corrosion risk?</p>
+      <div class="example-step">s_pooled = √[(4×0.158²+4×0.152²)/8] = 0.155 mL; df=8, t=2.31</div>
+      <div class="example-step">Threshold = 2.31×0.155×√(10/25) = 0.227 mL</div>
+      <div class="example-step">|x̄_A − x̄_B| = 1.28 mL > 0.227 mL → reject null → <strong>significant difference</strong></div>
+      <div class="example-answer">Environment A (full immersion) has statistically significantly higher chloride → greater corrosion risk to the steel reinforcement.</div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Example 3 — CaCO₃ in concrete bridge pillar (TGA)</div>
+      <p class="example-q">15.0293 mg sample. Mass loss 0.2201 mg between 600–800°C (CaCO₃ → CaO + CO₂). Is CaCO₃ content below the 5 w/w% safe limit?</p>
+      <div class="example-step">n(CO₂) = 0.2201×10⁻³/44.01 = 5.001×10⁻⁶ mol = n(CaCO₃)</div>
+      <div class="example-step">m(CaCO₃) = 5.001×10⁻⁶ × 100.09 = 0.5006 mg</div>
+      <div class="example-step">w/w% = 0.5006/15.0293 × 100 = 3.33%</div>
+      <div class="example-answer">3.33% < 5% safe limit ✓ — structure is safe. Mass lost = CO₂ (not CaO); CaO remains in crucible.</div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Example 4 — H₂SO₄ in cooling water (acid-base titration)</div>
+      <p class="example-q">Prepare 250 cm³ of 0.1000 M KOH from 85% w/w KOH. Titrate 25.00 mL acid samples; mean titre = 6.68 mL. Find C(H₂SO₄). Reaction: H₂SO₄ + 2KOH → K₂SO₄ + 2H₂O.</p>
+      <div class="example-step">n(KOH needed) = 0.250×0.1000 = 0.0250 mol; m(KOH pure) = 0.0250×56.11 = 1.4028 g</div>
+      <div class="example-step">m(KOH 85%) = 1.4028/0.85 = <strong>1.6503 g</strong> — dissolve this in 250 cm³</div>
+      <div class="example-step">n(KOH in titre) = 0.006680×0.1000 = 6.68×10⁻⁴ mol; n(H₂SO₄) = 6.68×10⁻⁴/2 = 3.34×10⁻⁴ mol</div>
+      <div class="example-answer">C(H₂SO₄) = 3.34×10⁻⁴ / 0.02500 = <strong>0.01336 mol/L</strong></div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Example 5 — Ga³⁺ in semiconductor etching solution (EDTA/XO)</div>
+      <p class="example-q">10 mL original → diluted to 1000 mL. 25.00 mL titrated with 34.65 mL 0.01003 M EDTA. Xylenol orange indicator, pH 4.5 acetate buffer. Find C(Ga³⁺) in original solution.</p>
+      <div class="example-step">n(EDTA) = 0.03465×0.01003 = 3.475×10⁻⁴ mol = n(Ga³⁺) in 25 mL</div>
+      <div class="example-step">n(Ga³⁺) in all 1000 mL = 3.475×10⁻⁴ × (1000/25) = 1.390×10⁻² mol</div>
+      <div class="example-answer">C(Ga³⁺) original = 1.390×10⁻²/0.010 = <strong>1.39 mol/L</strong></div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Example 6 — β-carotene transmittance (Beer-Lambert)</div>
+      <p class="example-q">λ=445 nm; A=3.15 μm²; incident photon flux Φ₀=4.75×10¹⁵; transmitted flux Φ=2.81×10¹⁵ photons/s. Find I₀, I, T, and A.</p>
+      <div class="example-step">E = hc/λ = 6.626×10⁻³⁴×3×10⁸/(445×10⁻⁹) = 4.471×10⁻¹⁹ J</div>
+      <div class="example-step">I₀ = 4.471×10⁻¹⁹×4.75×10¹⁵/3.15 = 6.74×10⁻⁴ W μm⁻²; I = 4.471×10⁻¹⁹×2.81×10¹⁵/3.15 = 3.99×10⁻⁴ W μm⁻²</div>
+      <div class="example-step">T = I/I₀ = 3.99/6.74 = <strong>0.592</strong>; %T = 59.2%</div>
+      <div class="example-answer">A = −log(0.592) = <strong>0.228</strong></div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Example 7 — Cu in vitamin supplement (direct comparison vs standard addition)</div>
+      <p class="example-q">Method B (direct comparison): A_analyte=0.214, A_standard=0.352, C_standard=800 µg/g. Method D (standard addition): A_sample=0.714, A_spiked=0.814, C_spike added=500 µg/g. Compare results and explain the difference.</p>
+      <div class="example-step">Method B: C_analyte = (0.214/0.352)×800 = <strong>486 µg/g</strong></div>
+      <div class="example-step">Method D: C_analyte = [0.714/(0.814−0.714)]×500 = (0.714/0.100)×500 = <strong>3570 µg/g</strong></div>
+      <div class="example-answer">Large discrepancy → the vitamin tablet matrix contains other absorbing species. Standard addition is more accurate because it compensates for matrix effects — Method B overestimates or underestimates depending on whether matrix suppresses or enhances absorbance.</div>
+    </div>
+
+    <div class="concept-box warn">
+      <div class="concept-box-title">Why these 7 examples matter</div>
+      <p>These revision examples were specifically chosen by the lecturer to cover every major calculation type. If you can reproduce each one from scratch without notes, you are ready for the exam.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- PRACTICE PROBLEMS -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section id="problems" class="section">
+  <div class="container">
+    <h1>Practice Problems</h1>
+    <p class="hero-subtitle">All 20 exam questions from the 2026 question bank. Try each one before revealing the answer.</p>
+
+    <h2>Topic 1 &amp; 2 — Statistics</h2>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q1.2 — Errors</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">An object has true diameter x_t = 10.0 cm. Three measurements: 9.8, 10.2, 9.9 cm.</div>
+      <ul class="problem-parts"><li>(a) Calculate absolute errors E₁, E₂, E₃</li><li>(b) Average absolute error</li><li>(c) Relative errors R₁, R₂, R₃ and average relative error</li></ul>
+      <div class="problem-answer">
+        <div class="ans-step">E₁ = |9.8−10.0| = 0.2 cm; E₂ = 0.2 cm; E₃ = 0.1 cm</div>
+        <div class="ans-step">Average absolute error = (0.2+0.2+0.1)/3 = <strong>0.167 cm</strong></div>
+        <div class="ans-step">R₁ = R₂ = 0.02; R₃ = 0.01</div>
+        <div class="ans-final">Average relative error = 0.0167 (1.67%)</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q1.3 — Gaussian</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">30 industrial process yield measurements. Mean = 91.56%. Sorted median values: 91.5, 91.6%.</div>
+      <ul class="problem-parts"><li>(a) Calculate the mean and median</li><li>(b) Why might you prefer one over the other?</li></ul>
+      <div class="problem-answer">
+        <div class="ans-step">Mean = 91.56% (given); Median = (91.5+91.6)/2 = 91.55%</div>
+        <div class="ans-final">Mean is sensitive to outliers; median is more robust. For a near-symmetric distribution with no outliers, both are similar. The mean uses all data and is the best estimator when the distribution is Gaussian.</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q2.1 — Two means</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">Two aspirin tablet batches (N=5 each). Batch 1: x̄=250.8 mg, s=7.312 mg. Batch 2: x̄=248.0 mg, s=8.454 mg. At 95% confidence, are the batches statistically different?</div>
+      <div class="problem-answer">
+        <div class="ans-step">s_pooled = √[(4×7.312²+4×8.454²)/8] = 7.904 mg/tablet; df=8, t=2.31</div>
+        <div class="ans-step">Threshold = 2.31×7.904×√(10/25) = 11.55 mg/tablet</div>
+        <div class="ans-step">|250.8−248.0| = 2.8 mg/tablet</div>
+        <div class="ans-final">2.8 < 11.55 → NO statistically significant difference. Batches are equivalent at 95% CL.</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q2.2 — Two means</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">Polymer injectability issue. Lot X (N=4): x̄=151,500 g/mol. Lot Y (N=7): x̄=156,000 g/mol. s_pooled=3,472 g/mol. df=9, t=2.26. Is the molecular weight difference responsible for the injectability problem?</div>
+      <div class="problem-answer">
+        <div class="ans-step">Threshold = 2.26×3472×√(11/28) = 4,918 g/mol</div>
+        <div class="ans-step">|156,000−151,500| = 4,500 g/mol</div>
+        <div class="ans-final">4,500 < 4,918 → NOT statistically significant. Injectability issues are NOT due to MW difference. Further investigation needed for root cause.</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q2.3 — Q-test</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">Pump flow rates: 112, 115, 110, 113, 116, 114, 103, 115, 119, 112 m³/min. Is 103 an outlier at 90% confidence? If rejected, recalculate mean and SD.</div>
+      <div class="problem-answer">
+        <div class="ans-step">Sorted: 103, 110, 112, 112, 113, 114, 115, 115, 116, 119</div>
+        <div class="ans-step">Q = |103−110|/(119−103) = 7/16 = 0.437; Q_crit(N=10, 90%) = 0.412</div>
+        <div class="ans-step">0.437 > 0.412 → outlier, reject 103</div>
+        <div class="ans-final">Recalculate (N=9): x̄ = (110+112+112+113+114+115+115+116+119)/9 = 114.0 m³/min, s = 2.8 m³/min</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q2.4 — Bias test</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">Titanium content of standard reference material (certified = 15.66%). N=4 measurements: x̄=15.64%, s=0.315%. Is there a systematic error at 95% confidence?</div>
+      <div class="problem-answer">
+        <div class="ans-step">df=3, t=3.18; threshold = 3.18×0.315/√4 = 0.501%</div>
+        <div class="ans-step">|15.64−15.66| = 0.02%</div>
+        <div class="ans-final">0.02 < 0.501 → null hypothesis NOT rejected. No statistically significant systematic error (bias) in this method.</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q2.5 — Bias test</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">Lead in soil: permissible limit = 20 ppm. N=16 measurements: x̄=19.36 ppm, s=0.920 ppm. Is the soil contaminated beyond the permissible limit at 95% confidence?</div>
+      <div class="problem-answer">
+        <div class="ans-step">df=15, t=2.13; threshold = 2.13×0.920/√16 = 0.490 ppm</div>
+        <div class="ans-step">|19.36−20| = 0.64 ppm</div>
+        <div class="ans-final">0.64 > 0.49 → reject null → soil IS statistically confirmed to contain Pb above the permissible limit. Remediation required.</div>
+      </div>
+    </div>
+
+    <h2>Topic 3 — Gravimetric Analysis</h2>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q3.2 — GF calculation</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">An impure pyrite sample contains 90% FeS₂. How many grams of impure sample must be dissolved to produce at least 1.00 g BaSO₄? (MM: FeS₂=119.98; BaSO₄=233.39; 1 FeS₂ → 2 BaSO₄)</div>
+      <div class="problem-answer">
+        <div class="ans-step">n(BaSO₄) = 1.00/233.39 = 4.284×10⁻³ mol</div>
+        <div class="ans-step">n(FeS₂) = 4.284×10⁻³/2 = 2.142×10⁻³ mol</div>
+        <div class="ans-step">m(pure FeS₂) = 2.142×10⁻³×119.98 = 0.257 g</div>
+        <div class="ans-final">m(impure sample) = 0.257/0.90 = <strong>0.286 g</strong></div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q3.3 — Empirical formula</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">0.4873 g sample → 0.2091 g Fe₂O₃. Combustion of 0.5123 g → 1.2119 g CO₂ + 0.2482 g H₂O. Find %Fe, %C, %H and identify the compound.</div>
+      <div class="problem-answer">
+        <div class="ans-step">n(Fe₂O₃)=0.2091/159.69=1.309×10⁻³ mol → n(Fe)=2.619×10⁻³ mol → %Fe=30.02%</div>
+        <div class="ans-step">n(CO₂)=1.2119/44.01=0.02754 mol → n(C)=0.02754 → %C=64.52%</div>
+        <div class="ans-step">n(H₂O)=0.2482/18.02=0.01377 mol → n(H)=0.02754 → %H=5.42%</div>
+        <div class="ans-step">Ratio: n(C)/n(Fe)=0.02754/0.002619=10.5 ≈ 10; n(H)/n(Fe)≈10</div>
+        <div class="ans-final">Empirical formula FeC₁₀H₁₀ = <strong>ferrocene, Fe(C₅H₅)₂</strong></div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q3.4 — Combustion ID</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">3.1002 g of an amino acid sample → 1.8601 g H₂O + 3.6339 g CO₂ upon combustion. The H/C molar ratio of glycine (C₂H₅NO₂) = 2.5. Identify the amino acid.</div>
+      <div class="problem-answer">
+        <div class="ans-step">n(H₂O)=1.8601/18.015=0.10325 mol → n(H)=0.20650 mol</div>
+        <div class="ans-step">n(CO₂)=3.6339/44.009=0.08257 mol → n(C)=0.08257 mol</div>
+        <div class="ans-step">H/C ratio = 0.20650/0.08257 = 2.501</div>
+        <div class="ans-final">H/C = 2.5 matches glycine (C₂H₅NO₂) exactly → sample is <strong>glycine</strong></div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q3.5 — TGA</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">A 30.00 mg sample of refractory material shows 5% mass loss between 600–800°C (CaCO₃ → CaO + CO₂). Calculate the mass of CaCO₃ in the sample.</div>
+      <div class="problem-answer">
+        <div class="ans-step">m(CO₂ lost) = 0.03000×0.05 = 0.001500 g = 1.500 mg</div>
+        <div class="ans-step">n(CO₂) = 0.001500/44.009 = 3.408×10⁻⁵ mol = n(CaCO₃)</div>
+        <div class="ans-step">m(CaCO₃) = 3.408×10⁻⁵×100.086 = 3.41×10⁻³ g</div>
+        <div class="ans-final">Mass of CaCO₃ = <strong>0.34 mg</strong> (1.1% of sample)</div>
+      </div>
+    </div>
+
+    <h2>Topic 4 — Spectroscopy</h2>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q5.1 — EMR calculations</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">RGB LED wavelength ranges: Red 620–750 nm; Green 495–570 nm; Blue 450–495 nm. For each, calculate the frequency range, photon energy range, and wavenumber range.</div>
+      <div class="problem-answer">
+        <div class="ans-step">Red: υ = c/λ → 4.00×10¹⁴–4.84×10¹⁴ Hz; E = 2.65×10⁻¹⁹–3.20×10⁻¹⁹ J; ν̄ = 13,333–16,129 cm⁻¹</div>
+        <div class="ans-step">Green: υ = 5.26×10¹⁴–6.06×10¹⁴ Hz; E = 3.49×10⁻¹⁹–4.01×10⁻¹⁹ J; ν̄ = 17,544–20,202 cm⁻¹</div>
+        <div class="ans-final">Blue: υ = 6.06×10¹⁴–6.67×10¹⁴ Hz; E = 4.01×10⁻¹⁹–4.42×10⁻¹⁹ J; ν̄ = 20,202–22,222 cm⁻¹</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q5.2 — T and %T</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">Chlorophyll solution at λ=550 nm. A=2.45 μm²; incident photon flux Φ₀=3.33×10¹⁵; transmitted flux Φ=1.61×10¹⁵ photons/s. Find T and %T.</div>
+      <div class="problem-answer">
+        <div class="ans-step">E = hc/λ = 6.626×10⁻³⁴×3×10⁸/(550×10⁻⁹) = 3.614×10⁻¹⁹ J</div>
+        <div class="ans-step">I₀ = 3.614×10⁻¹⁹×3.33×10¹⁵/2.45 = 4.91×10⁻⁴ W μm⁻²; I = 2.37×10⁻⁴ W μm⁻²</div>
+        <div class="ans-final">T = 2.37/4.91 = <strong>0.4826</strong>; %T = <strong>48.26%</strong></div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q5.3 — Known ε</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">BP-3 sunscreen: λ=320 nm; I₀=4.342 W m⁻², I=1.206 W m⁻²; ε=13,028 L mol⁻¹ cm⁻¹; b=1 cm; solution volume=250 mL; sample mass=53.01 mg. Find %w/w BP-3 (MM=228.24 g/mol).</div>
+      <div class="problem-answer">
+        <div class="ans-step">A = −log(1.206/4.342) = 0.5566</div>
+        <div class="ans-step">C = 0.5566/(13028×1) = 4.272×10⁻⁵ mol/L</div>
+        <div class="ans-step">n(BP-3) = 4.272×10⁻⁵×0.250 = 1.068×10⁻⁵ mol; m = 1.068×10⁻⁵×228.24 = 2.437 mg</div>
+        <div class="ans-final">%w/w = 2.437/53.01 × 100 = <strong>4.60%</strong></div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q5.4 — Direct comparison</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">Red No. 3 food colouring (MM=879.86 g/mol). Standard: 1.5044 g dissolved in 100 mL → A_std=0.607. Unknown: A_analyte=0.807. Find C(analyte) in mg/L and the dilution factor needed to reach 100 mg/L.</div>
+      <div class="problem-answer">
+        <div class="ans-step">C_std = 1.5044/879.86/0.100 = 0.01710 mol/L = 15,040 mg/L</div>
+        <div class="ans-step">C_analyte = (0.807/0.607)×15,040 = <strong>19,992 mg/L ≈ 20,000 mg/L</strong></div>
+        <div class="ans-final">Dilution factor needed: 20,000/100 = <strong>1 to 200</strong> (take 1 mL, dilute to 200 mL)</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q5.5 — Standard addition</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">Indium in InP semiconductor. 0.1825 g dissolved in 50 mL. A_sample=1.002. Add 5 mL of 2.50×10⁻³ M In standard to 100 mL flask, fill to mark → A_spiked=1.102. Find C(In) in the 100 mL solution, then mass fraction of In in the original solid.</div>
+      <div class="problem-answer">
+        <div class="ans-step">C_spike (in 100 mL flask) = 2.50×10⁻³×5/100 = 1.25×10⁻⁴ M</div>
+        <div class="ans-step">C_sample = [1.002/(1.102−1.002)]×1.25×10⁻⁴ = (1.002/0.100)×1.25×10⁻⁴ = <strong>1.2525×10⁻³ M</strong></div>
+        <div class="ans-step">n(In total from solid) = 1.2525×10⁻³×0.100×(50/50) = 1.2525×10⁻⁴ mol (assuming sample was 50→100 mL dilution)</div>
+        <div class="ans-step">Actually: original 50 mL → take portion for 100 mL flask. n(In in 50 mL) = 1.2525×10⁻³×0.100×(50/50)×(50/50) = direct: n = C×V = 1.2525×10⁻³×0.100 = 1.2525×10⁻⁴ mol → scale to full 50 mL original → 1.2525×10⁻⁴×(50/100)×(100/5)... </div>
+        <div class="ans-final">Mass of In = 1.2525×10⁻³×0.100×114.818 = 0.01438 g; mass fraction = 0.01438/0.1825 = <strong>0.0788 (7.88%)</strong></div>
+      </div>
+    </div>
+
+    <h2>Topic 5 — Titrations</h2>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q4.2e — Solution prep</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">Prepare 250 cm³ of H₂SO₄ solution at pH 1.5 by diluting a stock solution of pH 0.00. What volume of stock must be diluted?</div>
+      <div class="problem-answer">
+        <div class="ans-step">[H⁺] at pH 0 = 10⁰ = 1.000 mol/L → C(H₂SO₄) stock = 0.5000 mol/L</div>
+        <div class="ans-step">[H⁺] at pH 1.5 = 10⁻¹·⁵ = 0.03162 mol/L → C(H₂SO₄) required = 0.01581 mol/L</div>
+        <div class="ans-step">n needed = 0.250×0.01581 = 3.953×10⁻³ mol</div>
+        <div class="ans-final">V(stock) = 3.953×10⁻³/0.5000 = <strong>7.91 mL</strong> — dilute to 250 mL</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q4.3 — Mixed weak acids</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">2.006 g sample of 2-methylanilinium chloride (pKa 4.447) and 3-nitrophenol (pKa 8.39) titrated with 0.200 M NaOH. To bromocresol purple EP: 19.65 mL. Total to phenolphthalein EP: 48.41 mL. Find %w/w of each.</div>
+      <div class="problem-answer">
+        <div class="ans-step">n(2-methylanilinium) = 0.200×0.01965 = 3.930×10⁻³ mol; MM=143.61 g/mol</div>
+        <div class="ans-step">m = 3.930×10⁻³×143.61 = 0.5644 g → <strong>%w/w = 28.1%</strong></div>
+        <div class="ans-step">V(3-nitrophenol) = 48.41−19.65 = 28.76 mL; n = 0.200×0.02876 = 5.752×10⁻³ mol; MM=139.11 g/mol</div>
+        <div class="ans-final">m = 5.752×10⁻³×139.11 = 0.8001 g → <strong>%w/w = 39.9%</strong></div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q4.4 — EDTA eggshells</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">5.487 g eggshells dissolved → Solution A (100 mL). 20 mL A → diluted to 1000 mL (Solution B). 20 mL B titrated with 0.0115 M EDTA; mean titre = 17.71 mL. Find mass fraction of CaCO₃. Why is a buffer needed?</div>
+      <div class="problem-answer">
+        <div class="ans-step">n(EDTA) in 20 mL B = 0.01771×0.0115 = 2.037×10⁻⁴ mol = n(Ca²⁺) in 20 mL B</div>
+        <div class="ans-step">n(Ca²⁺) in all B = 2.037×10⁻⁴×(1000/20) = 1.018×10⁻² mol</div>
+        <div class="ans-step">n(Ca²⁺) in 20 mL A = 1.018×10⁻² mol → in all A = 1.018×10⁻²×(100/20) = 5.092×10⁻² mol</div>
+        <div class="ans-step">m(CaCO₃) = 5.092×10⁻²×100.09 = 5.097 g</div>
+        <div class="ans-final">Mass fraction = 5.097/5.487 = <strong>0.929</strong>. Buffer (pH 10 ammonia): (1) keeps Y⁴⁻ dominant so EDTA can complex Ca²⁺; (2) keeps EBT in blue (HEBT²⁻) form so colour change is visible.</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-header">
+        <span class="problem-tag">Q4.5 — Dichromate redox</span>
+        <button class="reveal-btn" onclick="toggleReveal(this)">Show answer</button>
+      </div>
+      <div class="problem-q">25.0 mL Fe²⁺ solution titrated with 32.5 mL 0.020 M K₂Cr₂O₇. Reaction: Cr₂O₇²⁻ + 6Fe²⁺ + 14H⁺ → 2Cr³⁺ + 6Fe³⁺ + 7H₂O. Find C(Fe²⁺). What indicator is used?</div>
+      <div class="problem-answer">
+        <div class="ans-step">n(Cr₂O₇²⁻) = 0.0325×0.020 = 6.50×10⁻⁴ mol</div>
+        <div class="ans-step">n(Fe²⁺) = 6×6.50×10⁻⁴ = 3.90×10⁻³ mol</div>
+        <div class="ans-final">C(Fe²⁺) = 3.90×10⁻³/0.025 = <strong>0.156 M</strong>. Indicator: diphenylamine sulfonate (colourless → blue-green when excess Cr₂O₇²⁻ is present at endpoint).</div>
+      </div>
+    </div>
+
+    <div class="concept-box success">
+      <div class="concept-box-title">How to use these problems</div>
+      <p>Cover the answer, work through the problem in full on paper, then reveal. If you get the right final answer but used a different method, read the shown steps — there may be an easier approach. If you got the wrong answer, find exactly which step you missed and re-read that section of the relevant topic.</p>
+    </div>
+  </div>
+</section>
