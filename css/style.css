@@ -319,3 +319,38 @@ body.revise-mode .mode-btn[data-mode="revise"].active{background:var(--amber);co
 /* ── HUB BACK LINK ───────────────────────────── */
 .nav-hub-link{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;white-space:nowrap;padding:5px 10px;border-radius:6px;border:1px solid var(--border);transition:all 0.15s;flex-shrink:0}
 .nav-hub-link:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-soft);text-decoration:none}
+
+
+/* ── FOCUSED FLASHCARD SESSION ───────────────── */
+#fc-session{padding:4px 0 40px}
+.fc-config{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;padding:16px 20px;background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius)}
+.fc-config-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fc-config-label{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;min-width:44px}
+.fc-filter-btn{background:var(--bg);border:1px solid var(--border);color:var(--muted);padding:4px 10px;border-radius:6px;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;cursor:pointer;transition:all 0.15s}
+.fc-filter-btn:hover,.fc-filter-btn.active{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+.fc-qty-select{background:var(--bg);border:1px solid var(--border);color:var(--text-2);padding:4px 8px;border-radius:6px;font-family:"JetBrains Mono",monospace;font-size:10px;cursor:pointer;outline:none}
+.fc-reshuffle-btn,.fc-exit-btn{background:var(--bg);border:1px solid var(--border);color:var(--muted);padding:5px 12px;border-radius:6px;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;cursor:pointer;transition:all 0.15s}
+.fc-reshuffle-btn:hover{border-color:var(--teal);color:var(--teal)}
+.fc-exit-btn{margin-left:auto}
+.fc-exit-btn:hover{border-color:var(--text-2);color:var(--text-2)}
+.fc-viewport{width:100%;max-width:600px;margin:0 auto;height:260px;perspective:1200px;cursor:pointer;user-select:none}
+.fc-card-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 0.4s ease}
+.fc-card-inner.flipped{transform:rotateY(180deg)}
+.fc-card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius);padding:28px 32px;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--border)}
+.fc-front{background:var(--bg-elev)}
+.fc-back{background:var(--surface);border-color:var(--accent);transform:rotateY(180deg)}
+.fc-topic-label{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px}
+.fc-term-text{font-size:clamp(18px,3vw,26px);font-weight:700;color:var(--text);line-height:1.3}
+.fc-tap-hint{font-family:"JetBrains Mono",monospace;font-size:9px;color:var(--dim);margin-top:auto;padding-top:14px}
+.fc-back-term{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;margin-bottom:10px}
+.fc-def-text{font-size:13px;color:var(--text-2);line-height:1.6;overflow:hidden;display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical}
+.fc-nav-row{display:flex;align-items:center;justify-content:space-between;max-width:600px;margin:18px auto 0;gap:16px}
+.fc-nav-btn{background:var(--bg-elev);border:1px solid var(--border);color:var(--text-2);padding:10px 22px;border-radius:var(--radius-sm);font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.15s}
+.fc-nav-btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.fc-nav-btn:disabled{opacity:0.25;cursor:default}
+.fc-counter-display{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted)}
+.fc-progress-wrap{max-width:600px;margin:12px auto 0;height:3px;background:var(--border-soft);border-radius:2px;overflow:hidden}
+#fc-progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--teal));border-radius:2px;transition:width 0.3s ease;width:0%}
+.fc-open-btn{background:var(--bg-elev);border:1px solid var(--border);color:var(--muted);padding:7px 16px;border-radius:8px;font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;cursor:pointer;transition:all 0.15s;margin-bottom:18px;display:inline-flex;align-items:center;gap:7px}
+.fc-open-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+

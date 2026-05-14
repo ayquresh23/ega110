@@ -32,7 +32,7 @@
     <div class="nav-mode">
       <button class="mode-btn active" data-mode="learn" onclick="setMode('learn')">Learn</button>
       <button class="mode-btn" data-mode="revise" onclick="setMode('revise')">Revise</button>
-      <button class="mode-btn" title="Flashcards" onclick="showSection('glossary');setTimeout(()=>{const g=document.getElementById('fc-grid');if(!g.classList.contains('visible'))toggleFlashcards()},200)" style="font-size:14px;padding:5px 8px">📇</button>
+      <button class="mode-btn" title="Flashcards (or go to Glossary → 📇)" onclick="showSection('glossary');setTimeout(()=>enterFlashcards(),200)" style="font-size:14px;padding:5px 8px">📇</button>
     </div>
   </div>
 </nav>
@@ -1179,12 +1179,51 @@
       </div>
       <span id="search-results-count"></span>
     </div>
-    <div class="flashcard-bar">
-      <button id="fc-toggle-btn" class="fc-toggle-btn" onclick="toggleFlashcards()">📇 Flashcards</button>
-      <span id="fc-counter" class="fc-counter"></span>
+    <button class="fc-open-btn" onclick="showSection('glossary');enterFlashcards()">📇 Flashcard mode</button>
+
+    <!-- FLASHCARD SESSION -->
+    <div id="fc-session" style="display:none">
+      <div class="fc-config">
+        <div class="fc-config-row">
+          <span class="fc-config-label">Topic</span>
+          <div id="fc-topic-btns" class="fc-topic-btns" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+        </div>
+        <div class="fc-config-row">
+          <span class="fc-config-label">Cards</span>
+          <select id="fc-qty-select" class="fc-qty-select" onchange="applyFcFilters()">
+            <option value="all">All</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+          </select>
+          <button class="fc-reshuffle-btn" onclick="applyFcFilters()">🔀 Reshuffle</button>
+          <button class="fc-exit-btn" onclick="exitFlashcards()">← Back to list</button>
+        </div>
+      </div>
+      <div class="fc-viewport" onclick="fcFlip()">
+        <div id="fc-card-inner" class="fc-card-inner">
+          <div class="fc-card-face fc-front">
+            <div id="fc-topic-label" class="fc-topic-label"></div>
+            <div id="fc-term-text" class="fc-term-text"></div>
+            <div class="fc-tap-hint">click · space · enter — reveal definition</div>
+          </div>
+          <div class="fc-card-face fc-back">
+            <div id="fc-back-term" class="fc-back-term"></div>
+            <div id="fc-def-text" class="fc-def-text"></div>
+          </div>
+        </div>
+      </div>
+      <div class="fc-nav-row">
+        <button class="fc-nav-btn" id="fc-prev" onclick="fcPrev()">◀ Prev</button>
+        <span class="fc-counter-display"><span id="fc-pos">1</span> / <span id="fc-total">0</span></span>
+        <button class="fc-nav-btn" id="fc-next" onclick="fcNext()">Next ▶</button>
+      </div>
+      <div class="fc-progress-wrap"><div id="fc-progress-bar"></div></div>
     </div>
-    <div id="fc-grid" class="fc-grid"></div>
-    <div id="glossary-list-view" class="glossary-list-view">
+    <!-- /FLASHCARD SESSION -->
+
+    <div id="fc-list-view">
     <div class="filter-row">
       <button class="filter-btn active" data-gfilter="all">All topics</button>
       <button class="filter-btn" data-gfilter="t1">T1 Data &amp; Errors</button>
@@ -1195,7 +1234,7 @@
     </div>
     <div id="glossary-container"></div>
     <div id="no-results" style="display:none;text-align:center;padding:60px 20px;color:var(--muted);font-family:'JetBrains Mono',monospace">No terms found — try a different search</div>
-    </div><!-- /glossary-list-view -->
+    </div><!-- /fc-list-view -->
   </div>
 </section>
 

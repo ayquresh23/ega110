@@ -178,6 +178,85 @@ function buildGlossary(containerId) {
   });
 }
 
+// ── FLASHCARD SESSION ─────────────────────────
+let _fcDeck = [], _fcFiltered = [], _fcIndex = 0, _fcTopic = 'all';
+
+function _fcColor(key) {
+  return {t1:'#f7a84a',t2:'#6aabf7',t3:'#7af76a',t4:'#c06af7',t5:'#4af7c0',
+          t6:'#c06af7',t7:'#f76c8a',t8:'#f7d54a',t9:'#f76aa3',t89:'#f7e24a',t10:'#f76af7'}[key] || '#7c6af7';
+}
+
+function buildFcDeck() {
+  if (typeof glossaryData === 'undefined') return;
+  _fcDeck = [];
+  Object.entries(glossaryData).forEach(([key, topic]) => {
+    topic.terms.forEach(([name, def]) => _fcDeck.push({name, def, label:topic.name, color:_fcColor(key), key}));
+  });
+  const container = document.getElementById('fc-topic-btns');
+  if (container) {
+    container.innerHTML = '';
+    container.appendChild(_fcBtn('All','all'));
+    Object.entries(glossaryData).forEach(([key, topic]) => {
+      const b = _fcBtn(key.toUpperCase(), key);
+      b.title = topic.name;
+      container.appendChild(b);
+    });
+  }
+  applyFcFilters();
+}
+
+function _fcBtn(label, key) {
+  const btn = document.createElement('button');
+  btn.className = 'fc-filter-btn' + (key === 'all' ? ' active' : '');
+  btn.textContent = label;
+  btn.onclick = () => {
+    document.querySelectorAll('#fc-topic-btns .fc-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    _fcTopic = key;
+    applyFcFilters();
+  };
+  return btn;
+}
+
+function applyFcFilters() {
+  const qty = document.getElementById('fc-qty-select')?.value || 'all';
+  let deck = _fcTopic === 'all' ? [..._fcDeck] : _fcDeck.filter(c => c.key === _fcTopic);
+  for (let i = deck.length-1; i>0; i--) { const j = Math.floor(Math.random()*(i+1)); [deck[i],deck[j]]=[deck[j],deck[i]]; }
+  _fcFiltered = qty === 'all' ? deck : deck.slice(0, parseInt(qty));
+  _fcIndex = 0;
+  _showFcCard();
+}
+
+function _showFcCard() {
+  const c = _fcFiltered[_fcIndex];
+  if (!c) return;
+  const $ = id => document.getElementById(id);
+  $('fc-card-inner')?.classList.remove('flipped');
+  if ($('fc-topic-label')) { $('fc-topic-label').textContent = c.label; $('fc-topic-label').style.color = c.color; }
+  if ($('fc-term-text')) $('fc-term-text').textContent = c.name;
+  if ($('fc-back-term')) { $('fc-back-term').textContent = c.name; $('fc-back-term').style.color = c.color; }
+  if ($('fc-def-text')) $('fc-def-text').textContent = c.def;
+  if ($('fc-pos')) $('fc-pos').textContent = _fcIndex + 1;
+  if ($('fc-total')) $('fc-total').textContent = _fcFiltered.length;
+  if ($('fc-progress-bar')) $('fc-progress-bar').style.width = ((_fcIndex+1)/_fcFiltered.length*100)+'%';
+  if ($('fc-prev')) $('fc-prev').disabled = _fcIndex === 0;
+  if ($('fc-next')) $('fc-next').disabled = _fcIndex === _fcFiltered.length-1;
+}
+
+function fcFlip() { document.getElementById('fc-card-inner')?.classList.toggle('flipped'); }
+function fcNext() { if (_fcIndex < _fcFiltered.length-1) { _fcIndex++; _showFcCard(); } }
+function fcPrev() { if (_fcIndex > 0) { _fcIndex--; _showFcCard(); } }
+
+function enterFlashcards() {
+  document.getElementById('fc-session').style.display = 'block';
+  document.getElementById('fc-list-view').style.display = 'none';
+  buildFcDeck();
+}
+function exitFlashcards() {
+  document.getElementById('fc-session').style.display = 'none';
+  document.getElementById('fc-list-view').style.display = 'block';
+}
+
 // ── REVEAL ANSWERS (practice problems) ───────
 function toggleReveal(btn) {
   const card = btn.closest('.problem-card');
@@ -188,49 +267,6 @@ function toggleReveal(btn) {
   btn.classList.toggle('revealed', !showing);
 }
 
-// ── FLASHCARDS ────────────────────────────────
-function buildFlashcards() {
-  const grid = document.getElementById('fc-grid');
-  if (!grid || typeof glossaryData === 'undefined') return;
-  const colorMap = {t1:'#f7a84a',t2:'#6aabf7',t3:'#7af76a',t4:'#c06af7',t5:'#4af7c0'};
-  let all = [];
-  Object.entries(glossaryData).forEach(([key, topic]) => {
-    const color = colorMap[key] || '#7c6af7';
-    const label = topic.name.replace(/Topic \d+ — /,'');
-    topic.terms.forEach(([name, def]) => all.push({name, def, label, color}));
-  });
-  // shuffle
-  for (let i = all.length-1; i>0; i--) {
-    const j = Math.floor(Math.random()*(i+1));
-    [all[i],all[j]] = [all[j],all[i]];
-  }
-  const counter = document.getElementById('fc-counter');
-  if (counter) counter.textContent = `${all.length} cards`;
-  grid.innerHTML = all.map(({name,def,label,color}) => `
-    <div class="flashcard" onclick="this.classList.toggle('flipped')">
-      <div class="flashcard-inner">
-        <div class="fc-front">
-          <div class="fc-topic" style="color:${color}">${label}</div>
-          <div class="fc-term">${name}</div>
-          <div class="fc-hint">tap to reveal definition</div>
-        </div>
-        <div class="fc-back">
-          <div class="fc-topic" style="color:${color}">${name}</div>
-          <div class="fc-def">${def}</div>
-        </div>
-      </div>
-    </div>`).join('');
-}
-
-function toggleFlashcards() {
-  const grid = document.getElementById('fc-grid');
-  const list = document.getElementById('glossary-list-view');
-  const btn = document.getElementById('fc-toggle-btn');
-  const showing = grid.classList.contains('visible');
-  grid.classList.toggle('visible', !showing);
-  if (list) list.classList.toggle('hidden', !showing);
-  if (btn) { btn.textContent = showing ? '📇 Flashcards' : '📋 List view'; btn.classList.toggle('active', !showing); }
-}
 
 // ── PROGRESS TRACKING ────────────────────────
 function markVisited(id) {
@@ -261,6 +297,16 @@ const TOPIC_IDS = ['home','t1','t2','t3','t4','t5','revision','problems','formul
 
 document.addEventListener('keydown', e => {
   if (document.activeElement.tagName === 'INPUT') return;
+
+  // Flashcard shortcuts take priority when session is active
+  const fcActive = document.getElementById('fc-session')?.style.display !== 'none';
+  if (fcActive) {
+    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); fcFlip(); return; }
+    if (e.key === 'ArrowRight') { e.preventDefault(); fcNext(); return; }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); fcPrev(); return; }
+    if (e.key === 'Escape') { exitFlashcards(); return; }
+    return;
+  }
 
   if (e.key === '/') {
     e.preventDefault();
@@ -337,6 +383,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initGlossaryFilters('[data-gfilter]');
   buildTopicNav();
   buildAccentStrips();
-  buildFlashcards();
   updateProgress();
 });
