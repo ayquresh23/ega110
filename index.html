@@ -302,6 +302,48 @@
     <h1>Statistical Data Analysis</h1>
     <p class="hero-subtitle learn-only">Statistics gives us tools to say not just "what is the answer?" but "how confident are we?" and "are these two results actually different?". This topic is calculation-heavy — work through every example.</p>
 
+    <div class="formula-block">
+      <div class="formula-name">Quick Lookup — statistical tools</div>
+      <div class="table-wrap" style="margin:10px 0 0">
+        <table>
+          <thead>
+            <tr>
+              <th>Tool</th>
+              <th>Question it answers</th>
+              <th>Key formula</th>
+              <th>Decision rule</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>CI with z</strong></td>
+              <td>Where is μ, when σ is known?</td>
+              <td>\(\displaystyle \mu = \bar{x} \pm z\frac{\sigma}{\sqrt{n}}\)</td>
+              <td>Wider z → wider interval</td>
+            </tr>
+            <tr>
+              <td><strong>CI with t</strong></td>
+              <td>Where is μ, when σ is unknown?</td>
+              <td>\(\displaystyle \mu = \bar{x} \pm t\frac{s}{\sqrt{n}}\)</td>
+              <td>df = n−1, t always &gt; z</td>
+            </tr>
+            <tr>
+              <td><strong>Q-test</strong></td>
+              <td>Is this single point an outlier?</td>
+              <td>\(\displaystyle Q_{\exp} = \frac{\text{gap}}{\text{range}}\)</td>
+              <td>\(Q_{\exp} > Q_{\text{crit}}\) → reject</td>
+            </tr>
+            <tr>
+              <td><strong>t-test</strong></td>
+              <td>Are two datasets significantly different?</td>
+              <td>\(\displaystyle t_{\exp} = \frac{|\bar{x}_1 - \bar{x}_2|}{s_{\text{pooled}}\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}\)</td>
+              <td>\(t_{\exp} > t_{\text{crit}}\) → different</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <div class="toc">
       <div class="toc-title">In this topic</div>
       <ul class="toc-list">
