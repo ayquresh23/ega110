@@ -110,7 +110,8 @@ tr:hover td{background:var(--surface);color:var(--text)}
 /* FORMULAS */
 .formula-block{background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin:18px 0}
 .formula-name{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:10px;font-weight:700}
-.formula-eq{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;color:var(--text);text-align:center;padding:18px;background:var(--surface);border-radius:var(--radius-sm);margin:10px 0;border:1px solid var(--border);overflow-x:auto}
+.formula-eq{font-size:22px;color:var(--text);text-align:center;padding:18px;background:var(--surface);border-radius:var(--radius-sm);margin:10px 0;border:1px solid var(--border);overflow-x:auto}
+.formula-eq .katex{color:var(--text)}
 .formula-vars{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:7px;margin-top:10px}
 .formula-var{background:var(--surface);padding:7px 10px;border-radius:6px;font-size:12px;border-left:3px solid var(--accent)}
 .formula-var-symbol{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--amber);margin-right:6px}
@@ -232,7 +233,6 @@ body.revise-mode .mode-btn[data-mode="revise"].active{background:var(--amber);co
 .topic-nav-btn.disabled{opacity:0.25;pointer-events:none}
 
 /* FORMULA BLOCK — emphasis on equation */
-.formula-eq{letter-spacing:0.5px}
 
 /* SECTION ACCENT STRIP — coloured top bar under navbar per topic */
 .section-accent{height:3px;position:sticky;top:68px;z-index:900;margin:0;border:none}

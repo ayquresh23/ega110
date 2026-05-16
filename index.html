@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EGA110 — Analytical & Instrumental Chemistry Study Site</title>
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </head>
 <body>
 
@@ -217,7 +220,7 @@
     <h2 id="t1-absolute">Absolute and Relative Error</h2>
     <div class="formula-block">
       <div class="formula-name">Absolute error</div>
-      <div class="formula-eq">Eᵢ = |xᵢ − xₜ|</div>
+      <div class="formula-eq">$$E_i = \lvert x_i - x_t \rvert$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">xᵢ</span>measured value</div>
         <div class="formula-var"><span class="formula-var-symbol">xₜ</span>true (accepted) value</div>
@@ -226,7 +229,7 @@
     </div>
     <div class="formula-block">
       <div class="formula-name">Relative error</div>
-      <div class="formula-eq">Rᵢ = |xᵢ − xₜ| / xₜ</div>
+      <div class="formula-eq">$$R_i = \dfrac{\lvert x_i - x_t \rvert}{x_t}$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">Rᵢ</span>relative error — dimensionless (multiply ×100 for %)</div>
       </div>
@@ -245,18 +248,18 @@
     <h2 id="t1-stats">Statistical Descriptors</h2>
     <div class="formula-block">
       <div class="formula-name">Sample mean</div>
-      <div class="formula-eq">x̄ = Σxᵢ / N</div>
+      <div class="formula-eq">$$\bar{x} = \dfrac{\sum x_i}{N}$$</div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Sample standard deviation (Bessel's correction)</div>
-      <div class="formula-eq">s = √[ Σ(xᵢ − x̄)² / (N − 1) ]</div>
+      <div class="formula-eq">$$s = \sqrt{\dfrac{\sum(x_i - \bar{x})^2}{N-1}}$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">N−1</span>degrees of freedom — NOT N. Using N−1 gives an unbiased estimate of σ.</div>
       </div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Standard error of the mean &amp; RSD</div>
-      <div class="formula-eq">Sₘ = s / √N &nbsp;&nbsp;&nbsp;&nbsp; RSD = (s / x̄) × 100%</div>
+      <div class="formula-eq">$$S_m = \dfrac{s}{\sqrt{N}} \qquad \text{RSD} = \dfrac{s}{\bar{x}}\times 100\%$$</div>
     </div>
     <div class="concept-box warn">
       <div class="concept-box-title">Population (σ, N) vs Sample (s, N−1)</div>
@@ -317,7 +320,7 @@
 
     <div class="formula-block">
       <div class="formula-name">Confidence interval — σ known</div>
-      <div class="formula-eq">CI = x̄ ± zσ/√N</div>
+      <div class="formula-eq">$$\text{CI} = \bar{x} \pm \dfrac{z\sigma}{\sqrt{N}}$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">x̄</span>sample mean</div>
         <div class="formula-var"><span class="formula-var-symbol">z</span>z-value for confidence level (see table)</div>
@@ -340,7 +343,7 @@
 
     <div class="formula-block">
       <div class="formula-name">Pooled standard deviation (from k datasets)</div>
-      <div class="formula-eq">s_pooled = √[ Σ(Nᵢ−1)sᵢ² / (ΣNᵢ − k) ]</div>
+      <div class="formula-eq">$$s_\text{pooled} = \sqrt{\dfrac{\sum(N_i-1)s_i^2}{\sum N_i - k}}$$</div>
       <p style="margin-top:10px">Use s_pooled as an estimate of σ when: all component datasets have <em>similar</em> standard deviations, and the total pooled degrees of freedom is large (typically ≥25).</p>
     </div>
 
@@ -349,7 +352,7 @@
 
     <div class="formula-block">
       <div class="formula-name">Confidence interval — σ unknown</div>
-      <div class="formula-eq">CI = x̄ ± ts/√N</div>
+      <div class="formula-eq">$$\text{CI} = \bar{x} \pm \dfrac{ts}{\sqrt{N}}$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">t</span>t-value from table at df = N−1 and chosen confidence level</div>
         <div class="formula-var"><span class="formula-var-symbol">s</span>sample standard deviation from current dataset</div>
@@ -389,7 +392,7 @@
 
     <div class="formula-block">
       <div class="formula-name">Two-means t-test — reject null if:</div>
-      <div class="formula-eq">|x̄₁ − x̄₂| > t · s_pooled · √[(N₁ + N₂) / (N₁ · N₂)]</div>
+      <div class="formula-eq">$$\lvert\bar{x}_1 - \bar{x}_2\rvert > t\cdot s_\text{pooled}\cdot\sqrt{\dfrac{N_1+N_2}{N_1 N_2}}$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">df</span>N₁ + N₂ − 2</div>
         <div class="formula-var"><span class="formula-var-symbol">s_pooled</span>calculated from the two datasets</div>
@@ -409,7 +412,7 @@
     <h2 id="t2-bias">Detecting Systematic Error (Bias)</h2>
     <div class="formula-block">
       <div class="formula-name">Bias test — reject null (no bias) if:</div>
-      <div class="formula-eq">|x̄ − xₜ| > t · s / √N</div>
+      <div class="formula-eq">$$\lvert\bar{x} - x_t\rvert > \dfrac{t\cdot s}{\sqrt{N}}$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">xₜ</span>known true value (e.g. certified reference material)</div>
         <div class="formula-var"><span class="formula-var-symbol">df</span>N − 1</div>
@@ -427,7 +430,7 @@
     <h2 id="t2-qtest">Q-Test for Outliers</h2>
     <div class="formula-block">
       <div class="formula-name">Dixon Q-test</div>
-      <div class="formula-eq">Q = gap / range = |x_q − x_neighbour| / w</div>
+      <div class="formula-eq">$$Q = \dfrac{\lvert x_q - x_\text{neighbour}\rvert}{w}$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">x_q</span>suspect value</div>
         <div class="formula-var"><span class="formula-var-symbol">x_neighbour</span>nearest neighbour to x_q (NOT next-nearest)</div>
@@ -547,7 +550,7 @@
     <h2 id="t3-gf">Gravimetric Factor and Calculations</h2>
     <div class="formula-block">
       <div class="formula-name">Gravimetric factor (GF)</div>
-      <div class="formula-eq">GF = (a × MM_analyte) / (b × MM_precipitate)</div>
+      <div class="formula-eq">$$\text{GF} = \dfrac{a\cdot M_\text{analyte}}{b\cdot M_\text{precipitate}}$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">a</span>moles of analyte per formula unit</div>
         <div class="formula-var"><span class="formula-var-symbol">b</span>moles of precipitate produced per formula unit</div>
@@ -646,7 +649,7 @@
     <h2 id="t4-emr">Properties of Electromagnetic Radiation</h2>
     <div class="formula-block">
       <div class="formula-name">Wave equation &amp; derived quantities</div>
-      <div class="formula-eq">c = λυ &nbsp;&nbsp;&nbsp; ν̄ = 1/λ &nbsp;&nbsp;&nbsp; E = hυ = hc/λ = hcν̄</div>
+      <div class="formula-eq">$$c = \lambda\nu \qquad \bar{\nu} = \dfrac{1}{\lambda} \qquad E = h\nu = \dfrac{hc}{\lambda} = hc\bar{\nu}$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">c</span>speed of light = 2.998×10⁸ m s⁻¹ (in vacuum)</div>
         <div class="formula-var"><span class="formula-var-symbol">λ</span>wavelength (m, nm, or cm)</div>
@@ -658,7 +661,7 @@
     </div>
     <div class="formula-block">
       <div class="formula-name">Radiation intensity</div>
-      <div class="formula-eq">I = P / A = E·Φ / A</div>
+      <div class="formula-eq">$$I = \dfrac{P}{A} = \dfrac{E\Phi}{A}$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">P</span>power (W)</div>
         <div class="formula-var"><span class="formula-var-symbol">A</span>cross-sectional area (m² or μm²)</div>
@@ -718,7 +721,7 @@
     <h2 id="t4-bl">Beer-Lambert Law</h2>
     <div class="formula-block">
       <div class="formula-name">Transmittance, Absorbance, Beer-Lambert</div>
-      <div class="formula-eq">T = I/I₀ &nbsp;&nbsp;&nbsp;&nbsp; A = −log T = log(I₀/I) = εbc</div>
+      <div class="formula-eq">$$T = \dfrac{I}{I_0} \qquad A = -\log T = \log\dfrac{I_0}{I} = \varepsilon b c$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">T</span>transmittance (0–1); %T = T×100</div>
         <div class="formula-var"><span class="formula-var-symbol">A</span>absorbance — dimensionless, additive for multiple species</div>
@@ -741,7 +744,7 @@
     <p>A <strong>blank</strong> (solvent + cuvette, no analyte) is measured to remove background absorbance from the solvent, cuvette, and instrument optics.</p>
     <div class="formula-block">
       <div class="formula-name">Blank-corrected absorbance</div>
-      <div class="formula-eq">A_analyte = −log(I_A / I_B)</div>
+      <div class="formula-eq">$$A_\text{analyte} = -\log\dfrac{I_A}{I_B}$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">I_A</span>intensity transmitted through analyte solution</div>
         <div class="formula-var"><span class="formula-var-symbol">I_B</span>intensity transmitted through blank</div>
@@ -873,8 +876,8 @@
     <p><strong>pH at equivalence point = 7</strong> (neutral salt formed, 25°C).</p>
     <div class="formula-block">
       <div class="formula-name">Titration curve — three regions (HCl titrated with NaOH)</div>
-      <div class="formula-eq">Pre-EQ: [H₃O⁺] = (C_HCl·V_HCl − C_NaOH·V_NaOH) / V_total</div>
-      <div class="formula-eq" style="margin-top:8px;font-size:16px">Post-EQ: [OH⁻] = (C_NaOH·V_NaOH − C_HCl·V_HCl) / V_total → pH = 14 + log[OH⁻]</div>
+      <div class="formula-eq">$$\text{Pre-EQ:}\quad [\text{H}_3\text{O}^+] = \dfrac{C_\text{HCl}V_\text{HCl} - C_\text{NaOH}V_\text{NaOH}}{V_\text{total}}$$</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">$$\text{Post-EQ:}\quad [\text{OH}^-] = \dfrac{C_\text{NaOH}V_\text{NaOH} - C_\text{HCl}V_\text{HCl}}{V_\text{total}} \;\longrightarrow\; \text{pH} = 14 + \log[\text{OH}^-]$$</div>
     </div>
     <div class="table-wrap">
       <table>
@@ -897,10 +900,10 @@
 
     <div class="formula-block">
       <div class="formula-name">Weak acid titration curve formulas (HA + NaOH)</div>
-      <div class="formula-eq">Start: pH = −log√(Ka · C_HA)</div>
-      <div class="formula-eq" style="margin-top:8px;font-size:16px">Buffer region: pH = pKa + log([A⁻]/[HA]) (Henderson-Hasselbalch)</div>
-      <div class="formula-eq" style="margin-top:8px;font-size:16px">Half-EQ point: pH = pKa &nbsp;(when [A⁻] = [HA])</div>
-      <div class="formula-eq" style="margin-top:8px;font-size:16px">Equivalence point: pH = −log√(Kw · Ka / C_AB) &nbsp;→ pH &gt; 7</div>
+      <div class="formula-eq">$$\text{Start:}\quad \text{pH} = -\log\sqrt{K_a C_\text{HA}}$$</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">$$\text{Buffer:}\quad \text{pH} = \text{p}K_a + \log\dfrac{[\text{A}^-]}{[\text{HA}]}$$</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">$$\text{Half-EQ:}\quad \text{pH} = \text{p}K_a \quad (\text{when }[\text{A}^-] = [\text{HA}])$$</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">$$\text{EQ point:}\quad \text{pH} = -\log\sqrt{\dfrac{K_w K_a}{C_\text{AB}}} \;\longrightarrow\; \text{pH} > 7$$</div>
     </div>
 
     <div class="concept-box danger">
@@ -970,7 +973,7 @@
     <h2 id="t5-precip">Argentometric &amp; Volhard Method</h2>
     <div class="formula-block">
       <div class="formula-name">Solubility product</div>
-      <div class="formula-eq">K_sp = [A]^a [B]^b &nbsp;&nbsp; (for A_aB_b ⇌ aA + bB)</div>
+      <div class="formula-eq">$$K_{sp} = [\text{A}]^a[\text{B}]^b \quad (\text{for } A_aB_b \rightleftharpoons a\text{A} + b\text{B})$$</div>
       <p style="margin-top:8px">AgCl: Ksp = 1.8×10⁻¹⁰ · AgBr: 5.3×10⁻¹³ · AgI: 8.5×10⁻¹⁷ · AgSCN: 1.0×10⁻¹²</p>
     </div>
 
@@ -998,7 +1001,7 @@
     <h2 id="t5-redox">Redox Titrations</h2>
     <div class="formula-block">
       <div class="formula-name">Reaction spontaneity from standard potentials</div>
-      <div class="formula-eq">E⁰_rxn = E⁰_red − E⁰_ox &gt; 0 → spontaneous</div>
+      <div class="formula-eq">$$E^\circ_\text{rxn} = E^\circ_\text{red} - E^\circ_\text{ox} > 0 \implies \text{spontaneous}$$</div>
       <p style="margin-top:8px">More positive E⁰ → species more easily reduced (stronger oxidising agent). Reaction: higher E⁰ species is reduced; lower E⁰ species is oxidised.</p>
     </div>
 
@@ -1057,47 +1060,47 @@
     <h2>Topic 1 &amp; 2 — Statistics</h2>
     <div class="formula-block">
       <div class="formula-name">Error formulas</div>
-      <div class="formula-eq">Eᵢ = |xᵢ − xₜ| &nbsp;&nbsp;&nbsp; Rᵢ = |xᵢ − xₜ| / xₜ</div>
+      <div class="formula-eq">$$E_i = \lvert x_i - x_t\rvert \qquad R_i = \dfrac{\lvert x_i - x_t\rvert}{x_t}$$</div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Descriptive statistics</div>
-      <div class="formula-eq">x̄ = Σxᵢ/N &nbsp;&nbsp;&nbsp; s = √[Σ(xᵢ−x̄)²/(N−1)] &nbsp;&nbsp;&nbsp; Sₘ = s/√N &nbsp;&nbsp;&nbsp; RSD = (s/x̄)×100%</div>
+      <div class="formula-eq">$$\bar{x} = \dfrac{\sum x_i}{N} \quad s = \sqrt{\dfrac{\sum(x_i-\bar{x})^2}{N-1}} \quad S_m = \dfrac{s}{\sqrt{N}} \quad \text{RSD} = \dfrac{s}{\bar{x}}\times 100\%$$</div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Pooled standard deviation</div>
-      <div class="formula-eq">s_pooled = √[ Σ(Nᵢ−1)sᵢ² / (ΣNᵢ − k) ]</div>
+      <div class="formula-eq">$$s_\text{pooled} = \sqrt{\dfrac{\sum(N_i-1)s_i^2}{\sum N_i - k}}$$</div>
       <div class="formula-vars"><div class="formula-var"><span class="formula-var-symbol">k</span>number of datasets being pooled</div></div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Confidence intervals</div>
-      <div class="formula-eq">CI = x̄ ± zσ/√N &nbsp;&nbsp;&nbsp; (σ known, z-statistic)</div>
-      <div class="formula-eq" style="margin-top:8px;font-size:18px">CI = x̄ ± ts/√N &nbsp;&nbsp;&nbsp; (σ unknown, t-statistic; df = N−1)</div>
+      <div class="formula-eq">$$\text{CI} = \bar{x} \pm \dfrac{z\sigma}{\sqrt{N}} \quad (\sigma\text{ known, }z\text{-statistic})$$</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:18px">$$\text{CI} = \bar{x} \pm \dfrac{ts}{\sqrt{N}} \quad (\sigma\text{ unknown, }t\text{-statistic; df}=N-1)$$</div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Two-means comparison — reject null if:</div>
-      <div class="formula-eq">|x̄₁ − x̄₂| &gt; t · s_pooled · √[(N₁+N₂)/(N₁·N₂)] &nbsp;&nbsp; (df = N₁+N₂−2)</div>
+      <div class="formula-eq">$$\lvert\bar{x}_1 - \bar{x}_2\rvert > t\cdot s_\text{pooled}\cdot\sqrt{\dfrac{N_1+N_2}{N_1 N_2}} \quad (df = N_1+N_2-2)$$</div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Bias test — reject null (no bias) if:</div>
-      <div class="formula-eq">|x̄ − xₜ| &gt; t · s / √N &nbsp;&nbsp; (df = N−1)</div>
+      <div class="formula-eq">$$\lvert\bar{x} - x_t\rvert > \dfrac{t\cdot s}{\sqrt{N}} \quad (df=N-1)$$</div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Dixon Q-test</div>
-      <div class="formula-eq">Q = |x_q − x_neighbour| / (x_max − x_min)</div>
+      <div class="formula-eq">$$Q = \dfrac{\lvert x_q - x_\text{neighbour}\rvert}{x_\text{max} - x_\text{min}}$$</div>
       <p style="margin-top:8px">Reject outlier if Q &gt; Q_critical. Sort data ascending first. Gap to <em>nearest</em> neighbour only.</p>
     </div>
 
     <h2>Topic 3 — Gravimetric</h2>
     <div class="formula-block">
       <div class="formula-name">Gravimetric factor</div>
-      <div class="formula-eq">GF = (a × MM_analyte) / (b × MM_precipitate)</div>
-      <div class="formula-eq" style="margin-top:8px;font-size:18px">mass(analyte) = mass(precipitate) × GF</div>
+      <div class="formula-eq">$$\text{GF} = \dfrac{a\cdot M_\text{analyte}}{b\cdot M_\text{precipitate}}$$</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:18px">$$m_\text{analyte} = m_\text{precipitate} \times \text{GF}$$</div>
     </div>
 
     <h2>Topic 4 — Spectroscopy</h2>
     <div class="formula-block">
       <div class="formula-name">EMR relationships</div>
-      <div class="formula-eq">c = λυ &nbsp;&nbsp;&nbsp; ν̄ = 1/λ (cm⁻¹) &nbsp;&nbsp;&nbsp; E = hυ = hc/λ &nbsp;&nbsp;&nbsp; I = EΦ/A</div>
+      <div class="formula-eq">$$c = \lambda\nu \qquad \bar{\nu} = \dfrac{1}{\lambda}\,(\text{cm}^{-1}) \qquad E = h\nu = \dfrac{hc}{\lambda} \qquad I = \dfrac{E\Phi}{A}$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">c</span>2.998×10⁸ m s⁻¹</div>
         <div class="formula-var"><span class="formula-var-symbol">h</span>6.626×10⁻³⁴ J s</div>
@@ -1106,18 +1109,18 @@
     </div>
     <div class="formula-block">
       <div class="formula-name">Beer-Lambert law</div>
-      <div class="formula-eq">T = I/I₀ &nbsp;&nbsp;&nbsp; A = −log T = log(I₀/I) = εbc</div>
-      <div class="formula-eq" style="margin-top:8px;font-size:16px">A_analyte = −log(I_A/I_B) &nbsp;&nbsp;&nbsp; (blank-corrected)</div>
+      <div class="formula-eq">$$T = \dfrac{I}{I_0} \qquad A = -\log T = \log\dfrac{I_0}{I} = \varepsilon bc$$</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">$$A_\text{analyte} = -\log\dfrac{I_A}{I_B} \quad (\text{blank-corrected})$$</div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Concentration methods</div>
-      <div class="formula-eq">C = A/(εb) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Method A — known ε)</div>
-      <div class="formula-eq" style="margin-top:8px;font-size:16px">C_x = (A_x / A_std) × C_std &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Method B/C — direct comparison)</div>
-      <div class="formula-eq" style="margin-top:8px;font-size:16px">C_x = A_x / (A_spiked − A_x) × C_spike &nbsp; (Method D — standard addition)</div>
+      <div class="formula-eq">$$C = \dfrac{A}{\varepsilon b} \quad (\text{Method A — known }\varepsilon)$$</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">$$C_x = \dfrac{A_x}{A_\text{std}} \times C_\text{std} \quad (\text{Method B/C})$$</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">$$C_x = \dfrac{A_x}{A_\text{spiked} - A_x} \times C_\text{spike} \quad (\text{Method D})$$</div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Diffraction grating</div>
-      <div class="formula-eq">nλ = d sinθ</div>
+      <div class="formula-eq">$$n\lambda = d\sin\theta$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">n</span>order of diffraction (integer)</div>
         <div class="formula-var"><span class="formula-var-symbol">d</span>groove spacing</div>
@@ -1128,32 +1131,32 @@
     <h2>Topic 5 — Titrations</h2>
     <div class="formula-block">
       <div class="formula-name">pH relationships</div>
-      <div class="formula-eq">pH = −log[H₃O⁺] &nbsp;&nbsp;&nbsp; pOH = −log[OH⁻] &nbsp;&nbsp;&nbsp; pH + pOH = 14</div>
-      <div class="formula-eq" style="margin-top:8px;font-size:16px">Kw = [H₃O⁺][OH⁻] = 10⁻¹⁴ &nbsp;&nbsp;&nbsp; Ka×Kb = Kw &nbsp;&nbsp;&nbsp; pKa + pKb = 14</div>
+      <div class="formula-eq">$$\text{pH} = -\log[\text{H}_3\text{O}^+] \qquad \text{pOH} = -\log[\text{OH}^-] \qquad \text{pH}+\text{pOH}=14$$</div>
+      <div class="formula-eq" style="margin-top:8px;font-size:16px">$$K_w = [\text{H}_3\text{O}^+][\text{OH}^-] = 10^{-14} \qquad K_a K_b = K_w \qquad \text{p}K_a + \text{p}K_b = 14$$</div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Henderson-Hasselbalch (buffer / half-EQ)</div>
-      <div class="formula-eq">pH = pKa + log([A⁻]/[HA]) &nbsp;&nbsp;&nbsp; → at half-EQ: pH = pKa</div>
+      <div class="formula-eq">$$\text{pH} = \text{p}K_a + \log\dfrac{[\text{A}^-]}{[\text{HA}]} \qquad \text{at half-EQ: pH} = \text{p}K_a$$</div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Weak acid equivalence point pH</div>
-      <div class="formula-eq">pH = −log√(Kw · Ka / C_AB) &nbsp;&nbsp;&nbsp; C_AB = concentration of conjugate base at EQ</div>
+      <div class="formula-eq">$$\text{pH} = -\log\sqrt{\dfrac{K_w K_a}{C_\text{AB}}} \qquad (C_\text{AB} = \text{conc. of conjugate base at EQ})$$</div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Solubility product</div>
-      <div class="formula-eq">K_sp = [A]^a [B]^b &nbsp;&nbsp;&nbsp; (for A_aB_b ⇌ aA + bB in saturated solution)</div>
+      <div class="formula-eq">$$K_{sp} = [\text{A}]^a[\text{B}]^b \quad (\text{for } A_aB_b \rightleftharpoons a\text{A}+b\text{B})$$</div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Volhard back-titration</div>
-      <div class="formula-eq">n(X⁻) = n(Ag total) − n(SCN) = C_Ag·V_Ag − C_SCN·V_SCN</div>
+      <div class="formula-eq">$$n(\text{X}^-) = n(\text{Ag}^+)_\text{total} - n(\text{SCN}^-) = C_\text{Ag}V_\text{Ag} - C_\text{SCN}V_\text{SCN}$$</div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Redox spontaneity</div>
-      <div class="formula-eq">E⁰_rxn = E⁰_red − E⁰_ox &nbsp;&nbsp;&nbsp; (positive = spontaneous)</div>
+      <div class="formula-eq">$$E^\circ_\text{rxn} = E^\circ_\text{red} - E^\circ_\text{ox} \quad (\text{positive} = \text{spontaneous})$$</div>
     </div>
     <div class="formula-block">
       <div class="formula-name">Conductivity</div>
-      <div class="formula-eq">σ = 1/ρ &nbsp;&nbsp;&nbsp; ρ = R·A/ℓ</div>
+      <div class="formula-eq">$$\sigma = \dfrac{1}{\rho} \qquad \rho = \dfrac{R\cdot A}{\ell}$$</div>
       <div class="formula-vars">
         <div class="formula-var"><span class="formula-var-symbol">σ</span>conductivity (S cm⁻¹)</div>
         <div class="formula-var"><span class="formula-var-symbol">ρ</span>resistivity (Ω cm)</div>
@@ -1279,6 +1282,16 @@
 </main>
 <script src="js/glossary-data.js"></script>
 <script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ]
+  });
+});
+</script>
 </body>
 </html>
 
