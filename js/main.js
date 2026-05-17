@@ -70,11 +70,31 @@ function initGlossarySearch(inputId, countId, noResultsId) {
   const noResultsEl = document.getElementById(noResultsId);
   if (!input) return;
 
+  // Exact-match pin container — inserted once, before #glossary-container
+  const glContainer = document.getElementById('glossary-container');
+  const pinnedWrap = document.createElement('div');
+  pinnedWrap.id = 'glossary-pinned';
+  pinnedWrap.style.display = 'none';
+  glContainer.parentNode.insertBefore(pinnedWrap, glContainer);
+
   input.addEventListener('input', () => {
     const q = input.value.toLowerCase().trim();
+
+    // Restore previously-pinned originals before each run
+    document.querySelectorAll('.term-item[data-pinned]').forEach(item => {
+      item.classList.remove('hidden');
+      delete item.dataset.pinned;
+    });
+    pinnedWrap.innerHTML = '';
+    pinnedWrap.style.display = 'none';
+
     let visible = 0;
+    const exactItems = [];
+
     document.querySelectorAll('.term-item').forEach(item => {
-      const show = !q || item.dataset.name.includes(q) || item.dataset.def.includes(q);
+      const nameMatch = item.dataset.name.includes(q);
+      const defMatch = item.dataset.def.includes(q);
+      const show = !q || nameMatch || defMatch;
       item.classList.toggle('hidden', !show);
       if (show) {
         visible++;
@@ -84,6 +104,7 @@ function initGlossarySearch(inputId, countId, noResultsId) {
           nameEl.innerHTML = highlight(nameEl.textContent, q);
           defEl.innerHTML = highlight(defEl.textContent, q);
           item.classList.add('match');
+          if (item.dataset.name === q) exactItems.push(item);
         } else {
           nameEl.innerHTML = nameEl.textContent;
           defEl.innerHTML = defEl.textContent;
@@ -91,11 +112,32 @@ function initGlossarySearch(inputId, countId, noResultsId) {
         }
       }
     });
+
     document.querySelectorAll('.glossary-section').forEach(sec => {
       const vis = sec.querySelectorAll('.term-item:not(.hidden)').length;
       sec.classList.toggle('hidden', q && vis === 0);
       if (q && vis > 0) sec.classList.remove('collapsed');
     });
+
+    // Pin exact title matches to the top
+    if (q && exactItems.length > 0) {
+      const label = document.createElement('div');
+      label.style.cssText = "font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);margin-bottom:6px";
+      label.textContent = 'Exact match';
+      const grid = document.createElement('div');
+      grid.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1px;background:var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:20px';
+      exactItems.forEach(item => {
+        const clone = item.cloneNode(true);
+        clone.style.borderLeftColor = 'var(--gold)';
+        grid.appendChild(clone);
+        item.dataset.pinned = '1';
+        item.classList.add('hidden');
+      });
+      pinnedWrap.appendChild(label);
+      pinnedWrap.appendChild(grid);
+      pinnedWrap.style.display = 'block';
+    }
+
     if (countEl) countEl.textContent = q ? `${visible} term${visible !== 1 ? 's' : ''} found` : '';
     if (noResultsEl) noResultsEl.style.display = (q && visible === 0) ? 'block' : 'none';
   });

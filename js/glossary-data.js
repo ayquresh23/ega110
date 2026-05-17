@@ -133,6 +133,7 @@ const glossaryData = {
       ["Titration error","E_t = V_EP − V_EQ. Positive = overtitrated; negative = undertitrated"],
       ["4 titration types","1-Neutralisation (acid-base), 2-Complexometric, 3-Precipitation, 4-Redox"],
       ["pH","pH = −log[H₃O⁺]. Acidity measure. pH + pOH = 14 at 25°C"],
+      ["pKa","pKa = −log Ka. Measures acid strength — lower pKa = stronger acid (more dissociated). At the half-equivalence point, pH = pKa. Sets indicator colour-change range (pKa ± 1) and defines buffer effective range."],
       ["Ion product of water (Kw)","Kw = [H₃O⁺][OH⁻] = 1.0×10⁻¹⁴ at 25°C, 1 bar. Relates pH and pOH"],
       ["Strong acid","Completely dissociates in water: HCl, HNO₃, H₂SO₄, HClO₄. [H₃O⁺] = C_acid"],
       ["Strong base","Completely dissociates in water: NaOH, KOH. [OH⁻] = C_base"],
