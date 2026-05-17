@@ -102,12 +102,10 @@ function initGlossarySearch(inputId, countId, noResultsId) {
         const defEl = item.querySelector('.term-def');
         if (q) {
           nameEl.innerHTML = highlight(nameEl.textContent, q);
-          defEl.innerHTML = highlight(defEl.textContent, q);
           item.classList.add('match');
           if (item.dataset.name === q) exactItems.push(item);
         } else {
           nameEl.innerHTML = nameEl.textContent;
-          defEl.innerHTML = defEl.textContent;
           item.classList.remove('match');
         }
       }
@@ -170,9 +168,7 @@ function initGlossaryFilters(filterSelector) {
       document.querySelectorAll('.term-item').forEach(item => {
         item.classList.remove('hidden', 'match');
         const n = item.querySelector('.term-name');
-        const d = item.querySelector('.term-def');
         if (n) n.innerHTML = n.textContent;
-        if (d) d.innerHTML = d.textContent;
       });
     });
   });
@@ -184,6 +180,15 @@ function toggleGlossarySection(header) {
   sec.classList.toggle('collapsed');
   const arrow = header.querySelector('.g-arrow');
   if (arrow) arrow.style.transform = sec.classList.contains('collapsed') ? 'rotate(-90deg)' : '';
+}
+
+// ── INLINE LATEX RENDERER ────────────────────
+function renderInlineLatex(text) {
+  if (typeof katex === 'undefined') return text;
+  return text.replace(/\\\((.+?)\\\)/g, (_, formula) => {
+    try { return katex.renderToString(formula, {throwOnError: false, displayMode: false}); }
+    catch(e) { return formula; }
+  });
 }
 
 // ── BUILD GLOSSARY FROM DATA ─────────────────
@@ -213,7 +218,7 @@ function buildGlossary(containerId) {
         ${topic.terms.map(([name,def]) => `
           <div class="term-item" data-name="${name.toLowerCase()}" data-def="${def.toLowerCase()}">
             <div class="term-name" style="color:${color}">${name}</div>
-            <div class="term-def">${def}</div>
+            <div class="term-def">${renderInlineLatex(def)}</div>
           </div>`).join('')}
       </div>`;
     container.appendChild(sec);
@@ -421,11 +426,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hash && document.getElementById(hash)) showSection(hash);
 
   buildGlossary('glossary-container');
-  if (typeof renderMathInElement !== 'undefined') {
-    renderMathInElement(document.getElementById('glossary-container'), {
-      delimiters: [{left:'\\(',right:'\\)',display:false}]
-    });
-  }
   initGlossarySearch('glossary-search-input', 'search-results-count', 'no-results');
   initGlossaryFilters('[data-gfilter]');
   buildTopicNav();
