@@ -235,7 +235,7 @@ body.revise-mode .mode-btn[data-mode="revise"].active{background:var(--amber);co
 /* FORMULA BLOCK — emphasis on equation */
 
 /* SECTION ACCENT STRIP — coloured top bar under navbar per topic */
-.section-accent{height:3px;position:sticky;top:68px;z-index:900;margin:0;border:none}
+.section-accent{height:3px;position:relative;margin:0;border:none}
 #t1 .section-accent{background:var(--muted)}
 #t2 .section-accent{background:var(--amber)}
 #t3 .section-accent{background:var(--teal)}
