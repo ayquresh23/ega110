@@ -421,6 +421,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hash && document.getElementById(hash)) showSection(hash);
 
   buildGlossary('glossary-container');
+  if (typeof renderMathInElement !== 'undefined') {
+    renderMathInElement(document.getElementById('glossary-container'), {
+      delimiters: [{left:'\\(',right:'\\)',display:false}]
+    });
+  }
   initGlossarySearch('glossary-search-input', 'search-results-count', 'no-results');
   initGlossaryFilters('[data-gfilter]');
   buildTopicNav();
