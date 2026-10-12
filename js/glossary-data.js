@@ -174,3 +174,133 @@ const glossaryData = {
     ]
   }
 }
+
+/* Side-by-side comparisons, shown in term previews and expanded glossary entries */
+const glossaryComparisons = [
+  { terms: ["Accuracy", "Precision"],
+    rows: [
+      ["Meaning", "Closeness to the true value", "Closeness of replicates to each other"],
+      ["Measured by", "Error (absolute or relative)", "Standard deviation"],
+      ["Spoiled by", "Systematic error", "Random error"]
+    ] },
+  { terms: ["Random error", "Systematic error", "Gross error"],
+    rows: [
+      ["Nature", "Unpredictable scatter", "Consistent bias in one direction", "One large isolated mistake"],
+      ["Affects", "Precision", "Accuracy", "Produces an outlier"],
+      ["Dealt with by", "Averaging replicates", "Finding and correcting the cause", "Q-test, then discard"]
+    ] },
+  { terms: ["Instrumental error", "Methodological error", "Personal error"],
+    rows: [
+      ["Source", "Uncalibrated or drifting instrument", "Flawed procedure", "Observer bias"],
+      ["Example", "Zero offset, temperature drift", "Incomplete reaction, matrix interference", "Parallax, misreading the meniscus"]
+    ] },
+  { terms: ["Absolute error", "Relative error"],
+    rows: [
+      ["Formula", "\\(E = |x_i - x_t|\\)", "\\(R = |x_i - x_t| / x_t\\)"],
+      ["Units", "Same as the measurement", "Dimensionless (×100 for %)"]
+    ] },
+  { terms: ["Population mean", "Sample mean"],
+    rows: [
+      ["Symbol", "\\(\\mu\\)", "\\(\\bar{x}\\)"],
+      ["Data", "Every possible measurement", "N replicates"],
+      ["Known?", "Usually not", "Yes, calculated; best estimate of μ"]
+    ] },
+  { terms: ["Population standard deviation", "Sample standard deviation"],
+    rows: [
+      ["Symbol", "\\(\\sigma\\)", "\\(s\\)"],
+      ["Divisor", "\\(N\\)", "\\(N-1\\) (Bessel's correction)"],
+      ["Centred on", "\\(\\mu\\)", "\\(\\bar{x}\\)"],
+      ["CI multiplier", "z", "t"]
+    ] },
+  { terms: ["z-statistic", "t-statistic"],
+    rows: [
+      ["Use when", "σ is known", "σ is unknown (use s)"],
+      ["Depends on N?", "No", "Yes, df = N − 1"],
+      ["Size", "Smaller (z₉₅ = 1.96)", "Always larger than z"]
+    ] },
+  { terms: ["Confidence interval", "Confidence level"],
+    rows: [
+      ["What it is", "A range around x̄", "A probability, e.g. 95%"],
+      ["Relationship", "Gets wider as the level rises", "Higher level → wider interval"]
+    ] },
+  { terms: ["Precipitation gravimetry", "Volatilisation gravimetry", "Electrogravimetry"],
+    rows: [
+      ["Analyte isolated as", "Insoluble precipitate", "Volatile gas (CO₂, H₂O)", "Metal deposit on an electrode"],
+      ["Mass measured", "Dried or ignited precipitate", "Mass lost, or gained by a trap", "Gain of the Pt electrode"]
+    ] },
+  { terms: ["Surface adsorption", "Occlusion", "Mechanical entrapment"],
+    rows: [
+      ["Where the impurity is", "On the crystal surface", "Inside the crystal lattice", "Mother liquor trapped in pockets"],
+      ["Removed by", "Washing", "Cannot be washed out", "Digestion"]
+    ] },
+  { terms: ["Absorbance", "Transmittance"],
+    rows: [
+      ["Formula", "\\(A = -\\log T = \\varepsilon bc\\)", "\\(T = I/I_0\\)"],
+      ["Range", "0 to ∞", "0 to 1 (0–100 %T)"],
+      ["Proportional to concentration?", "Yes (Beer-Lambert)", "No, falls exponentially"]
+    ] },
+  { terms: ["Absorption", "Emission"],
+    rows: [
+      ["Electron moves", "Up, to an excited state", "Down, to a lower state"],
+      ["Photon", "Taken in", "Given out"],
+      ["Technique", "UV-Vis, atomic absorption", "FES, ICP-OES"]
+    ] },
+  { terms: ["Ground state", "Excited state"],
+    rows: [
+      ["Energy", "Lowest", "Higher"],
+      ["Reached by", "Normal state at room temperature", "Absorbing a photon of energy ΔE"]
+    ] },
+  { terms: ["Fluorescence", "Phosphorescence"],
+    rows: [
+      ["Lifetime", "Fast (~ns)", "Delayed (ms–s)"],
+      ["Transition", "Spin-allowed", "Spin-forbidden"],
+      ["Example", "Highlighter ink under UV", "Glow-in-the-dark materials"]
+    ] },
+  { terms: ["Deuterium lamp", "Tungsten-halogen lamp"],
+    rows: [
+      ["Region", "UV (150–400 nm)", "Visible (400–800 nm)"],
+      ["Spectrum", "Continuous", "Continuous (blackbody)"]
+    ] },
+  { terms: ["Single-beam spectrometer", "Double-beam spectrometer"],
+    rows: [
+      ["Blank and sample", "Measured one after the other", "Measured at the same time"],
+      ["Source drift", "Causes error", "Compensated"],
+      ["Complexity", "Simpler", "More complex"]
+    ] },
+  { terms: ["ICP-OES", "Flame emission spectroscopy"],
+    rows: [
+      ["Excitation source", "Argon plasma (6000–10,000 K)", "Flame"],
+      ["Sensitivity", "Higher, multi-element", "Lower"],
+      ["Best for", "Most elements, wide range", "Alkali metals"]
+    ] },
+  { terms: ["Calibration curve", "Standard addition method"],
+    rows: [
+      ["Standards", "Separate solutions of known concentration", "Known amounts added to the sample itself"],
+      ["Matrix effects", "Not compensated", "Compensated"],
+      ["Use when", "Matrix can be matched", "Matrix can't be replicated"]
+    ] },
+  { terms: ["Equivalence point", "End point"],
+    rows: [
+      ["Meaning", "Stoichiometric amount of titrant added", "Where the signal change is seen"],
+      ["Observable?", "No, theoretical", "Yes, experimental"],
+      ["Difference", "Titration error = V_EP − V_EQ", ""]
+    ] },
+  { terms: ["Strong acid", "Weak acid"],
+    rows: [
+      ["Dissociation", "Complete", "Partial (HA ⇌ H⁺ + A⁻)"],
+      ["[H₃O⁺]", "= C_acid", "From Ka"],
+      ["Examples", "HCl, HNO₃, H₂SO₄", "Acetic acid"]
+    ] },
+  { terms: ["Titrant", "Analyte"],
+    rows: [
+      ["Role", "Reagent of known concentration", "Species being determined"],
+      ["Where", "In the burette", "In the flask"]
+    ] },
+  { terms: ["Direct titration", "Back-titration"],
+    defs: ["Titrant is added straight to the analyte until the end point", ""],
+    rows: [
+      ["Method", "Titrate the analyte directly", "Add a known excess, then titrate what is left"],
+      ["Use when", "The end point is sharp and the reaction fast", "The direct end point is hard to see or the reaction is slow"],
+      ["Example", "Acid–base with an indicator", "Volhard method for halides"]
+    ] }
+];
